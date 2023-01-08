@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    &lt;!&ndash; 체크박스 해제 상태 &ndash;&gt;-->
+<!--    <item android:state_checked="false"-->
+<!--        android:drawable="@drawable/ic_check_inactive_x3"/>-->
+<!--    &lt;!&ndash; 체크박스 선택 상태 &ndash;&gt;-->
+<!--    <item android:state_checked="true"-->
+<!--        android:drawable="@drawable/ic_check_active_x3"/>-->
+</selector>

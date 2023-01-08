@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/agree_nextbtn_non" android:state_enabled="false"></item>
+
+    <item android:drawable="@drawable/agree_nextbtn_act" android:state_enabled="true"></item>
+</selector>

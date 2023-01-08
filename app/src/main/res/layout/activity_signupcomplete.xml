@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+    <RelativeLayout
+        android:id="@+id/hello"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/complete"
+        >
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/ic_launcher" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/logo"
+            android:text="누구님\n 반가워요" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/complete"
+        android:layout_width="320dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="37dp"
+        android:background="@drawable/signupcomplete_box"
+        app:layout_constraintTop_toBottomOf="@+id/hello"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center"
+        android:text="회원가입이 완료되었습니다"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <android.widget.Button
+        android:id="@+id/agree_btn"
+        style="@style/ColoredButton"
+        android:layout_width="233dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="52dp"
+        android:background="@drawable/agree_nextbtn_color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:enabled="false"
+        android:stateListAnimator="@null"
+        android:text="다음으로" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
