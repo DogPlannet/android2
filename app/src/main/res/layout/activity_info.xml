@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main"
+    android:orientation="vertical"
+    tools:context=".InfoActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/planet_icon"
+            android:layout_width="80dp"
+            android:layout_height="87dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/deletesoon" />
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="10dp"
+            android:text="회원가입"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/planet_icon"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="4dp"
+            android:text="회원가입을 위해 필요한 정보를 입력해주세요."
+            android:textSize="13dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_weight="1.5"
+        android:background="@drawable/layout_background"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="7dp"
+            android:text="이름"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:textStyle="bold">
+        </TextView>
+
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="360dp"
+            android:layout_height="43dp"
+            android:layout_gravity="center"
+            android:background="@drawable/info_edittext_rounded_corner_rectangle"
+            android:hint="이름을 입력해주세요."
+            android:textSize="16dp">
+        </EditText>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:orientation="horizontal">
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="58dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="7dp"
+            android:text="이메일"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:textStyle="bold">
+        </TextView>
+
+        <EditText
+            android:id="@+id/editTextTextEmailAddress"
+            android:layout_width="360dp"
+            android:layout_height="43dp"
+            android:layout_gravity="center"
+            android:background="@drawable/info_edittext_rounded_corner_rectangle"
+            android:hint="이메일을 입력해주세요."
+            android:textSize="16dp">
+        </EditText>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:orientation="horizontal"
+            android:visibility="visible">
+<!--            기본 상태는 invisible, 문제 발생 시 visible-->
+
+            <ImageView
+                android:id="@+id/vector_email"
+                android:layout_marginTop="6dp"
+                android:layout_marginStart="34dp"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:src="@drawable/vector">
+            </ImageView>
+
+            <TextView
+                android:id="@+id/warning_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="4dp"
+                android:text="정확한 이메일을 입력해주세요."
+                android:textColor="#C64A4A"
+                android:textSize="12dp">
+            </TextView>
+            
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_password1"
+            android:layout_width="72dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="7dp"
+            android:text="비밀번호"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:textStyle="bold">
+        </TextView>
+
+        <EditText
+            android:id="@+id/editTextTextPassword1"
+            android:layout_width="360dp"
+            android:layout_height="43dp"
+            android:layout_gravity="center"
+            android:background="@drawable/info_edittext_rounded_corner_rectangle"
+            android:hint="비밀번호를 8자리 이상 입력해주세요."
+            android:textSize="16dp">
+        </EditText>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:orientation="horizontal"
+            android:visibility="visible">
+            <!--            기본 상태는 invisible, 문제 발생 시 visible-->
+
+            <ImageView
+                android:id="@+id/vector_pw1"
+                android:layout_marginTop="6dp"
+                android:layout_marginStart="34dp"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:src="@drawable/vector">
+            </ImageView>
+
+            <TextView
+                android:id="@+id/warning_pw1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="4dp"
+                android:text="7글자 이상, 특수문자 1개 이상을 입력해주세요."
+                android:textColor="#C64A4A"
+                android:textSize="12dp">
+            </TextView>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_password2"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="7dp"
+            android:text="비밀번호 확인"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:textStyle="bold">
+        </TextView>
+
+        <EditText
+            android:id="@+id/editTextTextPassword2"
+            android:layout_width="360dp"
+            android:layout_height="43dp"
+            android:layout_gravity="center"
+            android:background="@drawable/info_edittext_rounded_corner_rectangle"
+            android:hint="비밀번호를 다시 한 번 입력해주세요."
+            android:textSize="16dp">
+        </EditText>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:orientation="horizontal"
+            android:visibility="visible">
+            <!--            기본 상태는 invisible, 문제 발생 시 visible-->
+
+            <ImageView
+                android:id="@+id/vector_pw2"
+                android:layout_marginTop="6dp"
+                android:layout_marginStart="34dp"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:src="@drawable/vector">
+            </ImageView>
+
+            <TextView
+                android:id="@+id/warning_pw2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="4dp"
+                android:text="비밀번호가 일치하지 않습니다."
+                android:textColor="#C64A4A"
+                android:textSize="12dp">
+            </TextView>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/next_btn"
+            android:layout_width="233dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="0dp"
+            android:background="@drawable/agree_nextbtn_non"
+            android:text="다음으로"
+            android:textStyle="bold"
+            android:textColor="@color/btn_text"/>
+    </LinearLayout>
+
+</LinearLayout>

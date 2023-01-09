@@ -8,4 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="main">#F8F4EA</color>
+    <color name="btn_back">#e2e2e2</color>
+    <color name="btn_text">#574444</color>
+    <color name="btn_info">#82a323</color>
+    <color name="back_login">#F5F5F5</color>
 </resources>

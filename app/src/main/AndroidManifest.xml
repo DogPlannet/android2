@@ -26,6 +26,14 @@
             android:exported="true">
         </activity>
         <activity
+            android:name=".InfoActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+        </activity>
+        <activity
             android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
