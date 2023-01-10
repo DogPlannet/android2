@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StartActivity">
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/some_id"-->
+    <!--        android:layout_width="100dp"-->
+    <!--        android:layout_height="30dp"-->
+    <!--        android:layout_alignParentLeft="true"-->
+    <!--        android:layout_alignParentTop="true"-->
+    <!--        android:gravity="center_horizontal|top"-->
+    <!--        android:lineSpacingExtra="-8sp"-->
+    <!--        android:text="멍플래닛"-->
+    <!--        android:textAppearance="@style/some_id"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="400dp"
+        android:text="멍플래닛"
+        android:textStyle="bold"
+        android:textAppearance="@style/some_id"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/logo"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/logo"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <TextView
+        android:id="@+id/sub_title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15.5sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="40dp"
+        android:text="모든 강아지들의 건강을 위한 멍플래닛"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+    <TextView
+        android:id="@+id/sub_title2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15.5sp"
+        android:textStyle="bold"
+        android:layout_marginTop="12dp"
+        android:text="우리 강아지의 건강 기록부터\n&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;건강 정보 소통까지!"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sub_title1" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/start_btn"
+        android:layout_width="233sp"
+        android:layout_height="48sp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/start_button"
+        android:text="시작하기"
+        android:textColor="#FFF3E5"
+        android:textSize="22sp"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/exist_account_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="5dp"
+        android:text="이미 계정이 있나요?"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/start_btn" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/login_btn"
+        android:layout_width="45dp"
+        android:layout_height="16sp"
+        android:layout_marginTop="5dp"
+        android:background="#00ff0000"
+        android:textColor="#82A323"
+        android:text="로그인"
+        app:layout_constraintStart_toEndOf="@+id/exist_account_text"
+        app:layout_constraintTop_toBottomOf="@+id/start_btn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

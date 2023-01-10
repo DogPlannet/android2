@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DogRegisterEndActivity">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/back_button"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:background="@drawable/back_btn"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="370dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/logo"
+        android:layout_width="94dp"
+        android:layout_height="70dp"
+        android:background="@drawable/logo2"
+        android:layout_marginLeft="74dp"
+        android:layout_marginTop="316dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/receive_name_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="누구"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintStart_toEndOf="@+id/logo"
+        app:layout_constraintTop_toTopOf="@+id/logo" />
+
+    <TextView
+        android:id="@+id/describe1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="견주님"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginLeft="5dp"
+        app:layout_constraintStart_toEndOf="@id/receive_name_txt"
+        app:layout_constraintTop_toTopOf="@id/receive_name_txt" />
+
+    <TextView
+        android:id="@+id/describe2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="반가워요 !"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintStart_toEndOf="@id/logo"
+        app:layout_constraintTop_toBottomOf="@id/receive_name_txt"/>
+
+    <View
+        android:layout_width="320dp"
+        android:layout_height="77dp"
+        android:background="@drawable/background1"
+        android:layout_marginTop="423dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="반려견 등록이 완료되었습니다!"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:layout_marginTop="453dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/go_homepage_btn"
+        android:layout_width="233sp"
+        android:layout_height="48sp"
+        android:background="@drawable/start_button"
+        android:gravity="center"
+        android:text="메인으로 이동"
+        android:textColor="#FFF3E5"
+        android:textSize="22sp"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner_breed">
+        <item>허스키</item>
+        <item>푸들</item>
+        <item>셰퍼드</item>
+        <item>맬러뮤트</item>
+        <item>도베르만</item>
+        <item>골든 리트리버</item>
+        <item>래브라도 레트리버</item>
+        <item>웰시코기</item>
+        <item>사모예드</item>
+        <item>시바 이누</item>
+        <item>스피츠</item>
+        <item>슈나우저</item>
+        <item>비숑프리제</item>
+        <item>시추</item>
+        <item>포메라니안</item>
+        <item>파피용</item>
+        <item>요크세테리어</item>
+        <item>말티즈</item>
+        <item>닥스훈트</item>
+        <item>치와와</item>
+        <item>퍼그</item>
+
+    </string-array>
+</resources>

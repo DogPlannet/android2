@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner_gender">
+        <item>암컷 ♀</item>
+        <item>수컷 ♂</item>
+    </string-array>
+</resources>

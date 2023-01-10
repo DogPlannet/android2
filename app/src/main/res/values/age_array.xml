@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner_age">
+        <item>1살 미만</item>
+        <item>1살</item>
+        <item>2살</item>
+        <item>3살</item>
+        <item>4살</item>
+        <item>5살</item>
+        <item>6살</item>
+        <item>7살</item>
+        <item>8살</item>
+        <item>9살</item>
+        <item>10살</item>
+        <item>11살</item>
+        <item>12살</item>
+        <item>13살</item>
+        <item>14살</item>
+        <item>15살</item>
+        <item>16살</item>
+        <item>17살</item>
+        <item>18살</item>
+        <item>19살</item>
+        <item>20살</item>
+        <item>20살 이상</item>
+    </string-array>
+</resources>
