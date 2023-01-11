@@ -6,18 +6,18 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.umc_pj.databinding.ActivitySignupcompleteBinding
 
 class SignUpComplete : AppCompatActivity() {
-    private lateinit var binding: ActivitySignupcompleteBinding
+    private lateinit var viewBinding: ActivitySignupcompleteBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySignupcompleteBinding.inflate(layoutInflater)
-        setContentView(binding.root);
+        viewBinding = ActivitySignupcompleteBinding.inflate(layoutInflater)
+        setContentView(viewBinding.root);
 
 
-        binding.agreeBtn.isEnabled = true
-        binding.agreeBtn.setOnClickListener {
-            val intent = Intent(this,UserAgreeActivity::class.java)
+        viewBinding.agreeBtn.isEnabled = true
+        viewBinding.agreeBtn.setOnClickListener {
+            val intent = Intent(this,DogRegisterActivity::class.java)
             startActivity(intent)
-            overridePendingTransition(R.anim.slide_left_enter, R.anim.slide_left_exit)
+//            overridePendingTransition(R.anim.slide_left_enter, R.anim.slide_left_exit)
         }
 
     }

@@ -1,5 +1,6 @@
 package com.example.umc_pj
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -8,15 +9,23 @@ import android.text.Editable
 import android.text.Spannable
 import android.text.TextWatcher
 import android.text.style.ForegroundColorSpan
+import android.util.Log
 import android.util.TypedValue
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import com.example.umc_pj.databinding.ActivityDogRegisterBinding
 import kotlinx.android.synthetic.main.activity_dog_register.*
 import kotlinx.android.synthetic.main.gender_spinner.*
 
 class DogRegisterActivity : AppCompatActivity() {
+
+    var validSpinner1: Boolean= false
+    var validSpinner2: Boolean= false
+    var validSpinner3: Boolean= false
+
 
     private lateinit var viewBinding: ActivityDogRegisterBinding
 
@@ -43,6 +52,11 @@ class DogRegisterActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        viewBinding.backButton.setOnClickListener {
+            val intent = Intent(this, SignUpComplete::class.java)
+            startActivity(intent)
+        }
+
         setupBreedData()
         setupBreedHandler()
 
@@ -51,6 +65,12 @@ class DogRegisterActivity : AppCompatActivity() {
 
         setupAgeData()
         setupAgeHandler()
+
+        if(validSpinner1==true&&validSpinner2==true&&validSpinner3==true) {
+            next_page_btn.isEnabled = true
+            next_page_btn.isClickable = true
+            next_page_btn.setBackgroundResource(R.drawable.start_button)
+        }
     }
 
 
@@ -62,6 +82,12 @@ class DogRegisterActivity : AppCompatActivity() {
     //        val popupWindow = popup.get(breed_spinner) as ListPopupWindow
     //        popupWindow.height = (50 * resources.displayMetrics.density).toInt()
     //    }
+
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        val imm: InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
+        return true
+    }
 
 
     // edittext 글자 입력할 때 하이라이트- 마지막 글자만 안바뀜(해결 아직 못함)
@@ -128,10 +154,13 @@ class DogRegisterActivity : AppCompatActivity() {
                         next_page_btn.setBackgroundResource(R.drawable.disabled_button)
                     }
                     else -> {
+                        validSpinner1 = true
+                        Log.d("스피너1", "$validSpinner1")
                     }
                 }
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
+                validSpinner1 = false
                 next_page_btn.isClickable = false
                 next_page_btn.isEnabled = false
             }
@@ -181,12 +210,15 @@ class DogRegisterActivity : AppCompatActivity() {
                         next_page_btn.setBackgroundResource(R.drawable.disabled_button)
                     }
                     else -> {
+                        validSpinner2 = true
+                        Log.d("스피너2", "$validSpinner2")
 
                     }
                 }
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
+                validSpinner2 = false
                 next_page_btn.isClickable = false
                 next_page_btn.isEnabled = false
             }
@@ -228,19 +260,21 @@ class DogRegisterActivity : AppCompatActivity() {
 
         viewBinding.dogAgeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                tvGenderSpinner.setTextColor(Color.YELLOW)
                 when (position) {
                     0 -> {
                         next_page_btn.isEnabled = false
                         next_page_btn.setBackgroundResource(R.drawable.disabled_button)
                     }
                     else -> {
-                        next_page_btn.isEnabled = true
-                        next_page_btn.setBackgroundResource(R.drawable.start_button)
+                        validSpinner3 = true
+                        Log.d("스피너3", "$validSpinner3")
+//                        next_page_btn.isEnabled = true
+//                        next_page_btn.setBackgroundResource(R.drawable.start_button)
                     }
                 }
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
+                validSpinner3 = false
                 next_page_btn.isClickable = false
                 next_page_btn.isEnabled = false
             }

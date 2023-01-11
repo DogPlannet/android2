@@ -1,6 +1,5 @@
 package com.example.umc_pj
 
-import com.example.dogplannet.DogRegisterActivity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -24,6 +23,11 @@ class DogRegisterEndActivity : AppCompatActivity() {
 
         if(intent.hasExtra("dogname")) {
             receive_name_txt.text = intent.getStringExtra("dogname")
+        }
+
+        viewBinding.goHomepageBtn.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
     }
 
