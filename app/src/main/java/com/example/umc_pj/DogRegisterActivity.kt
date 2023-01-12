@@ -75,13 +75,13 @@ class DogRegisterActivity : AppCompatActivity() {
 
 
     // -- 스피너 높이 조절 코드인데 잘 안되네요 --
-    //    fun limitDropHeight(breed_spinner: Spinner) {
-    //        val popup = Spinner::class.java.getDeclaredField("good")
-    //        popup.isAccessible = true
-    //
-    //        val popupWindow = popup.get(breed_spinner) as ListPopupWindow
-    //        popupWindow.height = (50 * resources.displayMetrics.density).toInt()
-    //    }
+        fun limitDropHeight(breed_spinner: Spinner) {
+            val popup = Spinner::class.java.getDeclaredField("good")
+            popup.isAccessible = true
+
+            val popupWindow = popup.get(breed_spinner) as ListPopupWindow
+            popupWindow.height = (50 * resources.displayMetrics.density).toInt()
+        }
 
 
 

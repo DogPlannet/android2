@@ -3,16 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/github/android2/app/src/main/res/drawable/agree_custom_agreecheckbox.xml" value="0.1315" />
         <entry key="..\:/github/android2/app/src/main/res/drawable/agree_nextbtn_color.xml" value="0.1315" />
+        <entry key="..\:/github/android2/app/src/main/res/drawable/agree_nextbtn_non.xml" value="0.1315" />
         <entry key="..\:/github/android2/app/src/main/res/drawable/agree_rectangle.xml" value="0.1315" />
         <entry key="..\:/github/android2/app/src/main/res/drawable/info_edittext_rounded_corner_rectangle.xml" value="0.1315" />
         <entry key="..\:/github/android2/app/src/main/res/drawable/layout_background.xml" value="0.1315" />
         <entry key="..\:/github/android2/app/src/main/res/drawable/signupcomplete_box.xml" value="0.1315" />
-        <entry key="..\:/github/android2/app/src/main/res/layout/activity_dog_register_end.xml" value="0.1875" />
-        <entry key="..\:/github/android2/app/src/main/res/layout/activity_info.xml" value="0.21" />
-        <entry key="..\:/github/android2/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/github/android2/app/src/main/res/layout/activity_agree.xml" value="0.1875" />
+        <entry key="..\:/github/android2/app/src/main/res/layout/activity_dog_register.xml" value="0.25" />
+        <entry key="..\:/github/android2/app/src/main/res/layout/activity_dog_register_end.xml" value="0.1" />
+        <entry key="..\:/github/android2/app/src/main/res/layout/activity_info.xml" value="0.25" />
+        <entry key="..\:/github/android2/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/github/android2/app/src/main/res/layout/activity_main.xml" value="0.1875" />
         <entry key="..\:/github/android2/app/src/main/res/layout/activity_signupcomplete.xml" value="0.1875" />
         <entry key="..\:/github/android2/app/src/main/res/layout/activity_start.xml" value="0.18" />
+        <entry key="..\:/github/android2/app/src/main/res/layout/breed_spinner.xml" value="0.1875" />
+        <entry key="..\:/github/android2/app/src/main/res/layout/gender_spinner.xml" value="0.1875" />
         <entry key="..\:/github/umc_App/umc_pj/app/src/main/res/drawable-v24/agree_nextBtn.xml" value="0.161" />
         <entry key="..\:/github/umc_App/umc_pj/app/src/main/res/drawable-v24/agree_nextbtn_act.xml" value="0.161" />
         <entry key="..\:/github/umc_App/umc_pj/app/src/main/res/drawable-v24/agree_rectangle_frag.xml" value="0.161" />

@@ -256,6 +256,7 @@
             android:background="@drawable/agree_nextbtn_non"
             android:text="다음으로"
             android:textStyle="bold"
+            android:enabled="false"
             android:textColor="@color/btn_text"/>
     </LinearLayout>
 

@@ -161,15 +161,16 @@
             android:text="계정이 없으신가요?"
             android:textColor="@color/black"
             android:textSize="12dp" />
+
         <TextView
             android:id="@+id/info_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/text"
             android:layout_marginStart="4dp"
+            android:layout_toRightOf="@id/text"
             android:text="회원가입"
             android:textColor="@color/btn_info"
-            android:textSize="12dp"/>
+            android:textSize="12dp" />
 
     </RelativeLayout>
 
