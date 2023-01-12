@@ -20,8 +20,10 @@ import com.example.umc_pj.databinding.ActivityDogRegisterBinding
 import kotlinx.android.synthetic.main.activity_dog_register.*
 import kotlinx.android.synthetic.main.gender_spinner.*
 
+
 class DogRegisterActivity : AppCompatActivity() {
 
+    var validEditText: Boolean= false
     var validSpinner1: Boolean= false
     var validSpinner2: Boolean= false
     var validSpinner3: Boolean= false
@@ -35,7 +37,9 @@ class DogRegisterActivity : AppCompatActivity() {
         setContentView(viewBinding.root)
 
         viewBinding.dogNameEdtText.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
+            override fun afterTextChanged(editable: Editable) {
+                validEditText = editable.isNotEmpty()
+                checkValid(validEditText, validSpinner1, validSpinner2, validSpinner3)
             }
 
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -52,10 +56,6 @@ class DogRegisterActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        viewBinding.backButton.setOnClickListener {
-            val intent = Intent(this, SignUpComplete::class.java)
-            startActivity(intent)
-        }
 
         setupBreedData()
         setupBreedHandler()
@@ -66,11 +66,11 @@ class DogRegisterActivity : AppCompatActivity() {
         setupAgeData()
         setupAgeHandler()
 
-        if(validSpinner1==true&&validSpinner2==true&&validSpinner3==true) {
-            next_page_btn.isEnabled = true
-            next_page_btn.isClickable = true
-            next_page_btn.setBackgroundResource(R.drawable.start_button)
-        }
+//        if(validEditText && validSpinner1 && validSpinner2 && validSpinner3) {
+//            next_page_btn.isEnabled = true
+//            next_page_btn.isClickable = true
+//            next_page_btn.setBackgroundResource(R.drawable.start_button)
+//        }
     }
 
 
@@ -83,11 +83,6 @@ class DogRegisterActivity : AppCompatActivity() {
     //        popupWindow.height = (50 * resources.displayMetrics.density).toInt()
     //    }
 
-    override fun onTouchEvent(event: MotionEvent): Boolean {
-        val imm: InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
-        return true
-    }
 
 
     // edittext 글자 입력할 때 하이라이트- 마지막 글자만 안바뀜(해결 아직 못함)
@@ -150,19 +145,18 @@ class DogRegisterActivity : AppCompatActivity() {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 when(position) {
                     0 -> {
-                        next_page_btn.isEnabled = false
-                        next_page_btn.setBackgroundResource(R.drawable.disabled_button)
+                        validSpinner1 = false
                     }
                     else -> {
                         validSpinner1 = true
                         Log.d("스피너1", "$validSpinner1")
                     }
                 }
+                checkValid(validEditText, validSpinner1, validSpinner2, validSpinner3)
+
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
                 validSpinner1 = false
-                next_page_btn.isClickable = false
-                next_page_btn.isEnabled = false
             }
         }
     }
@@ -206,8 +200,7 @@ class DogRegisterActivity : AppCompatActivity() {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 when(position) {
                     0 -> {
-                        next_page_btn.isEnabled = false
-                        next_page_btn.setBackgroundResource(R.drawable.disabled_button)
+                        validSpinner2 = false
                     }
                     else -> {
                         validSpinner2 = true
@@ -215,12 +208,12 @@ class DogRegisterActivity : AppCompatActivity() {
 
                     }
                 }
+                checkValid(validEditText, validSpinner1, validSpinner2, validSpinner3)
+
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
                 validSpinner2 = false
-                next_page_btn.isClickable = false
-                next_page_btn.isEnabled = false
             }
         }
     }
@@ -262,21 +255,17 @@ class DogRegisterActivity : AppCompatActivity() {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 when (position) {
                     0 -> {
-                        next_page_btn.isEnabled = false
-                        next_page_btn.setBackgroundResource(R.drawable.disabled_button)
+                        validSpinner3 = false
                     }
                     else -> {
                         validSpinner3 = true
                         Log.d("스피너3", "$validSpinner3")
-//                        next_page_btn.isEnabled = true
-//                        next_page_btn.setBackgroundResource(R.drawable.start_button)
                     }
                 }
+                checkValid(validEditText, validSpinner1, validSpinner2, validSpinner3)
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
                 validSpinner3 = false
-                next_page_btn.isClickable = false
-                next_page_btn.isEnabled = false
             }
         }
     }
@@ -288,27 +277,20 @@ class DogRegisterActivity : AppCompatActivity() {
             resources.displayMetrics
         )
     }
+
+    private fun checkValid(v1:Boolean, v2:Boolean, v3:Boolean, v4:Boolean){
+        Log.d("Valid", (v1 && v2 && v3 && v4).toString())
+        if(v1 && v2 && v3 && v4){
+            next_page_btn.isEnabled = true
+            next_page_btn.isClickable = true
+            next_page_btn.setBackgroundResource(R.drawable.start_button)
+        } else {
+            next_page_btn.isEnabled = false
+            next_page_btn.isClickable = false
+            next_page_btn.setBackgroundResource(R.drawable.disabled_button)
+        }
+    }
 }
 
-//    private fun checkEnd() {
-//        if(checkSelectBreed == true && checkSelectGender == true && checkSelectAge == true) {
-//            next_page_btn.isEnabled = true
-//            next_page_btn.setBackgroundResource(R.drawable.start_button)
-//        }
-//        else {
-//            next_page_btn.isEnabled = false
-//            next_page_btn.setBackgroundResource(R.drawable.disabled_button)
-//        }
-//    }
-//        if(isPageOpen){
-//            isPageOpen = false
-//            viewBinding.nextPageBtn.isEnabled = false
-//        }
-//        else{
-//            isPageOpen = true
-//            Handler(Looper.getMainLooper()).postDelayed({
-//                viewBinding.nextPageBtn.isEnabled = true
-//            }, 0)
-//        }
-//    }
+
 
