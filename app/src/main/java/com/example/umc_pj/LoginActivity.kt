@@ -4,9 +4,12 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MotionEvent
+import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.umc_pj.databinding.ActivityLoginBinding
+import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity: AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -18,8 +21,17 @@ class LoginActivity: AppCompatActivity() {
 
 
         binding.loginBtn.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            var id = binding.etId.text.toString() //아이디
+            var pw =  binding.etId.text.toString() //비번
+
+            if(id.isEmpty() || pw.isEmpty()){
+                Toast.makeText(this, "아이디 또는 비밀번호를 확인해주세요", Toast.LENGTH_SHORT).show()
+                binding.warningText.visibility = View.VISIBLE
+            }else {
+                binding.warningText.visibility = View.INVISIBLE
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
         }
 
         binding.infoBtn.setOnClickListener {

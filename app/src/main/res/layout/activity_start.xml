@@ -22,6 +22,16 @@
     <!--        app:layout_constraintStart_toStartOf="parent"-->
     <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/logo_place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/start_btn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
@@ -35,7 +45,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <View
+    <ImageView
         android:id="@+id/logo"
         android:layout_width="300dp"
         android:layout_height="200dp"
@@ -72,6 +82,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sub_title1" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/start_btn"
         android:layout_width="233sp"
@@ -87,27 +100,38 @@
         app:layout_constraintStart_toStartOf="parent"
         />
 
-    <TextView
-        android:id="@+id/exist_account_text"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="130dp"
         android:layout_marginTop="5dp"
-        android:text="이미 계정이 있나요?"
-        android:textColor="@color/black"
-        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/start_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/start_btn"
+        >
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/login_btn"
-        android:layout_width="45dp"
-        android:layout_height="16sp"
-        android:layout_marginTop="5dp"
-        android:background="#00ff0000"
-        android:textColor="#82A323"
-        android:text="로그인"
-        app:layout_constraintStart_toEndOf="@+id/exist_account_text"
-        app:layout_constraintTop_toBottomOf="@+id/start_btn" />
+        <TextView
+            android:id="@+id/exist_account_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이미 계정이 있나요?"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            />
+
+        <TextView
+            android:id="@+id/login_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:background="#00ff0000"
+            android:textColor="#82A323"
+            android:text="로그인"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@+id/exist_account_text"
+            app:layout_constraintBottom_toBottomOf="@id/exist_account_text"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

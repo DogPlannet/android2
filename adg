@@ -1,0 +1,44 @@
+[33mcommit a4b214797e61400d7e9a1644b3095799761b5479[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: jiohjung98 <ckaquz98@naver.com>
+Date:   Wed Jan 11 19:12:37 2023 +0900
+
+    페이지 연결
+
+[33mcommit cedcb15533c246c72edf70d157c056f7c1f8d882[m
+Author: jiohjung98 <ckaquz98@naver.com>
+Date:   Tue Jan 10 23:13:18 2023 +0900
+
+    첫 화면&반려견 등록 화면
+
+[33mcommit 4c031d6c102d365d4f2e7982b9141e88121eb7d5[m
+Author: Yoonjit <jisu9083@naver.com>
+Date:   Tue Jan 10 03:17:53 2023 +0900
+
+    로그인, 회원가입 추가 및 화면 연결
+
+[33mcommit 3df88e6cd15aed5e8a7729e7bca185ce1ebc0442[m
+Merge: a400ad4 1491e43
+Author: Dori <jaewan0114@naver.com>
+Date:   Sun Jan 8 16:05:14 2023 +0900
+
+    Merge branch 'main' of https://github.com/DogPlannet/android
+
+[33mcommit a400ad42d85ae5b8a264a049532039c818b34c7b[m
+Author: Dori <jaewan0114@naver.com>
+Date:   Sun Jan 8 16:04:55 2023 +0900
+
+    splash demo
+
+[33mcommit 1491e436f2d526542dad1e72e12dceb669e0689a[m
+Author: Jaewan-Lim <42615916+JWdori@users.noreply.github.com>
+Date:   Sun Jan 8 14:04:41 2023 +0900
+
+    Create README.md
+    
+    리드미 파일 추가
+
+[33mcommit 9ad05f92701f12b76c4b345a7200d5b143cad44d[m
+Author: Dori <jaewan0114@naver.com>
+Date:   Sun Jan 8 14:03:42 2023 +0900
+
+    First_commit(complete without design ele)
