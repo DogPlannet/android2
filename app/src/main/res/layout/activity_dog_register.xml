@@ -122,15 +122,17 @@
         app:layout_constraintStart_toStartOf="@+id/dog_name_title"
         app:layout_constraintTop_toBottomOf="@+id/dog_name_edt_text"/>
 
-        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/breed_spinner"
         android:layout_width="370dp"
         android:layout_height="50dp"
+        app:iconifiedByDefault="false"
         android:background="@drawable/dog_register_frame"
         android:spinnerMode="dropdown"
         android:layout_marginTop="8dp"
+        app:queryHint="견종을 선택해주세요"
+        app:searchIcon="@null"
         android:layout_marginLeft="5dp"
-            app:hintText="견종을 선택해주세요"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/breed_title"
@@ -160,8 +162,10 @@
         android:layout_marginStart="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dog_gender"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/dog_gender">
+    </Spinner>
+
+
 
     <TextView
         android:id="@+id/dog_age"

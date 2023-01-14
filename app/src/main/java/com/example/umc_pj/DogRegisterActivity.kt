@@ -131,34 +131,34 @@ class DogRegisterActivity : AppCompatActivity() {
         breedAdapter.add("견종을 선택해주세요.")
         breedAdapter.addAll(breedData.toMutableList())
 
-        viewBinding.breedSpinner.adapter = breedAdapter
-
-        // 스피너 높이 조절 코드- limitDropHeight(breed_spinner)
-
-        breed_spinner.setSelection(0)
-        breed_spinner.dropDownVerticalOffset = dipToPixels(50f).toInt()
+//        viewBinding.breedSpinner.adapter = breedAdapter
+//
+//        // 스피너 높이 조절 코드- limitDropHeight(breed_spinner)
+//
+//        breed_spinner.setSelection(0)
+//        breed_spinner.dropDownVerticalOffset = dipToPixels(50f).toInt()
     }
 
     private fun setupBreedHandler() {
 
-        viewBinding.breedSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                when(position) {
-                    0 -> {
-                        validSpinner1 = false
-                    }
-                    else -> {
-                        validSpinner1 = true
-                        Log.d("스피너1", "$validSpinner1")
-                    }
-                }
-                checkValid(validEditText, validSpinner1, validSpinner2, validSpinner3)
-
-            }
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-                validSpinner1 = false
-            }
-        }
+//        viewBinding.breedSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+//            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+//                when(position) {
+//                    0 -> {
+//                        validSpinner1 = false
+//                    }
+//                    else -> {
+//                        validSpinner1 = true
+//                        Log.d("스피너1", "$validSpinner1")
+//                    }
+//                }
+//                checkValid(validEditText, validSpinner1, validSpinner2, validSpinner3)
+//
+//            }
+//            override fun onNothingSelected(p0: AdapterView<*>?) {
+//                validSpinner1 = false
+//            }
+//        }
     }
 
     private fun setupGenderData() {
@@ -170,12 +170,10 @@ class DogRegisterActivity : AppCompatActivity() {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
 
                 val v = super.getView(position, convertView, parent)
-
-                if (position == 0) {
+                if (position==0) {
                     (v.findViewById<View>(R.id.tvGenderSpinner) as TextView).text = ""
-                    (v.findViewById<View>(R.id.tvGenderSpinner) as TextView).hint = getItem(0)
+                    (v.findViewById<View>(R.id.tvGenderSpinner) as TextView).hint = "성별을 선택해주세요."
                 }
-
                 return v
             }
 
@@ -184,7 +182,6 @@ class DogRegisterActivity : AppCompatActivity() {
             }
 
         }
-
         genderAdapter.add("성별을 선택해주세요.")
         genderAdapter.addAll(genderData.toMutableList())
 
@@ -200,7 +197,7 @@ class DogRegisterActivity : AppCompatActivity() {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 when(position) {
                     0 -> {
-                        validSpinner2 = false
+                        validSpinner2 = false //이거 무슨 코드죠?
                     }
                     else -> {
                         validSpinner2 = true
