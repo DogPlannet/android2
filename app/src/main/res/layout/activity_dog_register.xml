@@ -122,21 +122,34 @@
         app:layout_constraintStart_toStartOf="@+id/dog_name_title"
         app:layout_constraintTop_toBottomOf="@+id/dog_name_edt_text"/>
 
-    <androidx.appcompat.widget.SearchView
+    <EditText
         android:id="@+id/breed_spinner"
         android:layout_width="370dp"
         android:layout_height="50dp"
-        app:iconifiedByDefault="false"
-        android:background="@drawable/dog_register_frame"
-        android:spinnerMode="dropdown"
+        android:background="@drawable/dogbreed_search"
+        android:maxLength="10"
+        android:textSize="18sp"
+        android:textColor="#000000"
         android:layout_marginTop="8dp"
-        app:queryHint="견종을 선택해주세요"
-        app:searchIcon="@null"
+        android:paddingStart="15dp"
+        android:hint="견종을 선택해주세요"
         android:layout_marginLeft="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/breed_title"
-       />
+        android:translationZ="91dp"
+        android:outlineProvider="none"
+        app:layout_constraintTop_toBottomOf="@+id/breed_title"/>
+
+    <include
+        android:layout_width="370dp"
+        android:layout_height="293dp"
+        layout="@layout/dogbreed_fragment"
+        android:layout_marginTop="-1dp"
+        app:layout_constraintTop_toTopOf="@id/breed_spinner"
+        app:layout_constraintStart_toStartOf="@id/breed_spinner"
+        app:layout_constraintEnd_toEndOf="@id/breed_spinner"
+        android:visibility="visible"
+    />
 
 
     <TextView
