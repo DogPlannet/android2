@@ -1,9 +1,7 @@
 package com.example.umc_pj
 
-import android.content.Context
 import android.content.Intent
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.Spannable
@@ -11,14 +9,16 @@ import android.text.TextWatcher
 import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.util.TypedValue
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.umc_pj.databinding.ActivityDogRegisterBinding
+
 import kotlinx.android.synthetic.main.activity_dog_register.*
-import kotlinx.android.synthetic.main.gender_spinner.*
 
 
 class DogRegisterActivity : AppCompatActivity() {
@@ -28,6 +28,9 @@ class DogRegisterActivity : AppCompatActivity() {
     var validSpinner2: Boolean= false
     var validSpinner3: Boolean= false
 
+    lateinit var rv_phone_book: RecyclerView
+    lateinit var breedAdapter: BreedAdapter
+    lateinit var breed:Array<BreedDTO>
 
     private lateinit var viewBinding: ActivityDogRegisterBinding
 
@@ -65,6 +68,10 @@ class DogRegisterActivity : AppCompatActivity() {
 
         setupAgeData()
         setupAgeHandler()
+        rv_phone_book = findViewById(R.id.rv_phone_book)
+
+        breed = tempPersons()
+        setAdapter()
 
 //        if(validEditText && validSpinner1 && validSpinner2 && validSpinner3) {
 //            next_page_btn.isEnabled = true
@@ -72,6 +79,26 @@ class DogRegisterActivity : AppCompatActivity() {
 //            next_page_btn.setBackgroundResource(R.drawable.start_button)
 //        }
     }
+
+
+    fun setAdapter(){
+        //리사이클러뷰에 리사이클러뷰 어댑터 부착
+        rv_phone_book.layoutManager = LinearLayoutManager(this)
+        breedAdapter = BreedAdapter(breed, this)
+        rv_phone_book.adapter = breedAdapter
+    }
+
+    fun tempPersons(): Array<BreedDTO> {
+        return arrayOf(
+            BreedDTO(1, "kim", "01011111111"),
+            BreedDTO(2, "lee", "01022222222"),
+            BreedDTO(3, "park", "01033333333"),
+            BreedDTO(4, "son", "01044444444"),
+
+        )
+    }
+
+
 
 
     // -- 스피너 높이 조절 코드인데 잘 안되네요 --
@@ -109,27 +136,47 @@ class DogRegisterActivity : AppCompatActivity() {
     }
 
     private fun setupBreedData() {
-        val breedData = resources.getStringArray(R.array.spinner_breed)
-        val breedAdapter = object : ArrayAdapter<String>(this, R.layout.breed_spinner) {
-
-            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-
-                val v = super.getView(position, convertView, parent)
-
-                if (position == 0) {
-                    (v.findViewById<View>(R.id.tvBreedSpinner) as TextView).text = ""
-                    (v.findViewById<View>(R.id.tvBreedSpinner) as TextView).hint = getItem(0)
-                }
-                return v
+        val breedSearchView = findViewById<SearchView>(R.id.breed_search)
+        breedSearchView.setOnQueryTextFocusChangeListener(object : View.OnFocusChangeListener {
+            override fun onFocusChange(v: View?, hasFocus: Boolean) {
+                breedSearchView.isSelected =  hasFocus
+                // isIconified() return true if search view lost focus, this line handle for user press back button case
+                // as default when user press back button, the search view lost focus but view doesn't change state (collapse if width = wrap_content)
+                breedSearchView.isIconified = !hasFocus
             }
 
-            override fun getCount(): Int {
-                return super.getCount()
-            }
-        }
+        })
 
-        breedAdapter.add("견종을 선택해주세요.")
-        breedAdapter.addAll(breedData.toMutableList())
+//        val names = arrayOf("ㅎㅇ","ㅎㅇㅇ","ㅎfdㅇㅎㅇㅎㅇ")
+//        val list = findViewById<ListView>(R.id.breed)
+//        val adapter2: ArrayAdapter<String> = ArrayAdapter(
+//            this, android.R.layout.simple_list_item_2,names
+//        )
+//
+//        list.adapter = adapter2
+//
+//
+//        viewBinding.breedSearch.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
+//            override fun onQueryTextSubmit(p0: String?): Boolean {
+//                viewBinding.breedSearch.clearFocus()
+//                if(names.contains(p0))
+//                {
+//                    adapter2.filter.filter(p0)
+//                }else{
+//                    Toast.makeText(applicationContext,"Item not found",Toast.LENGTH_SHORT).show()
+//                }
+//                return false
+//            }
+//
+//            override fun onQueryTextChange(newText: String?): Boolean {
+//                adapter2.filter.filter(newText)
+//                return false
+//            }
+//
+//        })
+
+//       breedAdapter.add("견종을 선택해주세요.")
+//        breedAdapter.addAll(breedData.toMutableList())
 
 //        viewBinding.breedSpinner.adapter = breedAdapter
 //
@@ -138,6 +185,7 @@ class DogRegisterActivity : AppCompatActivity() {
 //        breed_spinner.setSelection(0)
 //        breed_spinner.dropDownVerticalOffset = dipToPixels(50f).toInt()
     }
+
 
     private fun setupBreedHandler() {
 
@@ -165,14 +213,14 @@ class DogRegisterActivity : AppCompatActivity() {
 
         val genderData = resources.getStringArray(R.array.spinner_gender)
 
-        val genderAdapter = object : ArrayAdapter<String>(this, R.layout.gender_spinner) {
+        val genderAdapter = object : ArrayAdapter<String>(this,R.layout.gender_spinner) {
 
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
 
                 val v = super.getView(position, convertView, parent)
                 if (position==0) {
-                    (v.findViewById<View>(R.id.tvGenderSpinner) as TextView).text = ""
-                    (v.findViewById<View>(R.id.tvGenderSpinner) as TextView).hint = "성별을 선택해주세요."
+                    (v.findViewById<View>(R.id.tvGenderSpinner) as? TextView)?.text = ""
+                    (v.findViewById<View>(R.id.tvGenderSpinner) as? TextView)?.hint = "성별을 선택해주세요."
                 }
                 return v
             }
@@ -225,8 +273,8 @@ class DogRegisterActivity : AppCompatActivity() {
                 val v = super.getView(position, convertView, parent)
 
                 if (position == 0) {
-                    (v.findViewById<View>(R.id.tvBreedSpinner) as TextView).text = ""
-                    (v.findViewById<View>(R.id.tvBreedSpinner) as TextView).hint = getItem(0)
+                    (v.findViewById<View>(R.id.tvBreedSpinner) as? TextView)?.text = ""
+                    (v.findViewById<View>(R.id.tvBreedSpinner) as? TextView)?.hint = getItem(0)
                 }
 
                 return v

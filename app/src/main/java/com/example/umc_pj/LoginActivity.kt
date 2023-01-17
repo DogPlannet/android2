@@ -22,7 +22,7 @@ class LoginActivity: AppCompatActivity() {
 
         binding.loginBtn.setOnClickListener {
             var id = binding.etId.text.toString() //아이디
-            var pw =  binding.etId.text.toString() //비번
+            var pw =  binding.etPw.text.toString() //비번
 
             if(id.isEmpty() || pw.isEmpty()){
                 Toast.makeText(this, "아이디 또는 비밀번호를 확인해주세요", Toast.LENGTH_SHORT).show()
