@@ -144,22 +144,19 @@
         app:layout_constraintTop_toBottomOf="@+id/breed_title"/>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:scrollbarFadeDuration="0"
         android:id="@+id/rv_phone_book"
+        android:paddingBottom="1dp"
         android:layout_width="370dp"
-        android:layout_height="233dp"
+        android:layout_height="210dp"
         android:background="@drawable/dogbreed_searchbox"
-
-        android:textColor="#000000"
         android:translationZ="90dp"
         android:paddingStart="15dp"
         android:outlineProvider="none"
-        android:textSize="20dp"
-        android:layout_marginTop="-1dp"
         app:layout_constraintTop_toTopOf="@id/breed_search"
         app:layout_constraintStart_toStartOf="@id/breed_search"
         app:layout_constraintEnd_toEndOf="@id/breed_search"
         android:visibility="visible"
-        android:focusable="true"
         />
 
 
@@ -212,6 +209,7 @@
         android:dropDownWidth="355dp"
         android:layout_marginTop="8dp"
         android:layout_marginLeft="5dp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginBottom="80dp"

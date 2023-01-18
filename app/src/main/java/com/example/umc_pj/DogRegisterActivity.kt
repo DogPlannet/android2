@@ -99,15 +99,16 @@ class DogRegisterActivity : AppCompatActivity() {
 
     fun tempPersons(): ArrayList<BreedDTO> {
         var tempPersons = ArrayList<BreedDTO>()
-        tempPersons.add(BreedDTO(1, "kim", "01011111111"))
-        tempPersons.add(BreedDTO(2, "lee", "01022222222"))
-        tempPersons.add(BreedDTO(3, "park", "01033333333"))
-        tempPersons.add(BreedDTO(4, "son", "01044444444"))
-        tempPersons.add(BreedDTO(5, "hwang", "01055555555"))
-        tempPersons.add(BreedDTO(6, "jo", "01066666666"))
-        tempPersons.add(BreedDTO(7, "gwak", "01077777777"))
-        tempPersons.add(BreedDTO(8, "sim", "01088888888"))
-        tempPersons.add(BreedDTO(9, "choi", "01099999999"))
+        tempPersons.add(BreedDTO(""))
+        tempPersons.add(BreedDTO("11111"))
+        tempPersons.add(BreedDTO("11111"))
+        tempPersons.add(BreedDTO("11111"))
+        tempPersons.add(BreedDTO("11111"))
+        tempPersons.add(BreedDTO("aaaaaa"))
+        tempPersons.add(BreedDTO("11111"))
+        tempPersons.add(BreedDTO("aaa"))
+        tempPersons.add(BreedDTO("33"))
+        tempPersons.add(BreedDTO("33"))
         return tempPersons
     }
 
