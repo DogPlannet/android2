@@ -131,7 +131,7 @@
         android:textSize="18sp"
         android:textColor="#000000"
         android:layout_marginTop="8dp"
-        android:paddingStart="15dp"
+
         app:iconifiedByDefault="false"
         app:queryHint="견종을 선택해주세요"
         app:searchIcon="@null"
@@ -145,11 +145,12 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_phone_book"
         android:layout_width="370dp"
-        android:layout_height="293dp"
+        android:layout_height="233dp"
         android:background="@drawable/dogbreed_searchbox"
-        android:paddingLeft="5dp"
+
         android:textColor="#000000"
         android:translationZ="90dp"
+        android:paddingStart="15dp"
         android:outlineProvider="none"
         android:textSize="20dp"
         android:layout_marginTop="-1dp"

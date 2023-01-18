@@ -1,5 +1,6 @@
 package com.example.umc_pj
 
+
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -19,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.umc_pj.databinding.ActivityDogRegisterBinding
 
 import kotlinx.android.synthetic.main.activity_dog_register.*
+import java.util.Locale.filter
 
 
 class DogRegisterActivity : AppCompatActivity() {
@@ -28,9 +30,12 @@ class DogRegisterActivity : AppCompatActivity() {
     var validSpinner2: Boolean= false
     var validSpinner3: Boolean= false
 
-    lateinit var rv_phone_book: RecyclerView
+    lateinit var breed_recycleR: RecyclerView
     lateinit var breedAdapter: BreedAdapter
-    lateinit var breed:Array<BreedDTO>
+    lateinit var breed:ArrayList<BreedDTO>
+    lateinit var BreedSearch: SearchView
+
+
 
     private lateinit var viewBinding: ActivityDogRegisterBinding
 
@@ -61,15 +66,15 @@ class DogRegisterActivity : AppCompatActivity() {
 
 
         setupBreedData()
-        setupBreedHandler()
 
         setupGenderData()
         setupGenderHandler()
 
         setupAgeData()
         setupAgeHandler()
-        rv_phone_book = findViewById(R.id.rv_phone_book)
-
+        breed_recycleR = findViewById(R.id.rv_phone_book)
+        BreedSearch = findViewById(R.id.breed_search)
+        BreedSearch.setOnQueryTextListener(searchViewTextListener)
         breed = tempPersons()
         setAdapter()
 
@@ -83,20 +88,25 @@ class DogRegisterActivity : AppCompatActivity() {
 
     fun setAdapter(){
         //리사이클러뷰에 리사이클러뷰 어댑터 부착
-        rv_phone_book.layoutManager = LinearLayoutManager(this)
+        breed_recycleR.layoutManager = LinearLayoutManager(this)
         breedAdapter = BreedAdapter(breed, this)
-        rv_phone_book.adapter = breedAdapter
+        breed_recycleR.adapter = breedAdapter
     }
 
-    fun tempPersons(): Array<BreedDTO> {
-        return arrayOf(
-            BreedDTO(1, "kim", "01011111111"),
-            BreedDTO(2, "lee", "01022222222"),
-            BreedDTO(3, "park", "01033333333"),
-            BreedDTO(4, "son", "01044444444"),
-
-        )
+    fun tempPersons(): ArrayList<BreedDTO> {
+        var tempPersons = ArrayList<BreedDTO>()
+        tempPersons.add(BreedDTO(1, "kim", "01011111111"))
+        tempPersons.add(BreedDTO(2, "lee", "01022222222"))
+        tempPersons.add(BreedDTO(3, "park", "01033333333"))
+        tempPersons.add(BreedDTO(4, "son", "01044444444"))
+        tempPersons.add(BreedDTO(5, "hwang", "01055555555"))
+        tempPersons.add(BreedDTO(6, "jo", "01066666666"))
+        tempPersons.add(BreedDTO(7, "gwak", "01077777777"))
+        tempPersons.add(BreedDTO(8, "sim", "01088888888"))
+        tempPersons.add(BreedDTO(9, "choi", "01099999999"))
+        return tempPersons
     }
+
 
 
 
@@ -140,74 +150,26 @@ class DogRegisterActivity : AppCompatActivity() {
         breedSearchView.setOnQueryTextFocusChangeListener(object : View.OnFocusChangeListener {
             override fun onFocusChange(v: View?, hasFocus: Boolean) {
                 breedSearchView.isSelected =  hasFocus
-                // isIconified() return true if search view lost focus, this line handle for user press back button case
-                // as default when user press back button, the search view lost focus but view doesn't change state (collapse if width = wrap_content)
                 breedSearchView.isIconified = !hasFocus
             }
 
         })
-
-//        val names = arrayOf("ㅎㅇ","ㅎㅇㅇ","ㅎfdㅇㅎㅇㅎㅇ")
-//        val list = findViewById<ListView>(R.id.breed)
-//        val adapter2: ArrayAdapter<String> = ArrayAdapter(
-//            this, android.R.layout.simple_list_item_2,names
-//        )
-//
-//        list.adapter = adapter2
-//
-//
-//        viewBinding.breedSearch.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
-//            override fun onQueryTextSubmit(p0: String?): Boolean {
-//                viewBinding.breedSearch.clearFocus()
-//                if(names.contains(p0))
-//                {
-//                    adapter2.filter.filter(p0)
-//                }else{
-//                    Toast.makeText(applicationContext,"Item not found",Toast.LENGTH_SHORT).show()
-//                }
-//                return false
-//            }
-//
-//            override fun onQueryTextChange(newText: String?): Boolean {
-//                adapter2.filter.filter(newText)
-//                return false
-//            }
-//
-//        })
-
-//       breedAdapter.add("견종을 선택해주세요.")
-//        breedAdapter.addAll(breedData.toMutableList())
-
-//        viewBinding.breedSpinner.adapter = breedAdapter
-//
-//        // 스피너 높이 조절 코드- limitDropHeight(breed_spinner)
-//
-//        breed_spinner.setSelection(0)
-//        breed_spinner.dropDownVerticalOffset = dipToPixels(50f).toInt()
     }
 
+    var searchViewTextListener: SearchView.OnQueryTextListener =
+        object : SearchView.OnQueryTextListener {
+            //검색버튼 입력시 호출, 검색버튼이 없으므로 사용하지 않음
+            override fun onQueryTextSubmit(s: String): Boolean {
+                return false
+            }
 
-    private fun setupBreedHandler() {
-
-//        viewBinding.breedSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-//            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-//                when(position) {
-//                    0 -> {
-//                        validSpinner1 = false
-//                    }
-//                    else -> {
-//                        validSpinner1 = true
-//                        Log.d("스피너1", "$validSpinner1")
-//                    }
-//                }
-//                checkValid(validEditText, validSpinner1, validSpinner2, validSpinner3)
-//
-//            }
-//            override fun onNothingSelected(p0: AdapterView<*>?) {
-//                validSpinner1 = false
-//            }
-//        }
-    }
+            //텍스트 입력/수정시에 호출
+            override fun onQueryTextChange(s: String): Boolean {
+                breedAdapter.filter.filter(s)
+                Log.d("gd", "SearchVies Text is changed : $s")
+                return false
+            }
+        }
 
     private fun setupGenderData() {
 
