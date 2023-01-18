@@ -16,34 +16,27 @@
     android:background="@color/white"
     tools:context=".MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/constraintLayout2"
-        >
-
-        <ImageView
-            android:id="@+id/maybelogo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@mipmap/ic_launcher"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:id="@+id/constraintLayout"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/constraintLayout2"-->
+<!--        >-->
+<!--        -->
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toTopOf="@id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="20dp"
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
@@ -55,12 +48,23 @@
             app:layout_constraintTop_toTopOf="parent"></ImageView>
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/logotext1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="dsadasdasdas"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="@+id/imageView" />
+            android:text="약관동의"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/logotext2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="멍플래닛 사용을 위해 약관에 동의해주세요."
+            app:layout_constraintStart_toStartOf="@+id/logotext1"
+            app:layout_constraintTop_toBottomOf="@+id/logotext1"
+            android:textStyle="normal"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -77,13 +81,16 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <CheckBox
                 android:id="@+id/all_agree"
+                android:layout_marginStart="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:text="약관 전체동의"
+                android:textStyle="bold"
                 android:textColor="#574444" />
 <!--            <TextView-->
 <!--                android:layout_width="wrap_content"-->
@@ -115,7 +122,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:text="이용약관동의"
+                android:text="이용약관 동의(필수)"
                 android:textColor="#574444" />
 
             <TextView
@@ -140,7 +147,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:text="개인정보취급약관 동의"
+                android:text="개인정보 수집 및 이용동의(필수)"
                 android:textColor="#574444" />
 
             <TextView
@@ -164,7 +171,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:text="모두 동의"
+                android:text="E-mail 및 SMS 광고성 정보 수신동의(선택)"
                 android:textColor="#574444" />
 
             <TextView
