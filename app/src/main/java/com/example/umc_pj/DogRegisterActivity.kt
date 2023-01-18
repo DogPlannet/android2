@@ -1,24 +1,17 @@
 package com.example.umc_pj
 
-import android.content.Context
 import android.content.Intent
-import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
-import android.text.Spannable
 import android.text.TextWatcher
-import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.util.TypedValue
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import com.example.umc_pj.databinding.ActivityDogRegisterBinding
 import kotlinx.android.synthetic.main.activity_dog_register.*
-import kotlinx.android.synthetic.main.gender_spinner.*
 
 
 class DogRegisterActivity : AppCompatActivity() {
@@ -36,6 +29,7 @@ class DogRegisterActivity : AppCompatActivity() {
         viewBinding = ActivityDogRegisterBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
+
         viewBinding.dogNameEdtText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(editable: Editable) {
                 validEditText = editable.isNotEmpty()
@@ -46,16 +40,15 @@ class DogRegisterActivity : AppCompatActivity() {
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                p0?.let { highlightText(it as Editable) }
+//                p0?.let { highlightText(it as Editable) }
             }
         })
 
         viewBinding.nextPageBtn.setOnClickListener {
             val intent = Intent(this, DogRegisterEndActivity::class.java)
-            intent.putExtra("dogname", dog_name_edt_text.text.toString())
+//            intent.putExtra("dogname", dog_name_edt_text.text.toString())
             startActivity(intent)
         }
-
 
         setupBreedData()
         setupBreedHandler()
@@ -66,6 +59,8 @@ class DogRegisterActivity : AppCompatActivity() {
         setupAgeData()
         setupAgeHandler()
 
+//        limitDropHeight(breed_spinner)
+
 //        if(validEditText && validSpinner1 && validSpinner2 && validSpinner3) {
 //            next_page_btn.isEnabled = true
 //            next_page_btn.isClickable = true
@@ -74,39 +69,41 @@ class DogRegisterActivity : AppCompatActivity() {
     }
 
 
+
+
     // -- 스피너 높이 조절 코드인데 잘 안되네요 --
-    //    fun limitDropHeight(breed_spinner: Spinner) {
-    //        val popup = Spinner::class.java.getDeclaredField("good")
-    //        popup.isAccessible = true
-    //
-    //        val popupWindow = popup.get(breed_spinner) as ListPopupWindow
-    //        popupWindow.height = (50 * resources.displayMetrics.density).toInt()
-    //    }
+    fun limitDropHeight(breed_spinner: Spinner) {
+        val popup = Spinner::class.java.getDeclaredField("good")
+        popup.isAccessible = true
+
+        val popupWindow = popup.get(breed_spinner) as ListPopupWindow
+        popupWindow.height = (50 * resources.displayMetrics.density).toInt()
+    }
 
 
 
     // edittext 글자 입력할 때 하이라이트- 마지막 글자만 안바뀜(해결 아직 못함)
-    private fun highlightText(text: Editable) {
-        viewBinding.dogNameEdtText.text?.let { editable ->
-            val spans = editable.getSpans(0, editable.length,
-                ForegroundColorSpan::class.java)
-
-            spans.forEach { span ->
-                editable.removeSpan(span)
-            }
-        }
-
-        val endIndex = text.length
-        val startIndex = if (endIndex < 1) 0 else (endIndex-1)
-
-        viewBinding.dogNameEdtText.text?.setSpan(
-            ForegroundColorSpan(Color.BLACK),
-            startIndex,
-            endIndex,
-            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-        )
-
-    }
+//    private fun highlightText(text: Editable) {
+//        viewBinding.dogNameEdtText.text?.let { editable ->
+//            val spans = editable.getSpans(0, editable.length,
+//                ForegroundColorSpan::class.java)
+//
+//            spans.forEach { span ->
+//                editable.removeSpan(span)
+//            }
+//        }
+//
+//        val endIndex = text.length
+//        val startIndex = if (endIndex < 1) 0 else (endIndex-1)
+//
+//        viewBinding.dogNameEdtText.text?.setSpan(
+//            ForegroundColorSpan(Color.BLACK),
+//            startIndex,
+//            endIndex,
+//            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+//        )
+//
+//    }
 
     private fun setupBreedData() {
         val breedData = resources.getStringArray(R.array.spinner_breed)
@@ -132,9 +129,9 @@ class DogRegisterActivity : AppCompatActivity() {
         breedAdapter.addAll(breedData.toMutableList())
 
         viewBinding.breedSpinner.adapter = breedAdapter
-
-        // 스피너 높이 조절 코드- limitDropHeight(breed_spinner)
-
+//
+//        // 스피너 높이 조절 코드- limitDropHeight(breed_spinner)
+//
         breed_spinner.setSelection(0)
         breed_spinner.dropDownVerticalOffset = dipToPixels(50f).toInt()
     }
@@ -170,12 +167,10 @@ class DogRegisterActivity : AppCompatActivity() {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
 
                 val v = super.getView(position, convertView, parent)
-
-                if (position == 0) {
+                if (position==0) {
                     (v.findViewById<View>(R.id.tvGenderSpinner) as TextView).text = ""
-                    (v.findViewById<View>(R.id.tvGenderSpinner) as TextView).hint = getItem(0)
+                    (v.findViewById<View>(R.id.tvGenderSpinner) as TextView).hint = "성별을 선택해주세요."
                 }
-
                 return v
             }
 
@@ -184,7 +179,6 @@ class DogRegisterActivity : AppCompatActivity() {
             }
 
         }
-
         genderAdapter.add("성별을 선택해주세요.")
         genderAdapter.addAll(genderData.toMutableList())
 
@@ -200,7 +194,7 @@ class DogRegisterActivity : AppCompatActivity() {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 when(position) {
                     0 -> {
-                        validSpinner2 = false
+                        validSpinner2 = false //이거 무슨 코드죠?
                     }
                     else -> {
                         validSpinner2 = true
@@ -291,6 +285,3 @@ class DogRegisterActivity : AppCompatActivity() {
         }
     }
 }
-
-
-

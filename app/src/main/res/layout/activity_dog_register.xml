@@ -34,7 +34,6 @@
         android:id="@+id/receive_name_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="이름"
         android:textColor="@color/black"
         android:layout_marginTop="80dp"
         android:layout_marginLeft="10dp"
@@ -46,6 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="님, 반가워요 !"
+        android:textStyle="bold"
         android:textColor="@color/black"
         android:layout_marginTop="80dp"
         app:layout_constraintStart_toEndOf="@id/receive_name_txt"
@@ -56,6 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="반려견 정보를 입력해주세요"
+        android:textStyle="bold"
         android:textColor="@color/black"
         android:layout_marginTop="100dp"
         android:layout_marginLeft="10dp"
@@ -66,7 +67,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="300dp"
-
         android:background="@drawable/dog_register_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -90,9 +90,9 @@
 
     <EditText
         android:id="@+id/dog_name_edt_text"
-        android:layout_width="370dp"
+        android:layout_width="360dp"
         android:layout_height="50dp"
-        android:background="@drawable/name_frame"
+        android:background="@drawable/info_edittext_rounded_corner_rectangle"
         android:paddingStart="15dp"
         android:hint="이름을 입력해주세요."
         android:textSize="18sp"
@@ -118,19 +118,20 @@
         app:layout_constraintStart_toStartOf="@+id/dog_name_title"
         app:layout_constraintTop_toBottomOf="@+id/dog_name_edt_text"/>
 
-    <Spinner
-        android:id="@+id/breed_spinner"
-        android:layout_width="370dp"
-        android:layout_height="50dp"
-        android:background="@drawable/dog_register_frame"
-        android:spinnerMode="dropdown"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/breed_title"
-       />
 
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/breed_spinner"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/dog_register_frame"
+        android:dropDownWidth="355dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.549"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/breed_title" />
 
     <TextView
         android:id="@+id/dog_gender"
@@ -147,16 +148,16 @@
 
     <Spinner
         android:id="@+id/dog_gender_spinner"
-        android:layout_width="370dp"
+        android:layout_width="360dp"
         android:layout_height="50dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="8dp"
+        android:dropDownWidth="355dp"
         android:background="@drawable/dog_register_frame"
         android:spinnerMode="dropdown"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dog_gender"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/dog_gender" />
 
     <TextView
         android:id="@+id/dog_age"
@@ -173,10 +174,11 @@
 
     <Spinner
         android:id="@+id/dog_age_spinner"
-        android:layout_width="370dp"
+        android:layout_width="360dp"
         android:layout_height="50dp"
         android:background="@drawable/dog_register_frame"
         android:spinnerMode="dropdown"
+        android:dropDownWidth="355dp"
         android:layout_marginTop="8dp"
         android:layout_marginLeft="5dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -186,15 +188,14 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/next_page_btn"
-        android:layout_width="233sp"
-        android:layout_height="48sp"
+        android:layout_width="233dp"
+        android:layout_height="45dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/disabled_button"
         android:gravity="center"
         android:text="다음으로"
         android:textColor="#FFF3E5"
-        android:textSize="22sp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="52dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
