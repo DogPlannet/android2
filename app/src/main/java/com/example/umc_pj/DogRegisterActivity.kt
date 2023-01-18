@@ -5,22 +5,24 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
-import android.text.Spannable
 import android.text.TextWatcher
-import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+
 import com.example.umc_pj.databinding.ActivityDogRegisterBinding
 
 import kotlinx.android.synthetic.main.activity_dog_register.*
+
 import java.util.Locale.filter
+
 
 
 class DogRegisterActivity : AppCompatActivity() {
@@ -44,6 +46,7 @@ class DogRegisterActivity : AppCompatActivity() {
         viewBinding = ActivityDogRegisterBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
+
         viewBinding.dogNameEdtText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(editable: Editable) {
                 validEditText = editable.isNotEmpty()
@@ -54,16 +57,15 @@ class DogRegisterActivity : AppCompatActivity() {
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                p0?.let { highlightText(it as Editable) }
+//                p0?.let { highlightText(it as Editable) }
             }
         })
 
         viewBinding.nextPageBtn.setOnClickListener {
             val intent = Intent(this, DogRegisterEndActivity::class.java)
-            intent.putExtra("dogname", dog_name_edt_text.text.toString())
+//            intent.putExtra("dogname", dog_name_edt_text.text.toString())
             startActivity(intent)
         }
-
 
         setupBreedData()
 
@@ -77,6 +79,8 @@ class DogRegisterActivity : AppCompatActivity() {
         BreedSearch.setOnQueryTextListener(searchViewTextListener)
         breed = tempPersons()
         setAdapter()
+
+//        limitDropHeight(breed_spinner)
 
 //        if(validEditText && validSpinner1 && validSpinner2 && validSpinner3) {
 //            next_page_btn.isEnabled = true
@@ -122,28 +126,30 @@ class DogRegisterActivity : AppCompatActivity() {
 
 
 
+
+
     // edittext 글자 입력할 때 하이라이트- 마지막 글자만 안바뀜(해결 아직 못함)
-    private fun highlightText(text: Editable) {
-        viewBinding.dogNameEdtText.text?.let { editable ->
-            val spans = editable.getSpans(0, editable.length,
-                ForegroundColorSpan::class.java)
-
-            spans.forEach { span ->
-                editable.removeSpan(span)
-            }
-        }
-
-        val endIndex = text.length
-        val startIndex = if (endIndex < 1) 0 else (endIndex-1)
-
-        viewBinding.dogNameEdtText.text?.setSpan(
-            ForegroundColorSpan(Color.BLACK),
-            startIndex,
-            endIndex,
-            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-        )
-
-    }
+//    private fun highlightText(text: Editable) {
+//        viewBinding.dogNameEdtText.text?.let { editable ->
+//            val spans = editable.getSpans(0, editable.length,
+//                ForegroundColorSpan::class.java)
+//
+//            spans.forEach { span ->
+//                editable.removeSpan(span)
+//            }
+//        }
+//
+//        val endIndex = text.length
+//        val startIndex = if (endIndex < 1) 0 else (endIndex-1)
+//
+//        viewBinding.dogNameEdtText.text?.setSpan(
+//            ForegroundColorSpan(Color.BLACK),
+//            startIndex,
+//            endIndex,
+//            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+//        )
+//
+//    }
 
     private fun setupBreedData() {
         val breedSearchView = findViewById<SearchView>(R.id.breed_search)
@@ -154,6 +160,7 @@ class DogRegisterActivity : AppCompatActivity() {
             }
 
         })
+
     }
 
     var searchViewTextListener: SearchView.OnQueryTextListener =
@@ -181,8 +188,10 @@ class DogRegisterActivity : AppCompatActivity() {
 
                 val v = super.getView(position, convertView, parent)
                 if (position==0) {
-                    (v.findViewById<View>(R.id.tvGenderSpinner) as? TextView)?.text = ""
-                    (v.findViewById<View>(R.id.tvGenderSpinner) as? TextView)?.hint = "성별을 선택해주세요."
+
+                    (v.findViewById<View>(R.id.tvGenderSpinner) as TextView).text = ""
+                    (v.findViewById<View>(R.id.tvGenderSpinner) as TextView).hint = "성별을 선택해주세요."
+
                 }
                 return v
             }
@@ -298,6 +307,3 @@ class DogRegisterActivity : AppCompatActivity() {
         }
     }
 }
-
-
-

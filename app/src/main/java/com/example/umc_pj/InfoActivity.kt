@@ -3,14 +3,19 @@ package com.example.umc_pj
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.umc_pj.databinding.ActivityInfoBinding
+import kotlinx.android.synthetic.main.activity_info.*
+
 
 class InfoActivity: AppCompatActivity() {
+
     private lateinit var binding: ActivityInfoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +37,6 @@ class InfoActivity: AppCompatActivity() {
                 startActivity(intent)
             }
 //        }
-
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
@@ -40,5 +44,4 @@ class InfoActivity: AppCompatActivity() {
         imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
         return true
     }
-
 }
