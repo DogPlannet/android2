@@ -22,9 +22,8 @@ class BreedAdapter(var onItemClick: BreedItemClick, var persons: ArrayList<Breed
 
             itemView.setOnClickListener {
                 var position = adapterPosition
-                choose_breed = filteredBreed[position].toString()
-                onItemClick.onClick("gdg")
-                Log.d("dsa",choose_breed)
+                choose_breed = filteredBreed[position].name
+                onItemClick.onClick(choose_breed)
             }
         }
     }

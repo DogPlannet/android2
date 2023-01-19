@@ -1,15 +1,20 @@
 package com.example.umc_pj
 
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.Rect
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.util.TypedValue
+import android.view.MotionEvent
 import android.view.View
+import android.view.View.OnTouchListener
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -38,10 +43,22 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityDogRegisterBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
+        BreedSearch = findViewById(R.id.breed_search)
+        breed_recycleR = findViewById(R.id.rv_phone_book)
 
+        viewBinding.dogNameEdtText.setOnTouchListener(OnTouchListener { v, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    breed_recycleR.visibility = View.INVISIBLE
+                    breed_search.clearFocus()
+                }
+            }
+            false
+        })
 
         viewBinding.dogNameEdtText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(editable: Editable) {
+
                 validEditText = editable.isNotEmpty()
                 checkValid(validEditText, validSpinner1, validSpinner2, validSpinner3)
             }
@@ -59,8 +76,13 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
 //            intent.putExtra("dogname", dog_name_edt_text.text.toString())
             startActivity(intent)
         }
-        breed_recycleR = findViewById(R.id.rv_phone_book)
-        BreedSearch = findViewById(R.id.breed_search)
+        //배경 클릭시 포커스해제
+        viewBinding.background.setOnClickListener {
+            breed_recycleR.visibility= View.INVISIBLE
+            breed_search.clearFocus()
+        }
+
+
         BreedSearch.setOnQueryTextListener(searchViewTextListener)
         breed = tempPersons()
         setAdapter()
@@ -72,15 +94,6 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
         setupAgeData()
         setupAgeHandler()
 
-
-
-//        limitDropHeight(breed_spinner)
-
-//        if(validEditText && validSpinner1 && validSpinner2 && validSpinner3) {
-//            next_page_btn.isEnabled = true
-//            next_page_btn.isClickable = true
-//            next_page_btn.setBackgroundResource(R.drawable.start_button)
-//        }
     }
 
 
@@ -94,15 +107,16 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
     fun tempPersons(): ArrayList<BreedDTO> {
         var tempPersons = ArrayList<BreedDTO>()
         tempPersons.add(BreedDTO(""))
+        tempPersons.add(BreedDTO("허스키"))
         tempPersons.add(BreedDTO("11111"))
         tempPersons.add(BreedDTO("11111"))
         tempPersons.add(BreedDTO("11111"))
-        tempPersons.add(BreedDTO("11111"))
-        tempPersons.add(BreedDTO("aaaaaa"))
-        tempPersons.add(BreedDTO("11111"))
-        tempPersons.add(BreedDTO("aaa"))
-        tempPersons.add(BreedDTO("33"))
-        tempPersons.add(BreedDTO("33"))
+        tempPersons.add(BreedDTO("치와와"))
+        tempPersons.add(BreedDTO("시츄"))
+        tempPersons.add(BreedDTO("웰시코기"))
+        tempPersons.add(BreedDTO("진돗개"))
+        tempPersons.add(BreedDTO("풍산개"))
+        tempPersons.add(BreedDTO("저팔계"))
         return tempPersons
     }
 
@@ -149,23 +163,23 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
     //서치뷰 관련 인터렉션
     private fun setupBreedData() {
         val breedSearchView = findViewById<SearchView>(R.id.breed_search)
-        if (!breedAdapter.choose_breed.isEmpty()) {
-            breedSearchView.queryHint = breedAdapter.choose_breed
-            val editText =
-                findViewById<SearchView>(androidx.appcompat.R.id.search_src_text) as EditText
-            editText.setHintTextColor(Color.BLACK)
-        }else{
-            Log.d("","g")
-        }
         breedSearchView.setOnQueryTextFocusChangeListener(object : View.OnFocusChangeListener {
             override fun onFocusChange(v: View?, hasFocus: Boolean) {
                 breedSearchView.isSelected =  hasFocus
                 breedSearchView.isIconified = !hasFocus
+                if(breed_search.isSelected) {
+                    breed_recycleR.visibility = View.VISIBLE
+                }else if(!breed_search.isSelected){
+                    breed_recycleR.visibility = View.INVISIBLE
+
+                }
+
             }
 
         })
 
     }
+
 
     var searchViewTextListener: SearchView.OnQueryTextListener =
         object : SearchView.OnQueryTextListener {
@@ -198,10 +212,6 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
 
                 }
                 return v
-            }
-
-            override fun getCount(): Int {
-                return super.getCount()
             }
 
         }
@@ -255,9 +265,6 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
                 return v
             }
 
-            override fun getCount(): Int {
-                return super.getCount()
-            }
         }
 
         ageAdapter.add("나이 선택해주세요.")
@@ -272,7 +279,10 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
     private fun setupAgeHandler() {
 
         viewBinding.dogAgeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                breed_recycleR.visibility= View.INVISIBLE
+                breed_search.clearFocus()
                 when (position) {
                     0 -> {
                         validSpinner3 = false
@@ -312,7 +322,40 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
     }
 
     override fun onClick(value: String?) {
-        Log.d("gdg", "dsadsa")
+        val breedSearchView = findViewById<SearchView>(R.id.breed_search)
+        if (!breedAdapter.choose_breed.isEmpty()) {
+            breedSearchView.queryHint = breedAdapter.choose_breed
+            val editText =
+                findViewById<SearchView>(androidx.appcompat.R.id.search_src_text) as EditText
+            editText.setHintTextColor(Color.BLACK)
+            breedSearchView.clearFocus() // 포커스 초기화
+            viewBinding.dogNameEdtText.clearFocus()
+            Log.d("네임",breedAdapter.choose_breed)
+            breed_recycleR.visibility=View.INVISIBLE
+            validSpinner1 = true
+        }
+    }
+
+
+
+
+
+    // 화면 클릭하여 키보드 숨기기 및 포커스 제거
+    override fun dispatchTouchEvent(event: MotionEvent?): Boolean {
+        if (event?.action === MotionEvent.ACTION_DOWN) {
+            val v = currentFocus
+            if (v is EditText) {
+                val outRect = Rect()
+                v.getGlobalVisibleRect(outRect)
+                if (!outRect.contains(event.rawX.toInt(), event.rawY.toInt())) {
+                    dog_name_edt_text.clearFocus()
+                    val imm: InputMethodManager =
+                        getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0)
+                }
+            }
+        }
+        return super.dispatchTouchEvent(event)
     }
 
 
