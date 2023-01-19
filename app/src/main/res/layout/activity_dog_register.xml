@@ -8,6 +8,7 @@
     android:layout_height="match_parent">
 
 <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/background"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -108,7 +109,9 @@
         android:textCursorDrawable="@null"
         android:maxLength="10"
         android:layout_marginTop="8dp"
-        android:layout_marginLeft="5dp"
+        android:maxLines="1"
+        android:inputType="text"
+         android:layout_marginLeft="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dog_name_title" />
@@ -137,7 +140,6 @@
         android:textColor="#000000"
         android:layout_marginTop="8dp"
         app:iconifiedByDefault="false"
-
         app:queryHint="견종을 선택해주세요"
         app:searchIcon="@null"
         android:layout_marginLeft="5dp"
@@ -160,7 +162,7 @@
         app:layout_constraintTop_toTopOf="@id/breed_search"
         app:layout_constraintStart_toStartOf="@id/breed_search"
         app:layout_constraintEnd_toEndOf="@id/breed_search"
-        android:visibility="visible"
+        android:visibility="invisible"
         />
 
 
