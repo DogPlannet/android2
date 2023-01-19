@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/bnm1"
+        android:title="홈" />
+
+    <item
+        android:id="@+id/navigation_community"
+        android:icon="@drawable/bnm2"
+        android:title="멍뮤니티" />
+
+    <item
+        android:id="@+id/navigation_notice"
+        android:icon="@drawable/bnm3"
+        android:title="멍알림" />
+
+    <item
+        android:id="@+id/navigation_mypage"
+        android:icon="@drawable/bnm4"
+        android:title="멍페이지" />
+
+</menu>
