@@ -12,21 +12,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-
 import com.example.umc_pj.databinding.ActivityDogRegisterBinding
-
 import kotlinx.android.synthetic.main.activity_dog_register.*
 
-import java.util.Locale.filter
 
-
-
-class DogRegisterActivity : AppCompatActivity() {
-
+class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
     var validEditText: Boolean= false
     var validSpinner1: Boolean= false
     var validSpinner2: Boolean= false
@@ -66,7 +59,11 @@ class DogRegisterActivity : AppCompatActivity() {
 //            intent.putExtra("dogname", dog_name_edt_text.text.toString())
             startActivity(intent)
         }
-
+        breed_recycleR = findViewById(R.id.rv_phone_book)
+        BreedSearch = findViewById(R.id.breed_search)
+        BreedSearch.setOnQueryTextListener(searchViewTextListener)
+        breed = tempPersons()
+        setAdapter()
         setupBreedData()
 
         setupGenderData()
@@ -74,11 +71,8 @@ class DogRegisterActivity : AppCompatActivity() {
 
         setupAgeData()
         setupAgeHandler()
-        breed_recycleR = findViewById(R.id.rv_phone_book)
-        BreedSearch = findViewById(R.id.breed_search)
-        BreedSearch.setOnQueryTextListener(searchViewTextListener)
-        breed = tempPersons()
-        setAdapter()
+
+
 
 //        limitDropHeight(breed_spinner)
 
@@ -93,7 +87,7 @@ class DogRegisterActivity : AppCompatActivity() {
     fun setAdapter(){
         //리사이클러뷰에 리사이클러뷰 어댑터 부착
         breed_recycleR.layoutManager = LinearLayoutManager(this)
-        breedAdapter = BreedAdapter(breed, this)
+        breedAdapter = BreedAdapter(this,breed, this)
         breed_recycleR.adapter = breedAdapter
     }
 
@@ -152,8 +146,17 @@ class DogRegisterActivity : AppCompatActivity() {
 //
 //    }
 
+    //서치뷰 관련 인터렉션
     private fun setupBreedData() {
         val breedSearchView = findViewById<SearchView>(R.id.breed_search)
+        if (!breedAdapter.choose_breed.isEmpty()) {
+            breedSearchView.queryHint = breedAdapter.choose_breed
+            val editText =
+                findViewById<SearchView>(androidx.appcompat.R.id.search_src_text) as EditText
+            editText.setHintTextColor(Color.BLACK)
+        }else{
+            Log.d("","g")
+        }
         breedSearchView.setOnQueryTextFocusChangeListener(object : View.OnFocusChangeListener {
             override fun onFocusChange(v: View?, hasFocus: Boolean) {
                 breedSearchView.isSelected =  hasFocus
@@ -307,4 +310,10 @@ class DogRegisterActivity : AppCompatActivity() {
             next_page_btn.setBackgroundResource(R.drawable.disabled_button)
         }
     }
+
+    override fun onClick(value: String?) {
+        Log.d("gdg", "dsadsa")
+    }
+
+
 }

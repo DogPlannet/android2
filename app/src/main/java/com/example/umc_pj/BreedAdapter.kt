@@ -1,42 +1,30 @@
 package com.example.umc_pj
 
 import android.annotation.SuppressLint
-import android.app.AlertDialog
 import android.content.Context
-import android.content.DialogInterface
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import android.widget.Filter.FilterResults
 import androidx.recyclerview.widget.RecyclerView
 
-
-class BreedAdapter(var persons: ArrayList<BreedDTO>, var con: Context) :
+class BreedAdapter(var onItemClick: BreedItemClick, var persons: ArrayList<BreedDTO>, var con: Context) :
     RecyclerView.Adapter<BreedAdapter.ViewHolder>(),Filterable  {
     var filteredBreed = ArrayList<BreedDTO>()
     var itemFilter = ItemFilter()
+    var choose_breed = String()
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-         var tv_name_phone_book_list_item: TextView
-
+        var tv_name_phone_book_list_item: TextView
         init {
             tv_name_phone_book_list_item = itemView.findViewById(R.id.breed_name)
 
             itemView.setOnClickListener {
-
-
-
-                AlertDialog.Builder(con).apply {
-                    var position = adapterPosition
-                    var person = filteredBreed[position]
-                    setTitle(person.name)
-                    setPositiveButton("OK", DialogInterface.OnClickListener { dialog, which ->
-                        Toast.makeText(con, "OK Button Click", Toast.LENGTH_SHORT).show()
-                    })
-                    show()
-                }
+                var position = adapterPosition
+                choose_breed = filteredBreed[position].toString()
+                onItemClick.onClick("gdg")
+                Log.d("dsa",choose_breed)
             }
         }
     }
@@ -47,8 +35,8 @@ class BreedAdapter(var persons: ArrayList<BreedDTO>, var con: Context) :
         val con = parent.context
         val inflater = con.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = inflater.inflate(R.layout.dogbreed_fragment, parent, false)
-
         return ViewHolder(view)
+
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
