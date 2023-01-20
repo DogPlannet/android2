@@ -261,6 +261,7 @@
                 android:text="다음으로"
                 android:textColor="@color/btn_text"
                 android:textStyle="bold"
+                android:layout_marginBottom="52dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
