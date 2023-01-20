@@ -1,12 +1,19 @@
 package com.example.umc_pj
 
+import android.content.Context
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.AttributeSet
 import com.example.umc_pj.databinding.ActivityStartBinding
 
 class StartActivity : AppCompatActivity() {
     private lateinit var viewBinding: ActivityStartBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         viewBinding = ActivityStartBinding.inflate(layoutInflater)
@@ -23,4 +30,5 @@ class StartActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
 }

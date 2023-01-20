@@ -7,99 +7,83 @@
     android:layout_height="match_parent"
     tools:context=".StartActivity">
 
-    <!--    <TextView-->
-    <!--        android:id="@+id/some_id"-->
-    <!--        android:layout_width="100dp"-->
-    <!--        android:layout_height="30dp"-->
-    <!--        android:layout_alignParentLeft="true"-->
-    <!--        android:layout_alignParentTop="true"-->
-    <!--        android:gravity="center_horizontal|top"-->
-    <!--        android:lineSpacingExtra="-8sp"-->
-    <!--        android:text="멍플래닛"-->
-    <!--        android:textAppearance="@style/some_id"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/logo_place"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/start_btn"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-        
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="400dp"
-        android:text="멍플래닛"
-        android:textStyle="bold"
-        android:textAppearance="@style/some_id"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/logo"
         android:layout_marginTop="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/start_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/sub_title1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15.5sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:layout_marginTop="40dp"
-        android:text="모든 강아지들의 건강을 위한 멍플래닛"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo" />
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="400dp"
+            android:fontFamily="@font/dungeon"
+            android:text="멍플래닛"
+            android:textAppearance="@style/some_id"
+            android:textColor="#FCCE65"
+            android:textSize="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/sub_title2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15.5sp"
-        android:textStyle="bold"
-        android:layout_marginTop="12dp"
-        android:text="우리 강아지의 건강 기록부터\n&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;건강 정보 소통까지!"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sub_title1" />
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="211dp"
+            android:layout_height="132dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/logo_login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+
+        <TextView
+            android:id="@+id/sub_title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/notosans_medium"
+            android:text="모든 강아지들의 건강을 위한 멍플래닛"
+            android:textColor="@color/black"
+            android:textSize="15.5sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+        <TextView
+            android:id="@+id/sub_title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_medium"
+            android:text="우리 강아지의 건강 기록부터\n&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;건강 정보 소통까지!"
+            android:textSize="15.5sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sub_title1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/start_btn"
         android:layout_width="233sp"
         android:layout_height="48sp"
-        android:layout_marginTop="80dp"
         android:background="@drawable/start_button"
         android:text="시작하기"
         android:textColor="#FFF3E5"
-        android:textSize="22sp"
-        android:layout_marginBottom="80dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        />
-
+        app:layout_constraintTop_toBottomOf="@+id/logo_place" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
@@ -107,17 +91,17 @@
         android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/start_btn"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/start_btn">
 
         <TextView
             android:id="@+id/exist_account_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_medium"
             android:text="이미 계정이 있나요?"
             android:textColor="@color/black"
-            android:textSize="13sp"
-            />
+            android:textSize="13dp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/login_btn"
@@ -125,12 +109,12 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
             android:background="#00ff0000"
-            android:textColor="#82A323"
+            android:fontFamily="@font/notosans_medium"
             android:text="로그인"
+            android:textColor="#82A323"
             android:textSize="13sp"
-            app:layout_constraintStart_toEndOf="@+id/exist_account_text"
             app:layout_constraintBottom_toBottomOf="@id/exist_account_text"
-            />
+            app:layout_constraintStart_toEndOf="@+id/exist_account_text" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

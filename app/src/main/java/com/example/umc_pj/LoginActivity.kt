@@ -21,17 +21,17 @@ class LoginActivity: AppCompatActivity() {
 
 
         binding.loginBtn.setOnClickListener {
-            var id = binding.etId.text.toString() //아이디
-            var pw =  binding.etId.text.toString() //비번
 
-            if(id.isEmpty() || pw.isEmpty()){
-                Toast.makeText(this, "아이디 또는 비밀번호를 확인해주세요", Toast.LENGTH_SHORT).show()
-                binding.warningText.visibility = View.VISIBLE
-            }else {
-                binding.warningText.visibility = View.INVISIBLE
+            var id = binding.etId.text.toString() // 아이디
+            var pw = binding.etPw.text.toString() // 비번
+
+            if(id.isNotEmpty() && id.isNotBlank() && pw.isNotEmpty() && pw.isNotBlank()){
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
+            }else{
+                binding.warningText.visibility = View.VISIBLE
             }
+
         }
 
         binding.infoBtn.setOnClickListener {
@@ -40,7 +40,7 @@ class LoginActivity: AppCompatActivity() {
         }
 
         binding.findBtn.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, FindActivity::class.java)
             startActivity(intent)
         }
 
@@ -49,6 +49,7 @@ class LoginActivity: AppCompatActivity() {
     override fun onTouchEvent(event: MotionEvent): Boolean {
         val imm: InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
+        binding.warningText.visibility = View.INVISIBLE
         return true
     }
 
