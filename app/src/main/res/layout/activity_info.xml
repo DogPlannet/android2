@@ -137,7 +137,7 @@
                 android:textColor="#C64A4A"
                 android:textSize="12dp">
             </TextView>
-            
+
         </LinearLayout>
 
         <TextView

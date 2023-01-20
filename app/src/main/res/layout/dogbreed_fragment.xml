@@ -1,0 +1,23 @@
+<LinearLayout
+    android:id="@+id/frgbreed"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="50dp"
+    android:background="#ffffff"
+    android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/breed_name"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center|left"
+            android:text="이름"
+            android:textColor="#999999"
+            android:textSize="18dp"
+            android:textStyle="normal" />
+    </LinearLayout>
+</LinearLayout>

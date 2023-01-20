@@ -11,7 +11,6 @@
         android:id="@+id/logo_place"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         app:layout_constraintBottom_toTopOf="@+id/start_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,12 +74,13 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/start_btn"
-        android:layout_width="233sp"
-        android:layout_height="48sp"
+        android:layout_width="233dp"
+        android:layout_height="45dp"
         android:background="@drawable/start_button"
         android:text="시작하기"
         android:textColor="#FFF3E5"
-        android:textSize="20dp"
+        android:layout_marginBottom="52dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo_place" />
@@ -107,6 +107,7 @@
             android:id="@+id/login_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
             android:layout_marginLeft="4dp"
             android:background="#00ff0000"
             android:fontFamily="@font/notosans_medium"

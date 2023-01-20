@@ -9,6 +9,8 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.CompoundButton
 import com.example.umc_pj.databinding.ActivityAgreeBinding
+import kotlinx.android.synthetic.main.activity_dog_register.*
+import kotlinx.android.synthetic.main.activity_info.*
 
 
 class UserAgreeActivity : AppCompatActivity() {
