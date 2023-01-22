@@ -28,6 +28,7 @@
 
     </androidx.appcompat.widget.Toolbar>
     <View
+        android:id="@+id/toolbarline"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#FCCE65"
@@ -38,7 +39,7 @@
         android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarline"
         app:layout_constraintBottom_toTopOf="@id/main_bnv">
     </FrameLayout>
 

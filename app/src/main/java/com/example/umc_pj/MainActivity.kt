@@ -9,35 +9,43 @@ import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.example.umc_pj.homepackage.NaviHomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    var mBackWait:Long = 0
     private val fl: FrameLayout by lazy {
         findViewById(R.id.main_frm)
     }
-    // 뒤로가기 2번
     private var backPressedTime : Long = 0
-    override fun onBackPressed() {
-        Log.d("TAG", "뒤로가기")
-
-        // 2초내 다시 클릭하면 앱 종료
-        if (System.currentTimeMillis() - backPressedTime < 2000) {
-            finish()
-            return
-        }
-        // 처음 클릭 메시지
-        Toast.makeText(this, "'뒤로' 버튼을 한번 더 누르시면 앱이 종료됩니다.", Toast.LENGTH_SHORT).show()
-        backPressedTime = System.currentTimeMillis()
-    }
     //액션버튼 메뉴 액션바에 집어 넣기
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_toolbar_menu, menu)
         return true
     }
+
+    //이 부분은 뒤로가기 이벤트 처리용 코드. 후에 사용 할듯
+//    interface onBackPressedListener {
+//        fun onBackPressed()
+//    }
+//    override fun onBackPressed(){
+//        Log.d("sad","dsad")
+//        //해당 엑티비티에서 띄운 프래그먼트에서 뒤로가기를 누르게 되면 프래그먼트에서 구현한 onBackPressed 함수가 실행되게 된다.
+//        val fragmentList = supportFragmentManager.fragments
+//        //플래그먼트에서 뒤로가기 구현
+//        for (fragment in fragmentList) {
+//            if (fragment is onBackPressedListener) {
+//                (fragment as onBackPressedListener).onBackPressed()
+//                return
+//            }else{
+//                //네비게이션에 있는 메이들로 가면 꺼짐
+//                finish()
+//            }
+//        }
+//    }
+
 
     //액션버튼 클릭 했을 때
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -54,9 +62,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val main_bnv = findViewById<BottomNavigationView>(R.id.main_bnv)
         setSupportActionBar(toolbar) //커스텀한 toolbar를 액션바로 사용
         supportActionBar?.setDisplayShowTitleEnabled(false) //액션바에 표시되는 제목의 표시유무를 설정합니다. false로 해야 custom한 툴바의 이름이 화면에 보이게 됩니다.
-        val main_bnv = findViewById<BottomNavigationView>(R.id.main_bnv)
 
         //supportFragmentManager.beginTransaction().add(R.id.fl_con, NaviHomeFragment()).commit()
 
