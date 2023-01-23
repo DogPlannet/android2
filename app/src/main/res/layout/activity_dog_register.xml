@@ -158,7 +158,6 @@
         android:layout_height="210dp"
         android:background="@drawable/dogbreed_searchbox"
         android:translationZ="90dp"
-        android:paddingStart="15dp"
         android:outlineProvider="none"
         app:layout_constraintTop_toTopOf="@id/breed_search"
         app:layout_constraintStart_toStartOf="@id/breed_search"
