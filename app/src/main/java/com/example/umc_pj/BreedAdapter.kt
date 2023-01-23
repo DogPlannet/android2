@@ -2,6 +2,7 @@ package com.example.umc_pj
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -11,16 +12,23 @@ import androidx.recyclerview.widget.RecyclerView
 
 class BreedAdapter(var onItemClick: BreedItemClick, var persons: ArrayList<BreedDTO>, var con: Context) :
     RecyclerView.Adapter<BreedAdapter.ViewHolder>(),Filterable  {
+
+    var singleitem = -1
+
+
+
     var filteredBreed = ArrayList<BreedDTO>()
     var itemFilter = ItemFilter()
     var choose_breed = String()
 
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var tv_name_phone_book_list_item: TextView
+
         init {
             tv_name_phone_book_list_item = itemView.findViewById(R.id.breed_name)
-
             itemView.setOnClickListener {
+                setSingleitemSelected(adapterPosition)
                 var position = adapterPosition
                 choose_breed = filteredBreed[position].name
                 onItemClick.onClick(choose_breed)
@@ -41,6 +49,11 @@ class BreedAdapter(var onItemClick: BreedItemClick, var persons: ArrayList<Breed
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val person: BreedDTO = filteredBreed[position]
         holder.tv_name_phone_book_list_item.text = person.name
+        if (singleitem==position){
+            holder.itemView.setBackgroundColor(Color.parseColor("#4DFCCE65"))
+        }else{
+            holder.itemView.setBackgroundColor(Color.TRANSPARENT)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -50,6 +63,14 @@ class BreedAdapter(var onItemClick: BreedItemClick, var persons: ArrayList<Breed
     override fun getFilter(): Filter {
         return itemFilter
     }
+
+    private fun setSingleitemSelected(adapterposition:Int){
+        if (adapterposition==RecyclerView.NO_POSITION) return
+        notifyItemChanged(singleitem)
+        singleitem=adapterposition
+        notifyItemChanged(singleitem)
+    }
+
 
     inner class ItemFilter : Filter() {
         override fun performFiltering(charSequence: CharSequence): FilterResults {

@@ -30,6 +30,10 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
+        </activity>
+        <activity
+            android:name=".DogRegisterActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -54,6 +58,7 @@
         <activity
             android:name=".SplashActivity"
             android:exported="true">
+
         </activity>
     </application>
 
