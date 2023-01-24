@@ -186,13 +186,13 @@
 
 
         <android.widget.Button
-            android:layout_width="233dp"
+            android:layout_width="340dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
             android:layout_marginStart="71dp"
             android:layout_marginTop="36dp"
             android:layout_marginEnd="71dp"
-            android:layout_marginBottom="52dp"
+            android:layout_marginBottom="57dp"
             android:visibility="invisible"
             android:enabled="false"
             android:stateListAnimator="@null"/>
@@ -290,7 +290,7 @@
 
     <!--재사용 예정-->
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center_horizontal|bottom"
@@ -299,11 +299,11 @@
         <android.widget.Button
             android:id="@+id/agree_btn"
             style="@style/ColoredButton"
-            android:layout_width="233dp"
+            android:layout_width="320dp"
             android:layout_height="45dp"
             android:layout_marginTop="36dp"
             android:layout_marginBottom="52dp"
-
+            android:layout_gravity="center"
             android:background="@drawable/agree_nextbtn_color"
             android:enabled="false"
             android:stateListAnimator="@null"
