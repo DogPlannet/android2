@@ -25,7 +25,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/describe2"/>
+        app:layout_constraintTop_toBottomOf="@+id/describe2" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/back_button"
@@ -93,15 +93,14 @@
         android:textColor="@color/black"
         android:textStyle="bold"
         android:layout_marginTop="200dp"
-        android:layout_marginRight="270dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintStart_toEndOf="@+id/back_button"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/dog_name_edt_text"
-        android:layout_width="360dp"
-        android:layout_height="50dp"
+        android:layout_width="340dp"
+        android:layout_height="43dp"
         android:background="@drawable/info_edittext_rounded_corner_rectangle"
         android:paddingStart="15dp"
         android:hint="이름을 입력해주세요."
@@ -133,8 +132,8 @@
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/breed_search"
-        android:layout_width="370dp"
-        android:layout_height="50dp"
+        android:layout_width="340dp"
+        android:layout_height="43dp"
         android:background="@drawable/dogbreed_search"
         android:maxLength="10"
         android:textSize="18sp"
@@ -154,11 +153,10 @@
         android:scrollbarFadeDuration="0"
         android:id="@+id/rv_phone_book"
         android:paddingBottom="1dp"
-        android:layout_width="370dp"
+        android:layout_width="340dp"
         android:layout_height="210dp"
         android:background="@drawable/dogbreed_searchbox"
         android:translationZ="90dp"
-        android:paddingStart="15dp"
         android:outlineProvider="none"
         app:layout_constraintTop_toTopOf="@id/breed_search"
         app:layout_constraintStart_toStartOf="@id/breed_search"
@@ -183,11 +181,11 @@
 
     <Spinner
         android:id="@+id/dog_gender_spinner"
-        android:layout_width="360dp"
-        android:layout_height="50dp"
+        android:layout_width="340dp"
+        android:layout_height="43dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="8dp"
-        android:dropDownWidth="355dp"
+        android:dropDownWidth="340dp"
         android:background="@drawable/dog_register_frame"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
@@ -209,14 +207,13 @@
 
     <Spinner
         android:id="@+id/dog_age_spinner"
-        android:layout_width="360dp"
-        android:layout_height="50dp"
+        android:layout_width="340dp"
+        android:layout_height="43dp"
         android:background="@drawable/dog_register_frame"
         android:spinnerMode="dropdown"
-        android:dropDownWidth="355dp"
+        android:dropDownWidth="340dp"
         android:layout_marginTop="8dp"
         android:layout_marginLeft="5dp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginBottom="80dp"
@@ -225,13 +222,12 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/next_page_btn"
-        android:layout_width="233dp"
+        android:layout_width="340dp"
         android:layout_height="45dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         android:background="@drawable/disabled_button"
         android:text="다음으로"
         android:textColor="#FFF3E5"
-        android:textSize="22sp"
         app:layout_constraintTop_toBottomOf="@id/dog_age_spinner"
         android:layout_marginBottom="52dp"
         app:layout_constraintBottom_toBottomOf="parent"

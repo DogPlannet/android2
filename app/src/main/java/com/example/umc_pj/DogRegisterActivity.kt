@@ -205,7 +205,7 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
 
                 val v = super.getView(position, convertView, parent)
-                if (position==0) {
+                if (position == count) {
 
                     (v.findViewById<View>(R.id.tvGenderSpinner) as TextView).text = ""
                     (v.findViewById<View>(R.id.tvGenderSpinner) as TextView).hint = "성별을 선택해주세요."
@@ -214,13 +214,18 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
                 return v
             }
 
+            override fun getCount(): Int {
+                return super.getCount() - 1
+            }
+
         }
-        genderAdapter.add("성별을 선택해주세요.")
+
         genderAdapter.addAll(genderData.toMutableList())
+        genderAdapter.add("성별을 선택해주세요.")
 
         viewBinding.dogGenderSpinner.adapter = genderAdapter
 
-        dog_gender_spinner.setSelection(0)
+        dog_gender_spinner.setSelection(genderAdapter.count)
         dog_gender_spinner.dropDownVerticalOffset = dipToPixels(50f).toInt()
     }
 
@@ -230,7 +235,8 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 when(position) {
                     0 -> {
-                        validSpinner2 = false //이거 무슨 코드죠?
+                        validSpinner2 = true
+                        //이거 무슨 코드죠? -> 원래 포지션 0 일 때 성별을 선택해주세요 를 넣어둬서 이걸 선택하면 선택처리 안한다는 코드였습니다.
                     }
                     else -> {
                         validSpinner2 = true
@@ -267,7 +273,7 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
 
         }
 
-        ageAdapter.add("나이 선택해주세요.")
+        ageAdapter.add("출생년도를 선택해주세요.")
         ageAdapter.addAll(ageData.toMutableList())
 
         viewBinding.dogAgeSpinner.adapter = ageAdapter

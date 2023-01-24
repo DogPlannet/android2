@@ -51,9 +51,9 @@
     <android.widget.Button
         android:id="@+id/agree_btn"
         style="@style/ColoredButton"
-        android:layout_width="233dp"
+        android:layout_width="320dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="57dp"
         android:background="@drawable/agree_nextbtn_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

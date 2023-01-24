@@ -7,7 +7,7 @@
 
     <item
         android:id="@+id/navigation_community"
-        android:icon="@drawable/bnm2"
+        android:icon="@drawable/bnm22"
         android:title="멍뮤니티" />
 
     <item
