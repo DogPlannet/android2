@@ -10,7 +10,6 @@
     android:gravity="bottom"
     tools:context=".LoginActivity">
 
-<!--    왜 안 되지 -->
     <ImageView
         android:id="@+id/logo_login"
         android:layout_width="211dp"
