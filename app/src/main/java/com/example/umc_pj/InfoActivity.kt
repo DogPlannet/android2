@@ -155,7 +155,6 @@ class InfoActivity: AppCompatActivity() {
                     startActivity(intent)
                 }
             }
-
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
