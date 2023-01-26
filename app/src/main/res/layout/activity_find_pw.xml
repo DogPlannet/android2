@@ -17,12 +17,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/describe2" />
+            app:layout_constraintTop_toBottomOf="@+id/text2" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/back_button"
             android:layout_width="10dp"
-            android:layout_height="10dp"
+            android:layout_height="16dp"
             android:layout_marginStart="20dp"
             android:background="@drawable/back_btn"
             android:layout_marginTop="20dp"
@@ -43,37 +43,26 @@
         <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
         <TextView
-            android:id="@+id/receive_name_txt"
+            android:id="@+id/text1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:textColor="@color/google_login"
             android:layout_marginTop="80dp"
-            android:layout_marginLeft="10dp"
+            android:text="비밀번호를 잊으셨나요?"
             app:layout_constraintStart_toEndOf="@+id/back_button"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/describe1"
+            android:id="@+id/text2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="님, 반가워요 !"
+            android:text="비밀번호 찾기"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:layout_marginTop="80dp"
-            app:layout_constraintStart_toEndOf="@id/receive_name_txt"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/describe2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="반려견 정보를 입력해주세요"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_marginTop="100dp"
-            android:layout_marginLeft="10dp"
+            android:textSize="16dp"
+            android:layout_marginTop="2dp"
             app:layout_constraintStart_toEndOf="@id/back_button"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/text1" />
 
 
         <TextView
@@ -127,7 +116,7 @@
             android:layout_height="43dp"
             android:background="@drawable/info_edittext_rounded_corner_rectangle"
             android:paddingStart="15dp"
-            android:hint="이름을 입력해주세요."
+            android:hint="이메일을 입력해주세요."
             android:textSize="18sp"
             android:textColor="#ffFF6000"
             android:textCursorDrawable="@null"
