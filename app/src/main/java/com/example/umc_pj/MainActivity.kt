@@ -1,17 +1,15 @@
 package com.example.umc_pj;
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
-import com.example.umc_pj.databinding.ActivityMainBinding
 import android.widget.FrameLayout
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.example.umc_pj.databinding.ActivityMainBinding
 import com.example.umc_pj.homepackage.NaviHomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -86,7 +84,7 @@ class MainActivity : AppCompatActivity() {
                     R.id.navigation_notice -> {
                         main_bnv.itemIconTintList = ContextCompat.getColorStateList(this, R.color.purple_200)
                         main_bnv.itemTextColor = ContextCompat.getColorStateList(this, R.color.purple_200)
-                        NaviNoticeFragment()
+                        Calendar_fragment()
                         // Respond to navigation item 3 click
                     }
                     else -> {
@@ -102,6 +100,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun changeFragment(fragment: Fragment) {
+        supportFragmentManager.popBackStackImmediate()
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.main_frm, fragment)
