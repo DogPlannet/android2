@@ -4,12 +4,14 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MotionEvent
+import android.view.View
 import android.view.inputmethod.InputMethodManager
+import kotlinx.android.synthetic.main.activity_login.*
 
-class FindPwActivity : AppCompatActivity() {
+class FindIdActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_find_pw)
+        setContentView(R.layout.activity_find_id)
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {

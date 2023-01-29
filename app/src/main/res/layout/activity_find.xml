@@ -6,12 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".FindActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="아이디랑 비번 찾기!!!"
-        android:textSize="40dp"
+    <Button
+        android:id="@+id/findid_btn"
+        style="@style/ColoredButton"
+        android:layout_width="200dp"
+        android:layout_height="43dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="288dp"
+        android:layout_marginBottom="37dp"
+        android:background="@drawable/agree_nextbtn_color"
+        android:text="아이디 찾기"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/findpw_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/findpw_btn"
+        style="@style/ColoredButton"
+        android:layout_width="200dp"
+        android:layout_height="43dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="368dp"
+        android:layout_marginBottom="320dp"
+        android:background="@drawable/agree_nextbtn_color"
+        android:text="비밀번호 찾기"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="임시로 만들어두었습니다."
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
