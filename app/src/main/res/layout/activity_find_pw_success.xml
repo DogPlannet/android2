@@ -90,7 +90,7 @@
         android:layout_height="45dp"
         android:background="@drawable/start_button"
         android:gravity="center"
-        android:text="메인으로 이동"
+        android:text="로그인 화면으로 이동"
         android:textColor="#FFF3E5"
         android:layout_marginBottom="57dp"
         app:layout_constraintBottom_toBottomOf="parent"

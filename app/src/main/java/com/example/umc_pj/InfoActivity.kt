@@ -160,6 +160,10 @@ class InfoActivity: AppCompatActivity() {
     override fun onTouchEvent(event: MotionEvent): Boolean {
         val imm: InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
+        binding.etName.clearFocus()
+        binding.editTextTextEmailAddress.clearFocus()
+        binding.editTextTextPassword1.clearFocus()
+        binding.editTextTextPassword2.clearFocus()
         binding.emailLayout.visibility = View.INVISIBLE
         binding.pw1Layout.visibility = View.INVISIBLE
         binding.pw2Layout.visibility = View.INVISIBLE

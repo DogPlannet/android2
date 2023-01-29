@@ -364,5 +364,4 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
         return super.dispatchTouchEvent(event)
     }
 
-
 }
