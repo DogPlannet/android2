@@ -23,15 +23,27 @@
             android:layout_weight="4.5"
             android:orientation="vertical">
 
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/back_button"
+                android:layout_width="8.5dp"
+                android:layout_height="16.5dp"
+                android:background="@drawable/backbtn"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
             <ImageView
                 android:id="@+id/planet_icon"
-                android:layout_width="80dp"
-                android:layout_height="87dp"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="15dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/deletesoon" />
+                app:srcCompat="@drawable/logo1" />
 
             <TextView
                 android:id="@+id/text1"
@@ -266,7 +278,7 @@
                     android:layout_width="340dp"
                     android:layout_height="43dp"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="55dp"
+                    android:layout_marginBottom="52dp"
                     android:background="@drawable/agree_nextbtn_color"
                     android:clickable="false"
                     android:enabled="false"

@@ -273,7 +273,7 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
 
         }
 
-        ageAdapter.add("출생년도를 선택해주세요.")
+        ageAdapter.add("출생연도를 선택해주세요.")
         ageAdapter.addAll(ageData.toMutableList())
 
         viewBinding.dogAgeSpinner.adapter = ageAdapter

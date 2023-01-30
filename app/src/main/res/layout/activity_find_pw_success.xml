@@ -8,21 +8,20 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/back_button"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
-        android:background="@drawable/back_btn"
+        android:layout_width="8.5dp"
+        android:layout_height="16.5dp"
+        android:background="@drawable/backbtn"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="370dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/logo"
-        android:layout_width="360dp"
-        android:layout_height="240dp"
+        android:layout_width="189dp"
+        android:layout_height="119dp"
         android:layout_marginTop="180dp"
-        android:background="@drawable/logo"
+        android:background="@drawable/logo2"
         android:layout_marginBottom="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

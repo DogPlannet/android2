@@ -9,9 +9,9 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/back_button"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
-        android:background="@drawable/back_btn"
+        android:layout_width="8.5dp"
+        android:layout_height="16.5dp"
+        android:background="@drawable/backbtn"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="370dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,13 +20,14 @@
 
     <View
         android:id="@+id/logo"
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="240dp"
-        android:background="@drawable/logo"
+        android:layout_width="189dp"
+        android:layout_height="119dp"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/logo2"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@id/background" />
 
 <!--    <TextView-->
 <!--        android:id="@+id/receive_name_txt"-->
@@ -66,13 +67,14 @@
 <!--        app:layout_constraintTop_toBottomOf="@id/receive_name_txt"/>-->
 
     <View
+        android:id="@+id/background"
         android:layout_width="320dp"
         android:layout_height="146dp"
         android:background="@drawable/background1"
-        android:layout_marginTop="423dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/go_homepage_btn"
+        android:layout_marginBottom="120dp"/>
 
     <TextView
         android:id="@+id/dog_register_text1"
@@ -82,10 +84,10 @@
         android:textColor="#574444"
         android:textStyle="bold"
         android:textSize="16dp"
-        android:layout_marginTop="453dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="@id/background"
+        app:layout_constraintStart_toStartOf="@+id/background"
+        app:layout_constraintTop_toTopOf="@id/background" />
 
     <TextView
         android:id="@+id/dog_register_text2"
@@ -95,8 +97,8 @@
         android:textColor="#574444"
         android:textSize="13dp"
         android:layout_marginTop="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/background"
+        app:layout_constraintStart_toStartOf="@id/background"
         app:layout_constraintTop_toBottomOf="@+id/dog_register_text1" />
 
     <TextView
@@ -107,8 +109,8 @@
         android:textColor="#574444"
         android:textSize="13dp"
         android:layout_marginTop="7dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/background"
+        app:layout_constraintStart_toStartOf="@id/background"
         app:layout_constraintTop_toBottomOf="@+id/dog_register_text2" />
 
 

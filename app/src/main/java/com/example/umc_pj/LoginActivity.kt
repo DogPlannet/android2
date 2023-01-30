@@ -45,7 +45,7 @@ class LoginActivity: AppCompatActivity() {
         }
 
         binding.findBtn.setOnClickListener {
-            val intent = Intent(this, FindActivity::class.java)
+            val intent = Intent(this, FindPwActivity::class.java)
             startActivity(intent)
         }
 
@@ -59,7 +59,4 @@ class LoginActivity: AppCompatActivity() {
         binding.warningText.visibility = View.INVISIBLE
         return true
     }
-
-
-
 }
