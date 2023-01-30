@@ -26,4 +26,25 @@
         <item>11월</item>
         <item>12월</item>
     </string-array>
+    
+    <string name="head_1">"아니 여기 좀 보세요 1"</string>
+    <string name="head_2">"아니 여기 좀 보세요 2"</string>
+    <string name="head_3">"아니 여기 좀 보세요 3"</string>
+    <string name="head_4">"아니 여기 좀 보세요 4"</string>
+    <string name="head_5">"아니 여기 좀 보세요 5"</string>
+    <string name="head_6">"아니 여기 좀 보세요 6"</string>
+    <string name="head_7">"아니 여기 좀 보세요 7"</string>
+    <string name="head_8">"아니 여기 좀 보세요 8"</string>
+    <string name="head_9">"아니 여기 좀 보세요 9"</string>
+    <string name="head_10">"아니 여기 좀 보세요 10"</string>
+
+    <string name="nick_1">"닉네임"</string>
+
+    <string name="dog_1">"견종"</string>
+
+    <string name="heartcnt_1">"9"</string>
+
+    <string name="commentcnt_1">"90"</string>
+
+
 </resources>

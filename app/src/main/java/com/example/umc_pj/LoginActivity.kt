@@ -18,11 +18,6 @@ class LoginActivity: AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        binding.background.setOnClickListener{
-//            et_id.clearFocus()
-//            et_pw.clearFocus()
-//        }
-
 
         binding.loginBtn.setOnClickListener {
 

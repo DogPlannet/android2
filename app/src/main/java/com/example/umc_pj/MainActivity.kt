@@ -60,6 +60,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        replaceFragment(NaviCommunityFragment())
+
         val main_bnv = findViewById<BottomNavigationView>(R.id.main_bnv)
         setSupportActionBar(toolbar) //커스텀한 toolbar를 액션바로 사용
         supportActionBar?.setDisplayShowTitleEnabled(false) //액션바에 표시되는 제목의 표시유무를 설정합니다. false로 해야 custom한 툴바의 이름이 화면에 보이게 됩니다.
@@ -105,5 +108,12 @@ class MainActivity : AppCompatActivity() {
             .beginTransaction()
             .replace(R.id.main_frm, fragment)
             .commit()
+    }
+
+    private fun replaceFragment(naviCommunityFragment: Fragment){
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.main_frm, naviCommunityFragment)
+        fragmentTransaction.commit()
     }
 }
