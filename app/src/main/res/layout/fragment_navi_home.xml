@@ -9,22 +9,418 @@
     tools:context=".homepackage.HomeRecord">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"><!-- TODO: Update blank fragment layout -->
+        android:layout_height="match_parent">
+
         <TextView
+            android:id="@+id/day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2022년 1월 22일 화요일"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/profile"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="40dp"
+            android:textSize="22dp"
+            android:textColor="#191919"
+            />
+
+        <ImageView
+            android:id="@+id/profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/day"
+            android:background="@drawable/home_mainimage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/home_name"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="12dp"
+
+            />
+
+        <View
+            android:id="@+id/oo"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            app:layout_constraintStart_toStartOf="@id/profile"
+            app:layout_constraintEnd_toEndOf="@id/profile"
+            app:layout_constraintTop_toTopOf="@id/profile"
+            app:layout_constraintBottom_toBottomOf="@id/profile"/>
+        <ImageButton
+            android:id="@+id/camera"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:background="@drawable/camera"
+            android:layout_marginEnd="-4dp"
+            app:layout_constraintEnd_toEndOf="@id/profile"
+            app:layout_constraintBottom_toBottomOf="@id/profile"
+            />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/color_background"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+            android:layout_height="0dp"
+            android:background="#F8F4EA"
+            android:outlineProvider="none"
+            android:translationZ="-1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/oo"
+            app:layout_constraintVertical_bias="0.0"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <TextView
+            android:id="@+id/home_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/walk_box"
+            android:layout_marginBottom="32dp"
+            app:layout_constraintBottom_toTopOf="@id/weight_box"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="코코" />
+
+        <TextView
+            android:id="@+id/home_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#767676"
+            android:textSize="15dp"
+            android:textStyle="normal"
+            android:text="300살"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintTop_toTopOf="@id/home_name"
+            app:layout_constraintBottom_toBottomOf="@id/home_name"
+            app:layout_constraintStart_toEndOf="@+id/home_name"/>
+
+        <TextView
+            android:id="@+id/home_age_slash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#767676"
+            android:textSize="15dp"
+            android:textStyle="normal"
+            android:text="/"
+            android:layout_marginLeft="4dp"
+            app:layout_constraintTop_toTopOf="@id/home_name"
+            app:layout_constraintBottom_toBottomOf="@id/home_name"
+            app:layout_constraintStart_toEndOf="@+id/home_age"/>
+
+
+
+
+        <TextView
+            android:id="@+id/home_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#767676"
+            android:textSize="15dp"
+            android:textStyle="normal"
+            android:text="남"
+            android:layout_marginLeft="4dp"
+            app:layout_constraintTop_toTopOf="@id/home_name"
+            app:layout_constraintBottom_toBottomOf="@id/home_name"
+            app:layout_constraintStart_toEndOf="@+id/home_age_slash"/>
+
+        <TextView
+            android:id="@+id/home_sex_slash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#767676"
+            android:textSize="15dp"
+            android:textStyle="normal"
+            android:text="/"
+            android:layout_marginLeft="4dp"
+            app:layout_constraintTop_toTopOf="@id/home_name"
+            app:layout_constraintBottom_toBottomOf="@id/home_name"
+            app:layout_constraintStart_toEndOf="@+id/home_sex"/>
+
+
+
+        <TextView
+            android:id="@+id/home_breed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#767676"
+            android:textSize="15dp"
+            android:textStyle="normal"
+            android:layout_marginLeft="4dp"
+            android:text="비숑"
+            app:layout_constraintTop_toTopOf="@id/home_name"
+            app:layout_constraintBottom_toBottomOf="@id/home_name"
+            app:layout_constraintStart_toEndOf="@+id/home_sex_slash"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/weight_box"
+        android:layout_width="124dp"
+        android:layout_height="48dp"
+        app:layout_constraintBottom_toTopOf="@id/walk_box"
+        app:layout_constraintStart_toStartOf="@id/walk_box"
+        android:layout_marginBottom="26dp"
+        android:elevation="4dp"
+        android:background="@drawable/walk_box">
+
+        <TextView
+            android:id="@+id/weight_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="체중"
+            android:textSize="15.5dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginLeft="12dp"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <View
+            android:id="@+id/weight_line"
+            android:layout_width="2dp"
+            android:layout_height="24dp"
+            android:background="#FCCE65"
+            app:layout_constraintStart_toEndOf="@id/weight_text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginLeft="8dp"/>
+
+        <TextView
+            android:id="@+id/weight_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="체중"
+            android:textSize="15.5dp"
+            android:textStyle="normal"
+            android:textColor="#767676"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="@id/weight_line"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ddong_box"
+            android:layout_width="124dp"
+            android:layout_height="48dp"
+            app:layout_constraintBottom_toTopOf="@id/walk_box"
+            app:layout_constraintStart_toEndOf="@id/weight_box"
+            android:layout_marginLeft="7dp"
+            android:layout_marginBottom="26dp"
+            android:elevation="4dp"
+            android:background="@drawable/walk_box">
+
+
+            <TextView
+                android:id="@+id/ddong_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="배변"
+                android:textSize="15.5dp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginLeft="12dp"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <View
+                android:id="@+id/ddong_line"
+                android:layout_width="2dp"
+                android:layout_height="24dp"
+                android:background="#FCCE65"
+                app:layout_constraintStart_toEndOf="@id/ddong_text"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginLeft="8dp"/>
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/ddong_line"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/save_btn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:layout_constraintBottom_toTopOf="@id/walk_box"
+            app:layout_constraintStart_toEndOf="@id/ddong_box"
+            android:layout_marginLeft="7dp"
+            android:layout_marginBottom="26dp"
+            android:text="저장"
+            android:textStyle="bold"
+            android:textSize="15.5dp"
+            android:backgroundTint="#C7DA91"
+            app:layout_constraintEnd_toEndOf="@id/walk_box"
+            android:background="@drawable/walk_box"/>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/walk_box"
+            android:layout_width="311dp"
+            android:layout_height="78dp"
+            app:layout_constraintBottom_toTopOf="@id/recordbtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="32dp"
+            android:elevation="4dp"
+            android:background="@drawable/walk_box">
+
+            <TextView
+                android:id="@+id/walk_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="산책"
+                android:textSize="15.5dp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginLeft="12dp"
+                app:layout_constraintStart_toStartOf="parent"/>
+            <View
+                android:id="@+id/walk_line"
+                android:layout_width="2dp"
+                android:layout_height="24dp"
+                android:background="#FCCE65"
+                app:layout_constraintStart_toEndOf="@id/walk_text"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginLeft="8dp"/>
+
+            <ImageView
+                android:id="@+id/walk_jum2"
+                android:layout_width="13dp"
+                android:layout_height="3dp"
+                android:background="@drawable/walk_elipse"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/walk_line"
+                app:layout_constraintEnd_toEndOf="parent"/>
+            <ImageView
+                android:id="@+id/walk_jum1"
+                android:layout_width="13dp"
+                android:layout_height="3dp"
+                android:background="@drawable/walk_elipse"
+                app:layout_constraintTop_toTopOf="@id/walk_number"
+                app:layout_constraintBottom_toBottomOf="@id/walk_number"
+                app:layout_constraintStart_toStartOf="@id/walk_line"
+                app:layout_constraintEnd_toEndOf="parent"/>
+            <ImageView
+                android:id="@+id/walk_jum3"
+                android:layout_width="13dp"
+                android:layout_height="3dp"
+                android:background="@drawable/walk_elipse"
+                app:layout_constraintTop_toTopOf="@id/walk_range"
+                app:layout_constraintBottom_toBottomOf="@id/walk_range"
+                app:layout_constraintStart_toStartOf="@id/walk_line"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
+
+            <TextView
+                android:id="@+id/walk_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15.5dp"
+                android:textColor="#767676"
+                android:textStyle="bold"
+                android:text="시간"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginLeft="32dp"
+                app:layout_constraintStart_toStartOf="@id/walk_line"
+                app:layout_constraintEnd_toStartOf="@id/walk_jum2"/>
+
+            <TextView
+                android:id="@+id/walk_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15.5dp"
+                android:textColor="#767676"
+                android:textStyle="bold"
+                android:text="횟수"
+                app:layout_constraintBottom_toTopOf="@id/walk_time"
+                android:layout_marginLeft="32dp"
+                app:layout_constraintStart_toStartOf="@id/walk_line"
+                app:layout_constraintEnd_toStartOf="@id/walk_jum3"/>
+
+            <TextView
+                android:id="@+id/walk_range"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15.5dp"
+                android:textColor="#767676"
+                android:textStyle="bold"
+                android:text="거리"
+                app:layout_constraintTop_toBottomOf="@id/walk_time"
+                android:layout_marginLeft="32dp"
+                app:layout_constraintStart_toStartOf="@id/walk_line"
+                app:layout_constraintEnd_toStartOf="@id/walk_jum3"/>
+
+
+            <TextView
+                android:id="@+id/walk_time_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15.5dp"
+                android:textColor="#767676"
+                android:textStyle="bold"
+                android:text="3분"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginRight="32dp"
+                app:layout_constraintStart_toEndOf="@id/walk_jum2"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/walk_number_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15.5dp"
+                android:textColor="#767676"
+                android:textStyle="bold"
+                android:text="1회"
+                app:layout_constraintBottom_toTopOf="@id/walk_time"
+                android:layout_marginRight="32dp"
+                app:layout_constraintStart_toEndOf="@id/walk_jum1"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/walk_range_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15.5dp"
+                android:textColor="#767676"
+                android:textStyle="bold"
+                android:text="13m"
+                app:layout_constraintTop_toBottomOf="@id/walk_time"
+                android:layout_marginRight="32dp"
+                app:layout_constraintStart_toEndOf="@id/walk_jum1"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        
 
         <Button
             android:id="@+id/recordbtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="오늘 건강 기록하기"
-            android:background="#C7DA91"
+            android:layout_width="187dp"
+            android:layout_height="40dp"
+            android:text="오늘 산책 기록하기"
+            android:background="@drawable/record_button"
+            android:textSize="15.5dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="52dp"
+            android:elevation="0dp"
+
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

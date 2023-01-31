@@ -16,7 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/calendarView"
-            app:mcv_dateTextAppearance="@style/CalenderViewDateCustomText"
+            app:mcv_showOtherDates="all"
+
             app:mcv_weekDayTextAppearance="@style/CalenderViewWeekCustomText"
             app:mcv_selectionColor="#FCCE65"
             app:layout_constraintStart_toStartOf="parent"
