@@ -11,18 +11,15 @@ class NaviCommunityAdapter(private val itemList: ArrayList<NaviCommunityModel>):
 
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NaviCommunityViewHolder {
-                TODO("Not yet implemented")
                 val view = LayoutInflater.from(parent.context).inflate(R.layout.layout_community_rc_view_item, parent, false)
                 return NaviCommunityViewHolder(view)
         }
 
         override fun getItemCount(): Int {
-                TODO("Not yet implemented")
                 return itemList.count()
         }
 
         override fun onBindViewHolder(holder: NaviCommunityViewHolder, position: Int) {
-                TODO("Not yet implemented")
                 holder.title.text = itemList[position].title
                 holder.nickname.text = itemList[position].nickname
                 holder.dog.text = itemList[position].dog

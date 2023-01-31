@@ -59,7 +59,7 @@
             android:id="@+id/iv_heart"
             android:layout_width="13dp"
             android:layout_height="11.73dp"
-            android:layout_marginStart="233dp"
+            android:layout_marginStart="200dp"
             android:layout_marginTop="12.62dp"
             android:src="@drawable/icon_heart_green"
             app:layout_constraintStart_toEndOf="@+id/tv_dog"
@@ -95,9 +95,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:layout_marginTop="9dp"
+            android:layout_marginEnd="24dp"
             android:text="0"
             android:textColor="@color/black"
             android:textSize="13dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iv_comment"
             app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
