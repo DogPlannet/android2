@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
+
     private val fl: FrameLayout by lazy {
         findViewById(R.id.main_frm)
     }
@@ -73,15 +74,16 @@ class MainActivity : AppCompatActivity() {
         var toolbar2 = findViewById<Toolbar>(R.id.toolbar2)
 
         close_notice.setOnClickListener {
+            val transaction = supportFragmentManager.popBackStack()
             toolbar.visibility = View.VISIBLE
             toolbar2.visibility = View.INVISIBLE
-
 
         }
 
         noticeitem.setOnClickListener{
             val transaction = supportFragmentManager.beginTransaction()
                 .replace(R.id.main_frm, NoticeFragment())
+                .addToBackStack(null)
             transaction.commit()
             toolbar.visibility = View.INVISIBLE
             toolbar2.visibility = View.VISIBLE
