@@ -73,26 +73,30 @@ class MainActivity : AppCompatActivity() {
             changeFragment(
                 when (item.itemId) {
                     R.id.navigation_home -> {
-                        main_bnv.itemIconTintList = ContextCompat.getColorStateList(this, R.color.purple_200)
-                        main_bnv.itemTextColor = ContextCompat.getColorStateList(this, R.color.purple_200)
+//                        main_bnv.itemIconTintList = ContextCompat.getColorStateList(this, R.color.purple_200)
+//                        main_bnv.itemTextColor = ContextCompat.getColorStateList(this, R.color.purple_200)
+                        main_bnv.itemIconTintList = null
                         NaviHomeFragment()
                         // Respond to navigation item 1 click
                     }
                     R.id.navigation_community -> {
-                        main_bnv.itemIconTintList = ContextCompat.getColorStateList(this, R.color.purple_200)
-                        main_bnv.itemTextColor = ContextCompat.getColorStateList(this, R.color.purple_200)
+//                        main_bnv.itemIconTintList = ContextCompat.getColorStateList(this, R.color.purple_200)
+//                        main_bnv.itemTextColor = ContextCompat.getColorStateList(this, R.color.purple_200)
+                        main_bnv.itemIconTintList = null
                         NaviCommunityFragment()
                         // Respond to navigation item 2 click
                     }
-                    R.id.navigation_notice -> {
-                        main_bnv.itemIconTintList = ContextCompat.getColorStateList(this, R.color.purple_200)
-                        main_bnv.itemTextColor = ContextCompat.getColorStateList(this, R.color.purple_200)
+                    R.id.navigation_calendar -> {
+//                        main_bnv.itemIconTintList = ContextCompat.getColorStateList(this, R.color.purple_200)
+//                        main_bnv.itemTextColor = ContextCompat.getColorStateList(this, R.color.purple_200)
+                        main_bnv.itemIconTintList = null
                         Calendar_fragment()
                         // Respond to navigation item 3 click
                     }
                     else -> {
-                        main_bnv.itemIconTintList = ContextCompat.getColorStateList(this, R.color.purple_200)
-                        main_bnv.itemTextColor = ContextCompat.getColorStateList(this, R.color.purple_200)
+//                        main_bnv.itemIconTintList = ContextCompat.getColorStateList(this, R.color.purple_200)
+//                        main_bnv.itemTextColor = ContextCompat.getColorStateList(this, R.color.purple_200)
+                        main_bnv.itemIconTintList = null
                         NaviMypageFragment()
                     }
                 }
