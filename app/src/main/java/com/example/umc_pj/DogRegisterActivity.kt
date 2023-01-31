@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.umc_pj.databinding.ActivityDogRegisterBinding
 import kotlinx.android.synthetic.main.activity_dog_register.*
+import kotlinx.android.synthetic.main.breed_spinner.*
 
 
 class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
@@ -94,6 +95,8 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
         setupAgeData()
         setupAgeHandler()
 
+//        limitDropHeight(dog_age_spinner)
+
     }
 
 
@@ -125,13 +128,13 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
 
 
     // -- 스피너 높이 조절 코드인데 잘 안되네요 --
-        fun limitDropHeight(breed_spinner: Spinner) {
-            val popup = Spinner::class.java.getDeclaredField("good")
-            popup.isAccessible = true
-
-            val popupWindow = popup.get(breed_spinner) as ListPopupWindow
-            popupWindow.height = (50 * resources.displayMetrics.density).toInt()
-        }
+//    private fun limitDropHeight(breed_spinner: Spinner) {
+//            val popup = Spinner::class.java.getDeclaredField("good")
+//            popup.isAccessible = true
+//
+//            val popupWindow = popup.get(breed_spinner) as ListPopupWindow
+//            popupWindow.height = (50 * resources.displayMetrics.density).toInt()
+//        }
 
 
 

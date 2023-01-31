@@ -1,16 +1,19 @@
 package com.example.umc_pj.homepackage
 
+import android.content.Context
 import android.os.Bundle
-import android.util.Log
+import android.util.TypedValue
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.TextView
 import androidx.fragment.app.FragmentTransaction
 import com.example.umc_pj.R
-import com.example.umc_pj.databinding.FragmentHomeRecordBinding
 import com.example.umc_pj.databinding.FragmentNaviHomeBinding
+import kotlinx.android.synthetic.main.activity_dog_register.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -39,7 +42,15 @@ class NaviHomeFragment : Fragment(){
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
     }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+//        this.setupData()
+//        this.setupStatusHandler()
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,7 +64,6 @@ class NaviHomeFragment : Fragment(){
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         binding.recordbtn.setOnClickListener {
-            goRecordPage()
         }
     }
 
@@ -91,6 +101,69 @@ class NaviHomeFragment : Fragment(){
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun setupData() {
+
+        val statusData = resources.getStringArray(R.array.spinner_ddong)
+
+        val statusAdapter = object : ArrayAdapter<String>(requireContext(),R.layout.gender_spinner) {
+
+            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+
+                val v = super.getView(position, convertView, parent)
+                if (position == count) {
+
+                    (v.findViewById<View>(R.id.tvGenderSpinner) as TextView).text = ""
+                    (v.findViewById<View>(R.id.tvGenderSpinner) as TextView).hint = "정보없멍"
+
+                }
+                return v
+            }
+
+            override fun getCount(): Int {
+                return super.getCount() - 1
+            }
+
+        }
+
+        statusAdapter.addAll(statusData.toMutableList())
+        statusAdapter.add("정보없멍")
+
+        _binding!!.dogDdongSpinner.adapter = statusAdapter
+
+        dog_gender_spinner.setSelection(statusAdapter.count)
+        dog_gender_spinner.dropDownVerticalOffset = dipToPixels(50f).toInt()
+    }
+
+
+    private fun setupStatusHandler() {
+        _binding?.dogDdongSpinner?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                when(position) {
+                    0 -> {
+
+                    }
+                    else -> {
+
+                    }
+                }
+
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+        }
+    }
+
+
+    private fun dipToPixels(dipValue: Float): Float {
+        return TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            dipValue,
+            resources.displayMetrics
+        )
     }
 
 }
