@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="22dp"
-        android:text=""
+        android:text="ddd"
         android:layout_gravity="center"
         />
 

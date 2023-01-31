@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NaviMypageFragment">
+    tools:context=".MyPageActivity">
 
-    <!--    <View-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:id="@+id/view1" />-->
+<!--    <View-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:id="@+id/view1" />-->
 
-    <!--    <View-->
-    <!--        android:id="@+id/line"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="10dp"-->
-    <!--        android:layout_marginTop="50dp"-->
-    <!--        android:background="#574444" />-->
+<!--    <View-->
+<!--        android:id="@+id/line"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="10dp"-->
+<!--        android:layout_marginTop="50dp"-->
+<!--        android:background="#574444" />-->
 
     <LinearLayout
         android:id="@+id/view1"
@@ -31,26 +31,26 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+        
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="46dp"
+            android:layout_height="34dp"
+            android:background="@drawable/logo1"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="50dp" />
 
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="46dp"
-                android:layout_height="34dp"
-                android:background="@drawable/logo1"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="50dp" />
-
-            <TextView
-                android:id="@+id/receive_dog_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="x"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_toEndOf="@+id/logo"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="52dp"/>
+        <TextView
+            android:id="@+id/receive_dog_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_toEndOf="@+id/logo"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="52dp"/>
 
             <TextView
                 android:id="@+id/text1"
@@ -85,15 +85,15 @@
                 android:layout_toEndOf="@+id/receive_breed"
                 android:layout_marginTop="52dp"/>
             <TextView
-                android:id="@+id/receive_gender"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="z"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_toEndOf="@+id/text2"
-                android:layout_marginTop="52dp"/>
+            android:id="@+id/receive_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="z"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_toEndOf="@+id/text2"
+            android:layout_marginTop="52dp"/>
         </RelativeLayout>
     </LinearLayout>
 
@@ -282,6 +282,17 @@
         app:layout_constraintBottom_toTopOf="@+id/location"
         app:layout_constraintStart_toStartOf="@+id/call"
         android:layout_marginBottom="3dp" />
+
+
+
+
+
+
+
+
+
+
+
 
 
 

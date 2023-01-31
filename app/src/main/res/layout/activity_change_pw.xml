@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/background"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#F8F4EA"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text2" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/layout"
+        android:background="#DADADA" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/back_button"
+        android:layout_width="8.5dp"
+        android:layout_height="16.5dp"
+        android:background="@drawable/backbtn"
+        app:layout_constraintTop_toTopOf="@+id/text1"
+        app:layout_constraintBottom_toBottomOf="@+id/text1"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="20dp"/>
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="비밀번호 변경하기"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/line"/>
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintStart_toEndOf="@id/back_button"
+        app:layout_constraintTop_toBottomOf="@+id/text1" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/change_pw_btn"
+        android:layout_width="340dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/disabled_button"
+        android:text="비밀번호 변경"
+        android:textColor="#FFF3E5"
+        android:layout_marginBottom="52dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tv_pw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="현재 비밀번호"
+        android:textColor="#191919"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/line"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword1">
+    </TextView>
+
+    <EditText
+        android:id="@+id/editTextTextPassword1"
+        android:layout_width="340dp"
+        android:layout_height="43dp"
+        android:layout_gravity="center"
+        android:background="@drawable/info_edittext_rounded_corner_rectangle"
+        android:hint="현재 비밀번호를 입력해주세요."
+        android:inputType="textPassword"
+        android:textSize="16dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_pw"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+    </EditText>
+
+    <LinearLayout
+        android:id="@+id/pw1_layout"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:orientation="horizontal"
+        android:visibility="invisible"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword1"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword1"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword1">
+        <!--            기본 상태는 invisible, 문제 발생 시 visible-->
+
+        <ImageView
+            android:id="@+id/vector_pw1"
+            android:layout_marginTop="6dp"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:src="@drawable/vector">
+        </ImageView>
+
+        <TextView
+            android:id="@+id/warning_pw1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="4dp"
+            android:text="현재 비밀번호가 일치하지 않습니다."
+            android:textColor="#C64A4A"
+            android:textSize="12dp">
+        </TextView>
+    </LinearLayout>
+
+
+
+    <TextView
+        android:id="@+id/tv_new_pw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="새 비밀번호"
+        android:textColor="#191919"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/pw1_layout"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword1">
+    </TextView>
+
+    <EditText
+        android:id="@+id/new_pw"
+        android:layout_width="340dp"
+        android:layout_height="43dp"
+        android:layout_gravity="center"
+        android:background="@drawable/info_edittext_rounded_corner_rectangle"
+        android:hint="변경할 비밀번호를 입력해주세요."
+        android:inputType="textPassword"
+        android:textSize="16dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_new_pw"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+    </EditText>
+
+    <LinearLayout
+        android:id="@+id/pw2_layout"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:orientation="horizontal"
+        android:visibility="invisible"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/new_pw"
+        app:layout_constraintStart_toStartOf="@+id/new_pw"
+        app:layout_constraintEnd_toEndOf="@+id/new_pw">
+        <!--            기본 상태는 invisible, 문제 발생 시 visible-->
+
+        <ImageView
+            android:id="@+id/vector_pw2"
+            android:layout_marginTop="6dp"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:src="@drawable/vector">
+        </ImageView>
+
+        <TextView
+            android:id="@+id/warning_pw2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="4dp"
+            android:text="알파벳, 숫자, 특수문자를 각각 1개 이상 입력해주세요."
+            android:textColor="#C64A4A"
+            android:textSize="12dp">
+        </TextView>
+    </LinearLayout>
+
+
+
+    <TextView
+        android:id="@+id/tv_new_re_pw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="새 비밀번호"
+        android:textColor="#191919"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/pw2_layout"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword1">
+    </TextView>
+
+    <EditText
+        android:id="@+id/re_pw"
+        android:layout_width="340dp"
+        android:layout_height="43dp"
+        android:layout_gravity="center"
+        android:background="@drawable/info_edittext_rounded_corner_rectangle"
+        android:hint="새 비밀번호를 다시 입력해주세요."
+        android:inputType="textPassword"
+        android:textSize="16dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_new_re_pw"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+    </EditText>
+
+    <LinearLayout
+        android:id="@+id/pw3_layout"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:orientation="horizontal"
+        android:visibility="invisible"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/re_pw"
+        app:layout_constraintStart_toStartOf="@+id/re_pw"
+        app:layout_constraintEnd_toEndOf="@+id/re_pw">
+        <!--            기본 상태는 invisible, 문제 발생 시 visible-->
+
+        <ImageView
+            android:id="@+id/vector_pw3"
+            android:layout_marginTop="6dp"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:src="@drawable/vector">
+        </ImageView>
+
+        <TextView
+            android:id="@+id/warning_pw3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="4dp"
+            android:text="새 비밀번호와 일치하지 않습니다."
+            android:textColor="#C64A4A"
+            android:textSize="12dp">
+        </TextView>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
