@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="40dp"
+        >
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="개발하는 겨울시인"
+            android:layout_marginVertical="20dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#000"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="안녕하세요!\n구독!좋아요!\n부탁드립니다!!"
+            android:textAlignment="center"
+            android:lineSpacingExtra="5dp"
+            android:layout_marginBottom="10dp"
+            />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/subscribe_btn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="구독!"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:layout_marginVertical="10dp"
+            />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/like_btn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="좋아요!"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            />
+    </LinearLayout>
+</FrameLayout>
