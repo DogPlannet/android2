@@ -32,6 +32,7 @@ class NoticeFragment : Fragment() {
     lateinit var date : Array<String>
     lateinit var time : Array<String>
     lateinit var icon : Array<Int>
+    lateinit var layout : Array<Int>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -118,8 +119,15 @@ class NoticeFragment : Fragment() {
             R.drawable.new_notice_icon_none,
         )
 
+        layout = arrayOf(
+            R.drawable.new_notice_back,
+            R.drawable.new_notice_back,
+            R.drawable.new_notice_none_back,
+            R.drawable.new_notice_none_back,
+        )
+
         for(i in title.indices){
-            val news = NoticeModel(title[i], comment[i], date[i], time[i], icon[i])
+            val news = NoticeModel(title[i], comment[i], date[i], time[i], icon[i], layout[i])
             newsArrayList.add(news)
         }
 

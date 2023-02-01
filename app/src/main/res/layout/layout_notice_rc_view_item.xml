@@ -7,6 +7,13 @@
     android:orientation="horizontal">
 
     <ImageView
+        android:id="@+id/notice_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/new_notice_back"
+        android:scaleType="centerCrop"/>
+
+    <ImageView
         android:id="@+id/new_notice_icon"
         android:layout_width="7dp"
         android:layout_height="7dp"

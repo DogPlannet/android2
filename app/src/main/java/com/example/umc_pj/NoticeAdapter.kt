@@ -26,6 +26,7 @@ class NoticeAdapter(private val itemList: ArrayList<NoticeModel>):
         holder.date.text = itemList[position].date
         holder.time.text = itemList[position].time
         holder.icon.setImageDrawable(holder.icon.context.getDrawable(itemList[position].icon))
+        holder.layout.setImageDrawable(holder.layout.context.getDrawable(itemList[position].layout))
     }
 
     class NoticeViewHolder(itemView: View) :  RecyclerView.ViewHolder(itemView){
@@ -34,6 +35,7 @@ class NoticeAdapter(private val itemList: ArrayList<NoticeModel>):
         val date = itemView.findViewById<TextView>(R.id.tv_date_notice)
         val time = itemView.findViewById<TextView>(R.id.tv_time_notice)
         val icon = itemView.findViewById<ImageView>(R.id.new_notice_icon)
+        val layout = itemView.findViewById<ImageView>(R.id.notice_layout)
     }
 
 }
