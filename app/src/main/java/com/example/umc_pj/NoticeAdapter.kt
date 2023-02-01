@@ -1,0 +1,35 @@
+package com.example.umc_pj
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+
+class NoticeAdapter(private val itemList: ArrayList<NoticeModel>):
+    RecyclerView.Adapter<NoticeAdapter.NoticeViewHolder>(){
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoticeViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.layout_notice_rc_view_item, parent, false)
+        return NoticeViewHolder(view)
+    }
+
+    override fun getItemCount(): Int {
+        return itemList.count()
+    }
+
+    override fun onBindViewHolder(holder: NoticeViewHolder, position: Int) {
+        holder.title.text = itemList[position].title
+        holder.comment.text = itemList[position].comment
+        holder.date.text = itemList[position].date
+        holder.time.text = itemList[position].time
+
+    }
+
+    class NoticeViewHolder(itemView: View) :  RecyclerView.ViewHolder(itemView){
+        val title = itemView.findViewById<TextView>(R.id.tv_title_notice)
+        val comment = itemView.findViewById<TextView>(R.id.tv_comment_notice)
+        val date = itemView.findViewById<TextView>(R.id.tv_date_notice)
+        val time = itemView.findViewById<TextView>(R.id.tv_time_notice)
+    }
+}

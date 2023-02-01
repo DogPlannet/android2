@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,6 +22,15 @@ class NoticeFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    private lateinit var adapter: NoticeAdapter
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var newsArrayList: ArrayList<NoticeModel>
+
+    lateinit var title : Array<String>
+    lateinit var comment : Array<String>
+    lateinit var date : Array<String>
+    lateinit var time : Array<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,5 +66,55 @@ class NoticeFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        dataInitialize()
+        val layoutManager = LinearLayoutManager(context)
+        recyclerView = view.findViewById(R.id.notice_rc_view)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.setHasFixedSize(true)
+        adapter = NoticeAdapter(newsArrayList)
+        recyclerView.adapter = adapter
+    }
+
+    private fun dataInitialize(){
+        newsArrayList = arrayListOf<NoticeModel>()
+
+        title = arrayOf(
+            getString(R.string.notice_title),
+            getString(R.string.notice_title),
+            getString(R.string.notice_title),
+            getString(R.string.notice_title),
+        )
+
+        comment = arrayOf(
+            getString(R.string.notice_comment_1),
+            getString(R.string.notice_comment_2),
+            getString(R.string.notice_comment_3),
+            getString(R.string.notice_comment_4),
+        )
+
+        date = arrayOf(
+            getString(R.string.notice_date_1),
+            getString(R.string.notice_date_2),
+            getString(R.string.notice_date_3),
+            getString(R.string.notice_date_4),
+        )
+
+        time = arrayOf(
+            getString(R.string.notice_time),
+            getString(R.string.notice_time),
+            getString(R.string.notice_time),
+            getString(R.string.notice_time),
+        )
+
+
+        for(i in title.indices){
+            val news = NoticeModel(title[i], comment[i], date[i], time[i])
+            newsArrayList.add(news)
+        }
+
     }
 }
