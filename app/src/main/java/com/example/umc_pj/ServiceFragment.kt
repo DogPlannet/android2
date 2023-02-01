@@ -2,15 +2,13 @@ package com.example.umc_pj
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentTransaction
-import com.example.umc_pj.databinding.FragmentNaviMypageBinding
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.example.umc_pj.databinding.FragmentServiceBinding
-import kotlinx.android.synthetic.main.fragment_navi_mypage.*
-import kotlinx.android.synthetic.main.fragment_service.*
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,6 +16,10 @@ private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 var MypageFragment = NaviMypageFragment()
+var MyServiceFragment = ServiceFragment()
+var ServiceFragment1 = ServiceDetail1Fragment()
+var ServiceFragment2 = ServiceDetail2Fragment()
+var ServiceFragment3 = ServiceDetail3Fragment()
 
 class ServiceFragment : Fragment() {
     private var param1: String? = null
@@ -53,6 +55,35 @@ class ServiceFragment : Fragment() {
                     .commit()
             }
         }
+
+        // 이용약관
+        binding.btn1.setOnClickListener{
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.main_frm, ServiceFragment1)
+                    .addToBackStack(null)
+                    .commit()
+            }
+        }
+
+        // 개인정보보호정책
+        binding.btn2.setOnClickListener{
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.main_frm, ServiceFragment2)
+                    .addToBackStack(null)
+                    .commit()
+            }
+        }
+
+        // 이용약관
+        binding.btn3.setOnClickListener{
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.main_frm, ServiceFragment3)
+                    .addToBackStack(null)
+                    .commit()
+            }
+        }
+
+
         return binding.root
     }
 
@@ -62,6 +93,11 @@ class ServiceFragment : Fragment() {
 //        btn3.setOnClickListener {
 //            (parentFragment as NaviMypageFragment).serviceDetail1()
 //        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).supportActionBar?.hide()
     }
 
     companion object {
@@ -83,4 +119,14 @@ class ServiceFragment : Fragment() {
                 }
             }
     }
+
+//    override fun onResume() {
+//        super.onResume()
+//        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
+//    }
+//
+//    override fun onStop() {
+//        super.onStop()
+//        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
+//    }
 }

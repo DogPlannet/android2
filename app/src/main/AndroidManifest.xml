@@ -37,13 +37,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ServiceDetailActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".ManyQuestionActivity"
             android:exported="false">
             <meta-data
@@ -67,13 +60,6 @@
         <activity
             android:name=".ChangePwActivity"
             android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".MyPageActivity"
-            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
 import com.example.umc_pj.databinding.FragmentNaviMypageBinding
 import kotlinx.android.synthetic.main.fragment_navi_mypage.*
@@ -16,7 +17,9 @@ private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 val serviceFragment = ServiceFragment()
-val serviceDetail1Fragment = ServiceDetail1Fragment()
+val changePwFragment = ChangePwFragment()
+val wroteFragment = WroteFragment()
+val questionFragment = ManyQuestionFragment()
 
 
 class NaviMypageFragment : Fragment() {
@@ -44,7 +47,6 @@ class NaviMypageFragment : Fragment() {
         binding =  FragmentNaviMypageBinding.inflate(inflater, container, false)
 
         binding.serviceDetailBtn.setOnClickListener{
-            Log.d("dd", "클릭됨")
 //            childFragmentManager.beginTransaction().apply {
 //                replace(R.id.my_page_fr, serviceFragment)
 //                addToBackStack(null)
@@ -52,6 +54,30 @@ class NaviMypageFragment : Fragment() {
 //            }
             parentFragmentManager.beginTransaction().apply {
                 replace(R.id.main_frm, serviceFragment)
+                    .addToBackStack(null)
+                    .commit()
+            }
+        }
+
+        binding.changePwBtn.setOnClickListener{
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.main_frm, changePwFragment)
+                    .addToBackStack(null)
+                    .commit()
+            }
+        }
+
+        binding.writeDetailBtn.setOnClickListener{
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.main_frm, wroteFragment)
+                    .addToBackStack(null)
+                    .commit()
+            }
+        }
+
+        binding.questionBtn.setOnClickListener{
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.main_frm, questionFragment)
                     .addToBackStack(null)
                     .commit()
             }
@@ -66,6 +92,12 @@ class NaviMypageFragment : Fragment() {
 //            (parentFragment as? NaviMypageFragment)?.service()
 //            Log.d("dd", "클릭됨")
 //        }
+    }
+
+    // fragment 액션바 없애주기
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).supportActionBar?.hide()
     }
 
 //    private fun service() {

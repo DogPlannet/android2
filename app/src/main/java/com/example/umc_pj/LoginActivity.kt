@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.umc_pj.databinding.ActivityLoginBinding
 import kotlinx.android.synthetic.main.activity_login.*
@@ -18,11 +17,6 @@ class LoginActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-//        binding.background.setOnClickListener{
-//            et_id.clearFocus()
-//            et_pw.clearFocus()
-//        }
 
 
         binding.loginBtn.setOnClickListener {

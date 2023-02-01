@@ -2,6 +2,7 @@ package com.example.umc_pj;
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -62,6 +63,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        replaceFragment(NaviCommunityFragment())
+
+        deleteToolbar(NaviMypageFragment())
+
         val main_bnv = findViewById<BottomNavigationView>(R.id.main_bnv)
         setSupportActionBar(toolbar) //커스텀한 toolbar를 액션바로 사용
         supportActionBar?.setDisplayShowTitleEnabled(false) //액션바에 표시되는 제목의 표시유무를 설정합니다. false로 해야 custom한 툴바의 이름이 화면에 보이게 됩니다.
@@ -81,7 +87,7 @@ class MainActivity : AppCompatActivity() {
                         NaviCommunityFragment()
                         // Respond to navigation item 2 click
                     }
-                    R.id.navigation_notice -> {
+                    R.id.navigation_calendar -> {
                         main_bnv.itemIconTintList = null
                         Calendar_fragment()
                         // Respond to navigation item 3 click
@@ -120,4 +126,19 @@ class MainActivity : AppCompatActivity() {
 ////        binding.mainBottomNavigation.setupWithNavController(navController)
 ////        binding.mainBottomNavigation.itemIconTintList = null
 //    }
+
+    private fun replaceFragment(naviCommunityFragment: Fragment){
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.main_frm, naviCommunityFragment)
+        fragmentTransaction.commit()
+    }
+
+    private fun deleteToolbar(naviMypageFragment: Fragment){
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction =fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.main_frm, naviMypageFragment)
+        fragmentTransaction.commit()
+
+    }
 }

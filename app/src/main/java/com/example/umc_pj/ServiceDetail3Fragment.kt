@@ -5,6 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import com.example.umc_pj.databinding.FragmentServiceDetail1Binding
+import com.example.umc_pj.databinding.FragmentServiceDetail2Binding
+import com.example.umc_pj.databinding.FragmentServiceDetail3Binding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -13,13 +17,15 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [ServiceFrameFragment.newInstance] factory method to
+ * Use the [ServiceDetail3Fragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ServiceFrameFragment : Fragment() {
+class ServiceDetail3Fragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    lateinit var binding: FragmentServiceDetail3Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +39,22 @@ class ServiceFrameFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_service_frame, container, false)
+        binding = FragmentServiceDetail3Binding.inflate(inflater, container, false)
+
+        binding.backButton.setOnClickListener{
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.main_frm, MyServiceFragment)
+                    .addToBackStack(null)
+                    .commit()
+            }
+        }
+        return binding.root
+    }
+
+    // fragment 액션바 없애주기
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).supportActionBar?.hide()
     }
 
     companion object {
@@ -44,12 +64,12 @@ class ServiceFrameFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment ServiceFrameFragment.
+         * @return A new instance of fragment ServiceDetail3Fragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            ServiceFrameFragment().apply {
+            ServiceDetail3Fragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

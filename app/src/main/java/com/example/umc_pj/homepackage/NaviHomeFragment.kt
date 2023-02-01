@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
 import com.example.umc_pj.R
 import com.example.umc_pj.databinding.FragmentNaviHomeBinding
@@ -65,6 +66,12 @@ class NaviHomeFragment : Fragment(){
         super.onActivityCreated(savedInstanceState)
         binding.recordbtn.setOnClickListener {
         }
+    }
+
+    // fragment 액션바 보여주기(선언안해주면 다른 프레그먼트에서 선언한 .hide() 때문인지 모든 프레그먼트에서 액션바 안보임
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).supportActionBar?.show()
     }
 
     fun goRecordPage(){

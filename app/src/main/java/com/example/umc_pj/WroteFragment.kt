@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import com.example.umc_pj.databinding.FragmentNaviMypageBinding
-import com.example.umc_pj.databinding.FragmentServiceDetail1Binding
+import com.example.umc_pj.databinding.FragmentServiceDetail3Binding
+import com.example.umc_pj.databinding.FragmentWroteBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -16,15 +16,15 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [ServiceDetail1Fragment.newInstance] factory method to
+ * Use the [WroteFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ServiceDetail1Fragment : Fragment() {
+class WroteFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
 
-    lateinit var binding: FragmentServiceDetail1Binding
+    lateinit var binding: FragmentWroteBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,15 +34,14 @@ class ServiceDetail1Fragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding =  FragmentServiceDetail1Binding.inflate(inflater, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+
+        binding = FragmentWroteBinding.inflate(inflater, container, false)
 
         binding.backButton.setOnClickListener{
             parentFragmentManager.beginTransaction().apply {
-                replace(R.id.main_frm, MyServiceFragment)
+                replace(R.id.main_frm, MypageFragment)
                     .addToBackStack(null)
                     .commit()
             }
@@ -64,16 +63,15 @@ class ServiceDetail1Fragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment ServiceDetail1Fragment.
+         * @return A new instance of fragment WroteFragment.
          */
         // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ServiceDetail1Fragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+        @JvmStatic fun newInstance(param1: String, param2: String) =
+                WroteFragment().apply {
+                    arguments = Bundle().apply {
+                        putString(ARG_PARAM1, param1)
+                        putString(ARG_PARAM2, param2)
+                    }
                 }
-            }
     }
 }

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="87dp"
+    android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="15dp"
+            android:text="제목"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></TextView>
+
+        <TextView
+            android:id="@+id/tv_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="7dp"
+            android:text="닉네임"
+            android:textColor="#767676"
+            android:textSize="13dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+        <TextView
+            android:id="@+id/tv_and"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="7dp"
+            android:text="/"
+            android:textColor="#767676"
+            android:textSize="14dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_nickname"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+        <TextView
+            android:id="@+id/tv_dog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="7dp"
+            android:text="견종"
+            android:textColor="#767676"
+            android:textSize="13dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_and"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+        <ImageView
+            android:id="@+id/iv_heart"
+            android:layout_width="13dp"
+            android:layout_height="11.73dp"
+            android:layout_marginStart="200dp"
+            android:layout_marginTop="12.62dp"
+            android:src="@drawable/icon_heart_green"
+            app:layout_constraintStart_toEndOf="@+id/tv_dog"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            tools:layout_editor_absoluteY="41dp" />
+
+        <TextView
+            android:id="@+id/tv_cnt_heart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="13dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="9dp"
+            app:layout_constraintStart_toEndOf="@+id/iv_heart"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"/>
+
+        <ImageView
+            android:id="@+id/iv_comment"
+            android:layout_width="13dp"
+            android:layout_height="11.73dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="12.62dp"
+            android:src="@drawable/icon_comment_green"
+            app:layout_constraintStart_toEndOf="@+id/tv_cnt_heart"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            tools:layout_editor_absoluteY="41dp" />
+
+        <TextView
+            android:id="@+id/tv_cnt_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="24dp"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="13dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_comment"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

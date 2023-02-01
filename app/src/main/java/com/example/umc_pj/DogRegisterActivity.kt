@@ -111,15 +111,15 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
         var tempPersons = ArrayList<BreedDTO>()
         tempPersons.add(BreedDTO(""))
         tempPersons.add(BreedDTO("허스키"))
-        tempPersons.add(BreedDTO("11111"))
-        tempPersons.add(BreedDTO("11111"))
-        tempPersons.add(BreedDTO("11111"))
+        tempPersons.add(BreedDTO("비숑"))
+        tempPersons.add(BreedDTO("푸들"))
+        tempPersons.add(BreedDTO("말티즈"))
         tempPersons.add(BreedDTO("치와와"))
         tempPersons.add(BreedDTO("시츄"))
         tempPersons.add(BreedDTO("웰시코기"))
         tempPersons.add(BreedDTO("진돗개"))
-        tempPersons.add(BreedDTO("풍산개"))
-        tempPersons.add(BreedDTO("저팔계"))
+        tempPersons.add(BreedDTO("닥스훈트"))
+        tempPersons.add(BreedDTO("골든 리트리버"))
         return tempPersons
     }
 
