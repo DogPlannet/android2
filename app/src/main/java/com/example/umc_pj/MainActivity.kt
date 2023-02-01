@@ -73,27 +73,21 @@ class MainActivity : AppCompatActivity() {
                 when (item.itemId) {
                     R.id.navigation_home -> {
                         main_bnv.itemIconTintList = null
-                        main_bnv.itemTextColor  = null
                         NaviHomeFragment()
                         // Respond to navigation item 1 click
                     }
                     R.id.navigation_community -> {
-                        main_bnv.itemIconTintList = ContextCompat.getColorStateList(this, R.color.purple_200)
-                        main_bnv.itemTextColor = ContextCompat.getColorStateList(this, R.color.purple_200)
-//                        main_bnv.itemIconTintList = ContextCompat.getColorStateList(this, R.color.purple_200)
-//                        main_bnv.itemTextColor = ContextCompat.getColorStateList(this, R.color.purple_200)
+                        main_bnv.itemIconTintList = null
                         NaviCommunityFragment()
                         // Respond to navigation item 2 click
                     }
                     R.id.navigation_notice -> {
-                        main_bnv.itemIconTintList = ContextCompat.getColorStateList(this, R.color.purple_200)
-                        main_bnv.itemTextColor = ContextCompat.getColorStateList(this, R.color.purple_200)
+                        main_bnv.itemIconTintList = null
                         Calendar_fragment()
                         // Respond to navigation item 3 click
                     }
                     else -> {
-                        main_bnv.itemIconTintList = ContextCompat.getColorStateList(this, R.color.purple_200)
-                        main_bnv.itemTextColor = ContextCompat.getColorStateList(this, R.color.purple_200)
+                        main_bnv.itemIconTintList = null
                         NaviMypageFragment()
                     }
                 }
@@ -110,6 +104,14 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.main_frm, fragment)
+            .commit()
+    }
+
+    private fun changeMypageFragment(fragment: Fragment) {
+        supportFragmentManager.popBackStackImmediate()
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.main_frame, fragment)
             .commit()
     }
 
