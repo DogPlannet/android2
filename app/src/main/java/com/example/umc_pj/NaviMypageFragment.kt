@@ -7,9 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentTransaction
 import com.example.umc_pj.databinding.FragmentNaviMypageBinding
-import kotlinx.android.synthetic.main.fragment_navi_mypage.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -44,7 +42,7 @@ class NaviMypageFragment : Fragment() {
 //        _binding = FragmentNaviMypageBinding.inflate(inflater, container, false)
 //        val view = binding.root
 //        return view
-        binding =  FragmentNaviMypageBinding.inflate(inflater, container, false)
+        binding = FragmentNaviMypageBinding.inflate(inflater, container, false)
 
         binding.serviceDetailBtn.setOnClickListener{
 //            childFragmentManager.beginTransaction().apply {
@@ -106,7 +104,7 @@ class NaviMypageFragment : Fragment() {
 //            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
 //            .commit()
 //    }
-//
+
 //    fun serviceDetail1() {
 //        childFragmentManager.beginTransaction()
 //            .replace(R.id.service_fragment_detail1, serviceDetail1Fragment)
@@ -123,7 +121,7 @@ class NaviMypageFragment : Fragment() {
          * @param param2 Parameter 2.
          * @return A new instance of fragment NaviMypageFragment.
          */
-        // TODO: Rename and change types and number of parameters
+        // TODO: Rename and change types and number of parameter
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             NaviMypageFragment().apply {

@@ -6,8 +6,8 @@
     android:layout_height="50dp"
     android:paddingStart="15dp"
     android:paddingTop="12dp"
+    android:textColor="@color/black"
     android:layout_centerHorizontal="true"
-    android:textColor="#ffFF6000"
     android:textSize="18sp" />
 
 

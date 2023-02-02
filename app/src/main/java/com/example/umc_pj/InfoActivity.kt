@@ -124,6 +124,11 @@ class InfoActivity: AppCompatActivity() {
             }
         })
 
+            binding.backButton.setOnClickListener {
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+            }
+
 
 
             binding.nextBtn.setOnClickListener {

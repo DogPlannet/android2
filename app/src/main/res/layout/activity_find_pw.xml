@@ -78,13 +78,13 @@
 
         <EditText
             android:id="@+id/name_edt_text"
+            style="@style/LoginColor"
             android:layout_width="340dp"
             android:layout_height="43dp"
             android:background="@drawable/info_edittext_rounded_corner_rectangle"
             android:paddingStart="15dp"
             android:hint="이름을 입력해주세요."
-            android:textSize="18sp"
-            android:textColor="#ffFF6000"
+            android:textSize="16dp"
             android:textCursorDrawable="@null"
             android:maxLength="10"
             android:layout_marginTop="8dp"
@@ -110,15 +110,14 @@
 
         <EditText
             android:id="@+id/email_edit_text"
+            style="@style/LoginColor"
             android:layout_width="340dp"
             android:layout_height="43dp"
             android:background="@drawable/info_edittext_rounded_corner_rectangle"
             android:paddingStart="15dp"
             android:hint="이메일을 입력해주세요."
-            android:textSize="18sp"
-            android:textColor="#ffFF6000"
+            android:textSize="16dp"
             android:textCursorDrawable="@null"
-            android:maxLength="10"
             android:layout_marginTop="8dp"
             android:maxLines="1"
             android:inputType="text"
@@ -145,16 +144,27 @@
             android:src="@drawable/vector">
         </ImageView>
 
+        <TextView
+            android:id="@+id/warning_email"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="4dp"
+            android:text="정확한 이메일을 입력해주세요."
+            android:textColor="#C64A4A"
+            android:textSize="12dp"></TextView>
+
     </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/next_page_btn"
+            style="@style/ColoredButton"
             android:layout_width="340dp"
             android:layout_height="45dp"
             android:layout_marginTop="80dp"
-            android:background="@drawable/disabled_button"
+            android:enabled="false"
+            android:background="@drawable/agree_nextbtn_color"
             android:text="비밀번호 찾기"
-            android:textColor="#FFF3E5"
             android:layout_marginBottom="52dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

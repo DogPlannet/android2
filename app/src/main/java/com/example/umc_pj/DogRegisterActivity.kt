@@ -77,6 +77,11 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
 //            intent.putExtra("dogname", dog_name_edt_text.text.toString())
             startActivity(intent)
         }
+
+        viewBinding.backButton.setOnClickListener {
+            val intent = Intent(this, SignUpComplete::class.java)
+            startActivity(intent)
+        }
         //배경 클릭시 포커스해제
         viewBinding.background.setOnClickListener {
             breed_recycleR.visibility= View.INVISIBLE
@@ -303,7 +308,7 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
                 breed_search.clearFocus()
                 when (position) {
                     0 -> {
-                        validSpinner3 = false
+                        validSpinner3 = true
                     }
                     else -> {
                         validSpinner3 = true
@@ -331,11 +336,9 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
         if(v1 && v2 && v3 && v4){
             next_page_btn.isEnabled = true
             next_page_btn.isClickable = true
-            next_page_btn.setBackgroundResource(R.drawable.start_button)
         } else {
             next_page_btn.isEnabled = false
             next_page_btn.isClickable = false
-            next_page_btn.setBackgroundResource(R.drawable.disabled_button)
         }
     }
 
