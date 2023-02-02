@@ -43,13 +43,13 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name=".MyPageActivity"
-            android:exported="true">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+<!--        <activity-->
+<!--            android:name=".MyPageActivity"-->
+<!--            android:exported="true">-->
+<!--            <meta-data-->
+<!--                android:name="android.app.lib_name"-->
+<!--                android:value="" />-->
+<!--        </activity>-->
         <activity
             android:name=".FindPwFailActivity"
             android:exported="false">
@@ -115,6 +115,7 @@
         <activity
             android:name=".SplashActivity"
             android:exported="true" />
+
     </application>
 
 </manifest>

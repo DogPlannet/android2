@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -12,14 +13,25 @@
         android:background="@color/white"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
-            android:id="@+id/planet_icon"
-            android:layout_width="29dp"
-            android:layout_height="19dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logo1" />
+            android:id="@+id/logo_mini"
+            android:layout_width="30dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="24dp"
+            android:src="@drawable/logo_mini" />
+
+        <ImageView
+            android:id="@+id/noticeitem"
+            android:layout_width="30dp"
+            android:layout_height="22dp"
+            android:layout_gravity="right"
+            android:layout_marginEnd="18dp"
+            android:src="@drawable/icon_bell" />
+
         <TextView
             android:id="@+id/toolBarTitle"
             android:layout_width="wrap_content"
@@ -27,20 +39,57 @@
             android:text="멍플래닛"
             android:textColor="#FCCE65"
             android:fontFamily="@font/dungeon"
-            android:textSize="18sp"
             android:textStyle="bold"
+            android:layout_marginStart="8dp"
+            android:textAppearance="@style/some_id"
+            android:textSize="24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/toolBarTitleNotice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="알림"
+            android:textAppearance="@style/some_id"
+            android:textSize="20dp"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/close_notice"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:src="@drawable/close_notice"
+            android:layout_marginEnd="18dp"
+            android:layout_gravity="right"
+            />
 
     </androidx.appcompat.widget.Toolbar>
+
     <View
         android:id="@+id/toolbarline"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#FCCE65"
         app:layout_constraintTop_toBottomOf="@id/toolbar"/>
+
     <FrameLayout
         android:id="@+id/main_frm"
         android:layout_width="match_parent"
@@ -55,12 +104,11 @@
         android:id="@+id/main_bnv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:itemBackground="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:background="#FFFFFF"
         app:labelVisibilityMode="unlabeled"
-        app:menu="@menu/bottom_nav_menu" />
+        app:menu="@menu/bottom_nav_menu"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
