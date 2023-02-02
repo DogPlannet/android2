@@ -2,6 +2,7 @@ package com.example.umc_pj;
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.service.controls.actions.FloatAction
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment
 import com.example.umc_pj.databinding.ActivityMainBinding
 import com.example.umc_pj.homepackage.NaviHomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -132,4 +134,5 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.replace(R.id.main_frm, naviCommunityFragment)
         fragmentTransaction.commit()
     }
+
 }
