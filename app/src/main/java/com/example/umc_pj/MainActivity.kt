@@ -62,7 +62,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         replaceFragment(NaviCommunityFragment())
 
@@ -74,7 +75,7 @@ class MainActivity : AppCompatActivity() {
 
         //supportFragmentManager.beginTransaction().add(R.id.fl_con, NaviHomeFragment()).commit()
 
-        main_bnv.setOnItemSelectedListener { item ->
+        binding.mainBnv.setOnItemSelectedListener { item ->
             changeFragment(
                 when (item.itemId) {
                     R.id.navigation_home -> {
@@ -100,8 +101,7 @@ class MainActivity : AppCompatActivity() {
             )
             true
         }
-        main_bnv.selectedItemId = R.id.navigation_home
-
+        binding.mainBnv.selectedItemId = R.id.navigation_home
 //        initNavigation()
     }
 
@@ -110,14 +110,6 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.main_frm, fragment)
-            .commit()
-    }
-
-    private fun changeMypageFragment(fragment: Fragment) {
-        supportFragmentManager.popBackStackImmediate()
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.main_frame, fragment)
             .commit()
     }
 
