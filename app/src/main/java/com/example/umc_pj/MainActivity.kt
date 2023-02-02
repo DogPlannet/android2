@@ -17,6 +17,8 @@ class MainActivity : AppCompatActivity() {
     private val fl: FrameLayout by lazy {
         findViewById(R.id.main_frm)
     }
+
+
     private var backPressedTime : Long = 0
     //액션버튼 메뉴 액션바에 집어 넣기
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -70,14 +72,16 @@ class MainActivity : AppCompatActivity() {
             changeFragment(
                 when (item.itemId) {
                     R.id.navigation_home -> {
-                        main_bnv.itemIconTintList = ContextCompat.getColorStateList(this, R.color.purple_200)
-                        main_bnv.itemTextColor = ContextCompat.getColorStateList(this, R.color.purple_200)
+                        main_bnv.itemIconTintList = null
+                        main_bnv.itemTextColor  = null
                         NaviHomeFragment()
                         // Respond to navigation item 1 click
                     }
                     R.id.navigation_community -> {
                         main_bnv.itemIconTintList = ContextCompat.getColorStateList(this, R.color.purple_200)
                         main_bnv.itemTextColor = ContextCompat.getColorStateList(this, R.color.purple_200)
+//                        main_bnv.itemIconTintList = ContextCompat.getColorStateList(this, R.color.purple_200)
+//                        main_bnv.itemTextColor = ContextCompat.getColorStateList(this, R.color.purple_200)
                         NaviCommunityFragment()
                         // Respond to navigation item 2 click
                     }
@@ -97,6 +101,8 @@ class MainActivity : AppCompatActivity() {
             true
         }
         main_bnv.selectedItemId = R.id.navigation_home
+
+//        initNavigation()
     }
 
     private fun changeFragment(fragment: Fragment) {
@@ -106,4 +112,10 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.main_frm, fragment)
             .commit()
     }
+
+//    private fun initNavigation() {
+//        binding.mainBnv.itemIconTintList = null
+////        binding.mainBottomNavigation.setupWithNavController(navController)
+////        binding.mainBottomNavigation.itemIconTintList = null
+//    }
 }

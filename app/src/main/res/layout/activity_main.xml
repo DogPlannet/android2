@@ -13,12 +13,20 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:id="@+id/planet_icon"
+            android:layout_width="29dp"
+            android:layout_height="19dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo1" />
         <TextView
             android:id="@+id/toolBarTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="로고 타이틀 들어갈 곳"
-            android:textColor="@color/black"
+            android:text="멍플래닛"
+            android:textColor="#FCCE65"
+            android:fontFamily="@font/dungeon"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"

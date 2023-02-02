@@ -8,13 +8,24 @@
     tools:context=".MainActivity">
 
 <!-- 메인으로 보여질 화면 -->
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/back_button"
+        android:layout_width="8.5dp"
+        android:layout_height="16.5dp"
+        android:background="@drawable/backbtn"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
 <!--        android:id="@+id/constraintLayout"-->
@@ -33,17 +44,17 @@
         android:id="@+id/constraintLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="150dp"
         app:layout_constraintBottom_toTopOf="@id/linearLayout"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="35dp"
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@mipmap/ic_launcher"
+            android:layout_width="75dp"
+            android:layout_height="56dp"
+            android:background="@drawable/logo1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"></ImageView>
 
@@ -52,6 +63,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="약관동의"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/imageView"
             app:layout_constraintTop_toBottomOf="@+id/imageView"
             android:textStyle="bold"
@@ -61,6 +74,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="멍플래닛 사용을 위해 약관에 동의해주세요."
+            android:layout_marginTop="5dp"
+            android:textSize="12dp"
             app:layout_constraintStart_toStartOf="@+id/logotext1"
             app:layout_constraintTop_toBottomOf="@+id/logotext1"
             android:textStyle="normal"
@@ -84,7 +99,7 @@
 
             <CheckBox
                 android:id="@+id/all_agree"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="35dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -113,7 +128,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="35dp"
             android:layout_marginTop="16dp">
 
             <CheckBox
@@ -127,19 +142,21 @@
 
             <TextView
                 android:id="@+id/contentbtn1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="7dp"
+                android:layout_height="13dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
+                android:layout_marginEnd="45dp"
                 android:gravity="center"
-                android:text="확인하기" />
+                android:background="@drawable/confirm_btn"
+                 />
         </RelativeLayout>
 
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="20dp">
+            android:layout_marginStart="35dp">
 
             <CheckBox
                 android:id="@+id/agree2"
@@ -152,19 +169,20 @@
 
             <TextView
                 android:id="@+id/contentbtn2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="7dp"
+                android:layout_height="13dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
+                android:layout_marginEnd="45dp"
                 android:gravity="center"
-                android:text="확인하기" />
+                android:background="@drawable/confirm_btn" />
         </RelativeLayout>
 
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp">
+            android:layout_marginStart="35dp">
 
             <CheckBox
                 android:id="@+id/agree3"
@@ -176,16 +194,18 @@
 
             <TextView
                 android:id="@+id/contentbtn3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="7dp"
+                android:layout_height="13dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
+                android:layout_marginEnd="45dp"
                 android:gravity="center"
-                android:text="확인하기" />
+                android:background="@drawable/confirm_btn" />
         </RelativeLayout>
 
 
         <android.widget.Button
+            android:id="@+id/next_page_btn"
             android:layout_width="340dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
@@ -220,7 +240,6 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="vertical"
-
             android:background="#F8F4EA">
 
 

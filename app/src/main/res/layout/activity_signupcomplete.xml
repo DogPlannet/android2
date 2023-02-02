@@ -22,15 +22,40 @@
 
         <ImageView
             android:id="@+id/logo"
+            android:layout_width="78dp"
+            android:layout_height="58dp"
+            android:background="@drawable/logo1" />
+
+        <TextView
+            android:id="@+id/receive_name_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@mipmap/ic_launcher" />
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:text=""
+            android:textSize="16dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:text="님"
+            android:textSize="16dp"
+            android:layout_toRightOf="@+id/receive_name_txt" />
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/logo"
-            android:text="누구님\n 반가워요" />
+            android:textColor="@color/black"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="16dp"
+            android:text="반가워요 !" />
     </RelativeLayout>
 
     <TextView
@@ -43,7 +68,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center"
-        android:text="회원가입이 완료되었습니다"/>
+        android:textColor="@color/black"
+        android:text="회원가입이 완료되었습니다."/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -59,6 +85,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:enabled="false"
-        android:text="다음으로" />
+        android:text="반려견 등록하기" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

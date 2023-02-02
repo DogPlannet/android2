@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/background"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,13 +14,13 @@
 
     <ImageView
         android:id="@+id/logo_login"
-        android:layout_width="211dp"
-        android:layout_height="133dp"
+        android:layout_width="181dp"
+        android:layout_height="114dp"
         android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_login" />
+        app:srcCompat="@drawable/logo2" />
 
     <TextView
         android:id="@+id/tv_id"
@@ -27,7 +29,6 @@
         android:layout_marginStart="46dp"
         android:layout_marginTop="40dp"
         android:text="아이디"
-        android:textColor="#191919"
         android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +61,6 @@
         android:layout_marginStart="46dp"
         android:layout_marginTop="20dp"
         android:text="비밀번호"
-        android:textColor="#191919"
         android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -128,7 +128,7 @@
         android:layout_width="233dp"
         android:layout_height="45dp"
         android:layout_gravity="center|bottom"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="45dp"
         android:background="@drawable/agree_nextbtn_color"
         android:text="로그인"
         android:textColor="@color/btn_back"
@@ -160,11 +160,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/google_btn">
+        app:layout_constraintTop_toBottomOf="@+id/find_btn">
 
         <TextView
             android:id="@+id/text"
@@ -191,13 +191,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:text="아이디 / 비밀번호 찾기"
+        android:layout_marginTop="30dp"
+        android:text="비밀번호 찾기"
         android:textColor="#191919"
         android:textSize="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signup" />
+        app:layout_constraintTop_toBottomOf="@id/google_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

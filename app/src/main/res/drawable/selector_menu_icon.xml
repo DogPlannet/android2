@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/nav_icon_1_1" android:state_checked="false"/>
+    <item android:drawable="@drawable/nav_icon_1" android:state_checked="true"/>
+
+    <item android:drawable="@drawable/nav_icon_2_1" android:state_checked="false"/>
+    <item android:drawable="@drawable/nav_icon_2" android:state_checked="true"/>
+
+    <item android:drawable="@drawable/nav_icon_3_1" android:state_checked="false"/>
+    <item android:drawable="@drawable/nav_icon_3" android:state_checked="true"/>
+
+    <item android:drawable="@drawable/nav_icon_4_1" android:state_checked="false"/>
+    <item android:drawable="@drawable/nav_icon_4" android:state_checked="true"/>
+</selector>

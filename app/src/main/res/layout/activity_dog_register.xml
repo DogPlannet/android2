@@ -28,13 +28,11 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/back_button"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
-        android:layout_marginStart="20dp"
-        android:background="@drawable/back_btn"
+        android:layout_width="8.5dp"
+        android:layout_height="16.5dp"
+        android:background="@drawable/backbtn"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="370dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -54,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:layout_marginLeft="10dp"
         app:layout_constraintStart_toEndOf="@+id/back_button"
         app:layout_constraintTop_toTopOf="parent" />
@@ -63,10 +61,10 @@
         android:id="@+id/describe1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="님, 반가워요 !"
+        android:text="누구님, 반가워요 !"
         android:textStyle="bold"
         android:textColor="@color/black"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         app:layout_constraintStart_toEndOf="@id/receive_name_txt"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -74,13 +72,13 @@
         android:id="@+id/describe2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="반려견 정보를 입력해주세요"
+        android:text="반려견 정보를 입력해주세요."
         android:textStyle="bold"
         android:textColor="@color/black"
-        android:layout_marginTop="100dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="2dp"
         app:layout_constraintStart_toEndOf="@id/back_button"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/describe1" />
 
 
     <TextView
@@ -184,8 +182,9 @@
         android:layout_height="43dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="8dp"
-        android:dropDownWidth="340dp"
+        android:dropDownWidth="328dp"
         android:background="@drawable/dog_register_frame"
+        android:popupBackground="@drawable/spinner_frame"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -195,7 +194,7 @@
         android:id="@+id/dog_age"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="나이"
+        android:text="출생연도"
         android:textSize="15sp"
         android:textColor="@color/black"
         android:textStyle="bold"
@@ -209,8 +208,9 @@
         android:layout_width="340dp"
         android:layout_height="43dp"
         android:background="@drawable/dog_register_frame"
+        android:popupBackground="@drawable/spinner_frame"
         android:spinnerMode="dropdown"
-        android:dropDownWidth="340dp"
+        android:dropDownWidth="328dp"
         android:layout_marginTop="8dp"
         android:layout_marginLeft="5dp"
         app:layout_constraintEnd_toEndOf="parent"

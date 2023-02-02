@@ -10,10 +10,4 @@
                 android:color="#979797" />
         </shape>
     </item>
-    <item
-        android:drawable="@drawable/select_button"
-        android:gravity="center|end"
-        android:width="10dp"
-        android:height="10dp" />
 </layer-list>
-

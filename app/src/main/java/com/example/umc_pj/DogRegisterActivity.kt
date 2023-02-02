@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.umc_pj.databinding.ActivityDogRegisterBinding
 import kotlinx.android.synthetic.main.activity_dog_register.*
+import kotlinx.android.synthetic.main.breed_spinner.*
 
 
 class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
@@ -94,6 +95,8 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
         setupAgeData()
         setupAgeHandler()
 
+//        limitDropHeight(dog_age_spinner)
+
     }
 
 
@@ -125,13 +128,13 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
 
 
     // -- 스피너 높이 조절 코드인데 잘 안되네요 --
-        fun limitDropHeight(breed_spinner: Spinner) {
-            val popup = Spinner::class.java.getDeclaredField("good")
-            popup.isAccessible = true
-
-            val popupWindow = popup.get(breed_spinner) as ListPopupWindow
-            popupWindow.height = (50 * resources.displayMetrics.density).toInt()
-        }
+//    private fun limitDropHeight(breed_spinner: Spinner) {
+//            val popup = Spinner::class.java.getDeclaredField("good")
+//            popup.isAccessible = true
+//
+//            val popupWindow = popup.get(breed_spinner) as ListPopupWindow
+//            popupWindow.height = (50 * resources.displayMetrics.density).toInt()
+//        }
 
 
 
@@ -263,22 +266,31 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
 
                 val v = super.getView(position, convertView, parent)
 
-                if (position == 0) {
+                if (position == count) {
                     (v.findViewById<View>(R.id.tvBreedSpinner) as? TextView)?.text = ""
-                    (v.findViewById<View>(R.id.tvBreedSpinner) as? TextView)?.hint = getItem(0)
+                    (v.findViewById<View>(R.id.tvBreedSpinner) as? TextView)?.hint = getItem(count)
                 }
 
                 return v
             }
 
+            override fun getCount(): Int {
+                //마지막 아이템은 힌트용으로만 사용하기 때문에 getCount에 1을 빼줍니다.
+                return super.getCount() - 1
+            }
+
+
         }
 
-        ageAdapter.add("출생년도를 선택해주세요.")
+
         ageAdapter.addAll(ageData.toMutableList())
+
+        ageAdapter.add("출생연도를 선택해주세요.")
+
 
         viewBinding.dogAgeSpinner.adapter = ageAdapter
 
-        dog_age_spinner.setSelection(0)
+        dog_age_spinner.setSelection(ageAdapter.count)
         dog_age_spinner.dropDownVerticalOffset = dipToPixels(50f).toInt()
     }
 
@@ -363,6 +375,5 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
         }
         return super.dispatchTouchEvent(event)
     }
-
 
 }

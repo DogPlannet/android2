@@ -19,6 +19,11 @@ class LoginActivity: AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+//        binding.background.setOnClickListener{
+//            et_id.clearFocus()
+//            et_pw.clearFocus()
+//        }
+
 
         binding.loginBtn.setOnClickListener {
 
@@ -40,7 +45,7 @@ class LoginActivity: AppCompatActivity() {
         }
 
         binding.findBtn.setOnClickListener {
-            val intent = Intent(this, FindActivity::class.java)
+            val intent = Intent(this, FindPwActivity::class.java)
             startActivity(intent)
         }
 
@@ -49,8 +54,9 @@ class LoginActivity: AppCompatActivity() {
     override fun onTouchEvent(event: MotionEvent): Boolean {
         val imm: InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
+        et_id.clearFocus()
+        et_pw.clearFocus()
         binding.warningText.visibility = View.INVISIBLE
         return true
     }
-
 }
