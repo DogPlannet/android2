@@ -8,8 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import android.util.TypedValue
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.TextView
@@ -50,11 +48,6 @@ class NaviHomeFragment : Fragment(), View.OnClickListener {
 
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-//        this.setupData()
-//        this.setupStatusHandler()
-    }
 
 
     override fun onCreateView(

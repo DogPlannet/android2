@@ -2,6 +2,7 @@ package com.example.umc_pj.homepackage
 
 import android.app.Dialog
 import android.view.Window
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.example.umc_pj.databinding.CustomdialogBinding
 
@@ -17,6 +18,9 @@ class MyDialog(private val context : AppCompatActivity) {
         dlg.setContentView(binding.root)     //다이얼로그에 사용할 xml 파일을 불러옴
         dlg.setCancelable(true)    //다이얼로그의 바깥 화면을 눌렀을 때 다이얼로그가 닫히지 않도록 함
 
+        val params: WindowManager.LayoutParams = this.dlg.window!!.attributes
+        params.y = 900
+        this.dlg.window!!.attributes = params
 
 //        //ok 버튼 동작
 //        binding.ok.setOnClickListener {
