@@ -1,12 +1,17 @@
 package com.example.umc_pj
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.example.umc_pj.databinding.FragmentNaviMypageBinding
+import com.example.umc_pj.homepackage.MyDialog
+import com.example.umc_pj.homepackage.CustomDialog as CustomDialog1
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -82,20 +87,20 @@ class NaviMypageFragment : Fragment() {
         return binding.root
     }
 
-//    lateinit var mainActivity: MainActivity
-//
-//    override fun onAttach(context: Context) {
-//        super.onAttach(context)
-//        mainActivity = context as MainActivity
-//    }
+    lateinit var mainActivity: MainActivity
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        // 2. Context를 액티비티로 형변환해서 할당
+        mainActivity = context as MainActivity
+
+    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-//
-//        service_detail_btn.setOnClickListener {
-//            (parentFragment as? NaviMypageFragment)?.service()
-//            Log.d("dd", "클릭됨")
-//        }
+        binding.logout.setOnClickListener{
+            onClick(view)
+        }
     }
 
     // fragment 액션바 없애주기
@@ -104,19 +109,14 @@ class NaviMypageFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.hide()
     }
 
-//    private fun service() {
-//        childFragmentManager.beginTransaction()
-//            .replace(R.id.service_fragment, serviceFragment)
-//            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-//            .commit()
-//    }
-
-//    fun serviceDetail1() {
-//        childFragmentManager.beginTransaction()
-//            .replace(R.id.service_fragment_detail1, serviceDetail1Fragment)
-//            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-//            .commit()
-//    }
+    private fun onClick(view: View?) {
+        val dlg = LogoutDialog(mainActivity)
+        Log.d("gdsa","asdgdsg")
+        dlg.setOnOKClickedListener{ content ->
+            binding.logout.text = content
+        }
+        dlg.show("메인의 내용을 변경할까요?")
+    }
 
     companion object {
         /**
