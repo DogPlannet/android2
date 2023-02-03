@@ -101,6 +101,10 @@ class NaviMypageFragment : Fragment() {
         binding.logout.setOnClickListener{
             onClick(view)
         }
+        binding.withdraw.setOnClickListener{
+            Log.d("dd","ddd")
+            onClickWithdraw(view)
+        }
     }
 
     // fragment 액션바 없애주기
@@ -110,12 +114,20 @@ class NaviMypageFragment : Fragment() {
     }
 
     private fun onClick(view: View?) {
-        val dlg = LogoutDialog(mainActivity)
+        val logoutDlg = LogoutDialog(mainActivity)
         Log.d("gdsa","asdgdsg")
-        dlg.setOnOKClickedListener{ content ->
+        logoutDlg.setOnOKClickedListener{ content ->
             binding.logout.text = content
         }
-        dlg.show("메인의 내용을 변경할까요?")
+        logoutDlg.show("메인의 내용을 변경할까요?")
+    }
+
+    private fun onClickWithdraw(view: View?) {
+        val deleteDlg = DeleteDialog(mainActivity)
+        deleteDlg.setOnOKClickedListener{ content ->
+            binding.withdraw.text = content
+        }
+        deleteDlg.show("회원탈퇴")
     }
 
     companion object {

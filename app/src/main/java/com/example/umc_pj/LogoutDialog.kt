@@ -18,33 +18,26 @@ import kotlinx.coroutines.delay
 class LogoutDialog(private val context : AppCompatActivity) {
     private lateinit var listener : MyDialogOKClickedListener
     private lateinit var binding : LogoutdialogBinding
-    private val dlg = Dialog(context)   //부모 액티비티의 context 가 들어감
-
-//    private var customDialog: CustomDialog? = null
-//
-//    init {
-//        this.customDialog = customDialog
-//    }
-
+    private val logoutDlg = Dialog(context)   //부모 액티비티의 context 가 들어감
 
     fun show(content : String) {
         binding = LogoutdialogBinding.inflate(context.layoutInflater)
 
         // 다이얼로그 테두리 둥글게 만들기
-        dlg?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dlg?.window?.requestFeature(Window.FEATURE_NO_TITLE)
-        dlg.requestWindowFeature(Window.FEATURE_NO_TITLE)   //타이틀바 제거
-        dlg.setContentView(binding.root)     //다이얼로그에 사용할 xml 파일을 불러옴
-        dlg.setCancelable(false)    //다이얼로그의 바깥 화면을 눌렀을 때 다이얼로그가 닫히지 않도록 함
+        logoutDlg?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        logoutDlg?.window?.requestFeature(Window.FEATURE_NO_TITLE)
+        logoutDlg.requestWindowFeature(Window.FEATURE_NO_TITLE)   //타이틀바 제거
+        logoutDlg.setContentView(binding.root)     //다이얼로그에 사용할 xml 파일을 불러옴
+        logoutDlg.setCancelable(false)    //다이얼로그의 바깥 화면을 눌렀을 때 다이얼로그가 닫히지 않도록 함
 
-        val params: WindowManager.LayoutParams = this.dlg.window!!.attributes
+        val params: WindowManager.LayoutParams = this.logoutDlg.window!!.attributes
         params.y = 500
-        this.dlg.window!!.attributes = params
+        this.logoutDlg.window!!.attributes = params
 
         //ok 버튼 동작
         binding.yesBtn.setOnClickListener {
             Log.d("dd","click ok")
-            dlg.dismiss()
+            logoutDlg.dismiss()
 
             // 액티비티로 이동(첫화면)
             val intent = Intent(context, SplashActivity::class.java)
@@ -57,10 +50,9 @@ class LogoutDialog(private val context : AppCompatActivity) {
 
         //cancel 버튼 동작
         binding.noBtn.setOnClickListener {
-            dlg.dismiss()
+            logoutDlg.dismiss()
         }
-
-        dlg.show()
+        logoutDlg.show()
     }
 
     fun setOnOKClickedListener(listener: (String) -> Unit) {
