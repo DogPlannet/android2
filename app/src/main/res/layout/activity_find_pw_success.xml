@@ -87,11 +87,11 @@
         android:id="@+id/go_login_btn"
         android:layout_width="340dp"
         android:layout_height="45dp"
+        android:layout_marginBottom="56dp"
         android:background="@drawable/start_button"
         android:gravity="center"
         android:text="로그인 화면으로 이동"
         android:textColor="#FFF3E5"
-        android:layout_marginBottom="57dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

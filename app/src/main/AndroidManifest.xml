@@ -16,41 +16,6 @@
         android:theme="@style/Theme.Umc_pj"
         tools:targetApi="31">
         <activity
-            android:name=".ManyQuestionActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".ServiceActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".WroteActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".ChangePwActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-<!--        <activity-->
-<!--            android:name=".MyPageActivity"-->
-<!--            android:exported="true">-->
-<!--            <meta-data-->
-<!--                android:name="android.app.lib_name"-->
-<!--                android:value="" />-->
-<!--        </activity>-->
-        <activity
             android:name=".FindPwFailActivity"
             android:exported="false">
             <meta-data
@@ -115,7 +80,5 @@
         <activity
             android:name=".SplashActivity"
             android:exported="true" />
-
     </application>
-
 </manifest>

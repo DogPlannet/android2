@@ -1,30 +1,31 @@
 package com.example.umc_pj
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import com.example.umc_pj.databinding.FragmentNaviMypageBinding
+import androidx.fragment.app.Fragment
+import com.example.umc_pj.databinding.FragmentServiceBinding
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-val serviceFragment = ServiceFragment()
-val changePwFragment = ChangePwFragment()
-val wroteFragment = WroteFragment()
-val questionFragment = ManyQuestionFragment()
+var MypageFragment = NaviMypageFragment()
+var MyServiceFragment = ServiceFragment()
+var ServiceFragment1 = ServiceDetail1Fragment()
+var ServiceFragment2 = ServiceDetail2Fragment()
+var ServiceFragment3 = ServiceDetail3Fragment()
 
-
-class NaviMypageFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+class ServiceFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-    lateinit var binding: FragmentNaviMypageBinding
+    lateinit var binding: FragmentServiceBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,85 +39,66 @@ class NaviMypageFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-//        _binding = FragmentNaviMypageBinding.inflate(inflater, container, false)
-//        val view = binding.root
-//        return view
-        binding = FragmentNaviMypageBinding.inflate(inflater, container, false)
+        // Inflate the layout for this fragment
+        binding =  FragmentServiceBinding.inflate(inflater, container, false)
 
-        binding.serviceDetailBtn.setOnClickListener{
+        binding.backButton.setOnClickListener{
+            Log.d("dd", "클릭됨")
 //            childFragmentManager.beginTransaction().apply {
 //                replace(R.id.my_page_fr, serviceFragment)
 //                addToBackStack(null)
 //                commit()
 //            }
             parentFragmentManager.beginTransaction().apply {
-                replace(R.id.main_frm, serviceFragment)
+                replace(R.id.main_frm, MypageFragment)
                     .addToBackStack(null)
                     .commit()
             }
         }
 
-        binding.changePwBtn.setOnClickListener{
+        // 이용약관
+        binding.btn1.setOnClickListener{
             parentFragmentManager.beginTransaction().apply {
-                replace(R.id.main_frm, changePwFragment)
+                replace(R.id.main_frm, ServiceFragment1)
                     .addToBackStack(null)
                     .commit()
             }
         }
 
-        binding.writeDetailBtn.setOnClickListener{
+        // 개인정보보호정책
+        binding.btn2.setOnClickListener{
             parentFragmentManager.beginTransaction().apply {
-                replace(R.id.main_frm, wroteFragment)
+                replace(R.id.main_frm, ServiceFragment2)
                     .addToBackStack(null)
                     .commit()
             }
         }
 
-        binding.questionBtn.setOnClickListener{
+        // 이용약관
+        binding.btn3.setOnClickListener{
             parentFragmentManager.beginTransaction().apply {
-                replace(R.id.main_frm, questionFragment)
+                replace(R.id.main_frm, ServiceFragment3)
                     .addToBackStack(null)
                     .commit()
             }
         }
+
+
         return binding.root
     }
-
-//    lateinit var mainActivity: MainActivity
-//
-//    override fun onAttach(context: Context) {
-//        super.onAttach(context)
-//        mainActivity = context as MainActivity
-//    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 //
-//        service_detail_btn.setOnClickListener {
-//            (parentFragment as? NaviMypageFragment)?.service()
-//            Log.d("dd", "클릭됨")
+//        btn3.setOnClickListener {
+//            (parentFragment as NaviMypageFragment).serviceDetail1()
 //        }
     }
 
-    // fragment 액션바 없애주기
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.hide()
     }
-
-//    private fun service() {
-//        childFragmentManager.beginTransaction()
-//            .replace(R.id.service_fragment, serviceFragment)
-//            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-//            .commit()
-//    }
-
-//    fun serviceDetail1() {
-//        childFragmentManager.beginTransaction()
-//            .replace(R.id.service_fragment_detail1, serviceDetail1Fragment)
-//            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-//            .commit()
-//    }
 
     companion object {
         /**
@@ -125,16 +107,26 @@ class NaviMypageFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment NaviMypageFragment.
+         * @return A new instance of fragment ServiceFragment.
          */
-        // TODO: Rename and change types and number of parameter
+        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            NaviMypageFragment().apply {
+            ServiceFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
                 }
             }
     }
+
+//    override fun onResume() {
+//        super.onResume()
+//        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
+//    }
+//
+//    override fun onStop() {
+//        super.onStop()
+//        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
+//    }
 }

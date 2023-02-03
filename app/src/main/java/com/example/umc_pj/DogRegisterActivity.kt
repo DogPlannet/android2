@@ -77,6 +77,11 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
 //            intent.putExtra("dogname", dog_name_edt_text.text.toString())
             startActivity(intent)
         }
+
+        viewBinding.backButton.setOnClickListener {
+            val intent = Intent(this, SignUpComplete::class.java)
+            startActivity(intent)
+        }
         //배경 클릭시 포커스해제
         viewBinding.background.setOnClickListener {
             breed_recycleR.visibility= View.INVISIBLE
@@ -111,15 +116,15 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
         var tempPersons = ArrayList<BreedDTO>()
         tempPersons.add(BreedDTO(""))
         tempPersons.add(BreedDTO("허스키"))
-        tempPersons.add(BreedDTO("11111"))
-        tempPersons.add(BreedDTO("11111"))
-        tempPersons.add(BreedDTO("11111"))
+        tempPersons.add(BreedDTO("비숑"))
+        tempPersons.add(BreedDTO("푸들"))
+        tempPersons.add(BreedDTO("말티즈"))
         tempPersons.add(BreedDTO("치와와"))
         tempPersons.add(BreedDTO("시츄"))
         tempPersons.add(BreedDTO("웰시코기"))
         tempPersons.add(BreedDTO("진돗개"))
-        tempPersons.add(BreedDTO("풍산개"))
-        tempPersons.add(BreedDTO("저팔계"))
+        tempPersons.add(BreedDTO("닥스훈트"))
+        tempPersons.add(BreedDTO("골든 리트리버"))
         return tempPersons
     }
 
@@ -303,7 +308,7 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
                 breed_search.clearFocus()
                 when (position) {
                     0 -> {
-                        validSpinner3 = false
+                        validSpinner3 = true
                     }
                     else -> {
                         validSpinner3 = true
@@ -331,11 +336,9 @@ class DogRegisterActivity : AppCompatActivity(),BreedItemClick  {
         if(v1 && v2 && v3 && v4){
             next_page_btn.isEnabled = true
             next_page_btn.isClickable = true
-            next_page_btn.setBackgroundResource(R.drawable.start_button)
         } else {
             next_page_btn.isEnabled = false
             next_page_btn.isClickable = false
-            next_page_btn.setBackgroundResource(R.drawable.disabled_button)
         }
     }
 

@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:text="자주 묻는 질문"
+        android:text="위치 기반 서비스 약관"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,68 +61,19 @@
         app:layout_constraintStart_toEndOf="@id/back_button"
         app:layout_constraintTop_toBottomOf="@+id/text1" />
 
-    <TextView
-        android:id="@+id/qna1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Q: 멍멍멍이 이건가요?\nA: 이거는 이거고요, 저거는 저겁니다."
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toEndOf="@id/back_button"
-        app:layout_constraintTop_toBottomOf="@+id/line" />
 
-    <View
-        android:id="@+id/line2"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/qna1"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="#F8F4EA" />
 
     <TextView
-        android:id="@+id/qna2"
-        android:layout_width="wrap_content"
+        android:id="@+id/text3"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Q: 질문은 어디로 하면 되나요?\nA: 이메일로 문의주시면 빠르게 답변드리고 있습니다."
         android:layout_marginTop="20dp"
-        app:layout_constraintStart_toEndOf="@id/back_button"
-        app:layout_constraintTop_toBottomOf="@+id/line2" />
-
-    <View
-        android:id="@+id/line3"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/qna2"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
+        android:text="위치 기반 서비스 약관 내용입니다~!!@!@!@!@!@!@!@!@!@!@!@!#!#!#!#!#!#!#!#!#!#!#!#!#!$!$!#!#!#"
+        android:textSize="18dp"
         android:layout_marginEnd="20dp"
-        android:background="#F8F4EA" />
-
-    <TextView
-        android:id="@+id/qna3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Q: 게시글 수정은 어떻게 하나요?\nA: 작성한 게시글 상단 아이콘을 눌러 취소하면 됩니다."
-        android:layout_marginTop="20dp"
         app:layout_constraintStart_toEndOf="@id/back_button"
-        app:layout_constraintTop_toBottomOf="@+id/line3" />
-
-    <View
-        android:id="@+id/line4"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/qna3"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="#F8F4EA" />
+        app:layout_constraintTop_toBottomOf="@+id/line"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

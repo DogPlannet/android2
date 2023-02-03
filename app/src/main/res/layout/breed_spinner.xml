@@ -7,5 +7,5 @@
     android:paddingStart="15dp"
     android:paddingTop="12dp"
     android:layout_centerHorizontal="true"
-    android:textColor="#ffFF6000"
+    android:textColor="@color/black"
     android:textSize="18sp"/>

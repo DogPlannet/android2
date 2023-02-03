@@ -2,7 +2,6 @@ package com.example.umc_pj;
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.service.controls.actions.FloatAction
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
@@ -22,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         findViewById(R.id.main_frm)
     }
 
-    private var backPressedTime : Long = 0
+    private var backPressedTime: Long = 0
     // 액션버튼 메뉴 액션바에 집어넣기
 
     // 이 부분은 뒤로가기 이벤트 처리용 코드. 후에 사용 할듯
@@ -63,9 +62,12 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         replaceFragment(NaviCommunityFragment())
+
+        deleteToolbar(NaviMypageFragment())
 
         val main_bnv = findViewById<BottomNavigationView>(R.id.main_bnv)
         setSupportActionBar(toolbar) // 커스텀한 toolbar를 액션바로 사용
@@ -82,7 +84,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        noticeitem.setOnClickListener{
+        noticeitem.setOnClickListener {
             val transaction = supportFragmentManager.beginTransaction()
                 .replace(R.id.main_frm, NoticeFragment())
                 .addToBackStack(null)
@@ -92,17 +94,15 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        main_bnv.setOnItemSelectedListener { item ->
+        binding.mainBnv.setOnItemSelectedListener { item ->
             changeFragment(
                 when (item.itemId) {
                     R.id.navigation_home -> {
                         main_bnv.itemIconTintList = null
-                        main_bnv.itemTextColor  = null
                         NaviHomeFragment()
                         // Respond to navigation item 1 click
                     }
                     R.id.navigation_community -> {
-
                         main_bnv.itemIconTintList = null
                         NaviCommunityFragment()
                         // Respond to navigation item 2 click
@@ -119,8 +119,7 @@ class MainActivity : AppCompatActivity() {
             )
             true
         }
-        main_bnv.selectedItemId = R.id.navigation_home
-
+        binding.mainBnv.selectedItemId = R.id.navigation_home
 //        initNavigation()
     }
 
@@ -132,12 +131,25 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
+//    private fun initNavigation() {
+//        binding.mainBnv.itemIconTintList = null
+////        binding.mainBottomNavigation.setupWithNavController(navController)
+////        binding.mainBottomNavigation.itemIconTintList = null
+//    }
 
-    private fun replaceFragment(naviCommunityFragment: Fragment){
+
+    private fun replaceFragment(naviCommunityFragment: Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.main_frm, naviCommunityFragment)
         fragmentTransaction.commit()
     }
 
+    private fun deleteToolbar(naviMypageFragment: Fragment) {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.main_frm, naviMypageFragment)
+        fragmentTransaction.commit()
+
+    }
 }
