@@ -46,5 +46,18 @@
 
     <string name="commentcnt_1">"90"</string>
 
+    <string name="notice_comment_1">"짱 귀여워요ㅠㅠ"</string>
+    <string name="notice_comment_2">"저희 강아지도 그랬는데 며칠 지나니까 새..."</string>
+    <string name="notice_comment_3">"이건 읽은 댓글~"</string>
+    <string name="notice_comment_4">"이건 읽은 댓글~"</string>
+
+    <string name="notice_title">"새로운 댓글이 달렸습니다:"</string>
+
+    <string name="notice_date_1">"2023.01.04."</string>
+    <string name="notice_date_2">"2023.01.03."</string>
+    <string name="notice_date_3">"2023.01.02."</string>
+    <string name="notice_date_4">"2023.01.01."</string>
+
+    <string name="notice_time">"12.34"</string>
 
 </resources>

@@ -2,16 +2,18 @@ package com.example.umc_pj.homepackage
 
 import android.content.Context
 import android.os.Bundle
-import android.util.TypedValue
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import android.util.TypedValue
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
+import com.example.umc_pj.MainActivity
 import com.example.umc_pj.R
 import com.example.umc_pj.databinding.FragmentNaviHomeBinding
 import kotlinx.android.synthetic.main.activity_dog_register.*
@@ -27,7 +29,7 @@ var RecordPage = HomeRecord()
  * Use the [NaviHomeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class NaviHomeFragment : Fragment(){
+class NaviHomeFragment : Fragment(), View.OnClickListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -39,6 +41,7 @@ class NaviHomeFragment : Fragment(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
@@ -46,11 +49,6 @@ class NaviHomeFragment : Fragment(){
 
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-//        this.setupData()
-//        this.setupStatusHandler()
-    }
 
 
     override fun onCreateView(
@@ -64,7 +62,9 @@ class NaviHomeFragment : Fragment(){
     }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        binding.recordbtn.setOnClickListener {
+        binding.recordbtn.setOnClickListener{
+            onClick(view)
+
         }
     }
 
@@ -72,6 +72,15 @@ class NaviHomeFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.show()
+    }
+
+    lateinit var mainActivity: MainActivity
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        // 2. Context를 액티비티로 형변환해서 할당
+        mainActivity = context as MainActivity
+
     }
 
     fun goRecordPage(){
@@ -109,6 +118,7 @@ class NaviHomeFragment : Fragment(){
         super.onDestroyView()
         _binding = null
     }
+
 
     private fun setupData() {
 
@@ -173,4 +183,13 @@ class NaviHomeFragment : Fragment(){
         )
     }
 
+
+    override fun onClick(view: View?) {
+                val dlg = MyDialog(mainActivity)
+                Log.d("gdsa","asdgdsg")
+                dlg.setOnOKClickedListener{ content ->
+                    binding.recordbtn.text = content
+                }
+                dlg.show("메인의 내용을 변경할까요?")
+    }
 }
