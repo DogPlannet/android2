@@ -26,4 +26,5 @@
         <item>11월</item>
         <item>12월</item>
     </string-array>
+    <string name="walk">지금 바로 <b>산책</b>을 시작할까요?</string>
 </resources>
