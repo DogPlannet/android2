@@ -7,6 +7,8 @@ import android.util.Log
 import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
+import com.example.umc_pj.R
 import com.example.umc_pj.databinding.CustomdialogBinding
 import com.example.umc_pj.databinding.CustomdialogWalkFailBinding
 import com.example.umc_pj.databinding.CustomdialogWalkStartBinding
@@ -52,10 +54,13 @@ class MyDialog(private val context : AppCompatActivity) {
         binding2 = CustomdialogWalkStartBinding.inflate(context.layoutInflater)
 //            dlg.requestWindowFeature(Window.FEATURE_NO_TITLE)   //타이틀바 제거
         dlg.setContentView(binding2.root)     //다이얼로그에 사용할 xml 파일을 불러옴
+        Glide.with(context).load(R.drawable.movedog).override(200, 200).into(binding2.moveGif)
+//이러면 멈춤        Glide.with(context).load(R.drawable.walk_box).override(200, 200).into(binding2.moveGif)
+
         dlg.setCancelable(true)    //다이얼로그의 바깥 화면을 눌렀을 때 다이얼로그가 닫히지 않도록 함
         dlg.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         val params: WindowManager.LayoutParams = this.dlg.window!!.attributes
-        params.y = 700
+        params.y = 650
         this.dlg.window!!.attributes = params
         dlg.window!!.setLayout(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT)
         dlg.show()

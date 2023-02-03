@@ -13,7 +13,7 @@
         >
 
         <ImageView
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="12dp"
             android:id="@+id/move_gif"
             android:layout_width="135dp"
             android:layout_height="135dp"
