@@ -9,6 +9,7 @@ import android.text.TextWatcher
 import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import com.example.umc_pj.databinding.ActivityPostingBinding
 import kotlinx.android.synthetic.main.activity_info.*
@@ -32,7 +33,9 @@ class PostingActivity : AppCompatActivity() {
             finish()
         }
 
-        binding.okPosting.setOnClickListener {  }
+        binding.okPosting.setOnClickListener {
+            Toast.makeText(this@PostingActivity, "완료 버튼 클릭됨", Toast.LENGTH_SHORT).show()
+        }
 
         binding.postingTitle.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -48,11 +51,13 @@ class PostingActivity : AppCompatActivity() {
                     if (validEditText1 && validEditText2){
                         // 완료 버튼의 색상을 바꾼다
                         binding.okPosting.setTextColor(Color.parseColor("#D19200"))
+                        binding.okPosting.isEnabled = true
                     }
                 } else{
                     validEditText1 = false
                     // 완료 버튼의 색상을 바꾸지 않는다
                     binding.okPosting.setTextColor(Color.parseColor("#999999"))
+                    binding.okPosting.isEnabled = false
                 }
             }
         })
@@ -71,11 +76,13 @@ class PostingActivity : AppCompatActivity() {
                     if (validEditText1 && validEditText2){
                         // 완료 버튼의 색상을 바꾼다
                         binding.okPosting.setTextColor(Color.parseColor("#D19200"))
+                        binding.okPosting.isEnabled = true
                     }
                 } else{
                     validEditText2 = false
                     // 완료 버튼의 색상을 바꾸지 않는다
                     binding.okPosting.setTextColor(Color.parseColor("#999999"))
+                    binding.okPosting.isEnabled = false
                 }
             }
         })

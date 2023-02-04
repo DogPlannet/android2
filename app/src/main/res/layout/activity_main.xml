@@ -39,7 +39,6 @@
             android:text="멍플래닛"
             android:textColor="#FCCE65"
             android:fontFamily="@font/dungeon"
-            android:textStyle="bold"
             android:layout_marginStart="8dp"
             android:textAppearance="@style/some_id"
             android:textSize="24dp"
