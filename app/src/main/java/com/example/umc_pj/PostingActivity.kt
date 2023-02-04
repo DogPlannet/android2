@@ -27,7 +27,10 @@ class PostingActivity : AppCompatActivity() {
         binding = ActivityPostingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.closePosting.setOnClickListener {  }
+        binding.closePosting.setOnClickListener {
+            val transaction = supportFragmentManager.popBackStack()
+            finish()
+        }
 
         binding.okPosting.setOnClickListener {  }
 
@@ -83,5 +86,10 @@ class PostingActivity : AppCompatActivity() {
         val imm: InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
         return true
+    }
+
+    override fun onBackPressed() {
+        // super.onBackPressed()
+        // 안드로이드 뒤로 가기 버튼 막기
     }
 }
