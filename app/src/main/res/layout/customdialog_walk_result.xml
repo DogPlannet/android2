@@ -66,7 +66,7 @@
             app:layout_constraintStart_toStartOf="@id/start1"
             app:layout_constraintEnd_toStartOf="@id/walk_result_dvide"
             app:layout_constraintTop_toBottomOf="@id/result_text"
-            android:text="산책시간"
+            android:text="산책시작"
             android:textSize="14dp"
             android:textColor="#767676"
             />
@@ -82,8 +82,92 @@
             app:layout_constraintStart_toEndOf="@id/start1"
             app:layout_constraintEnd_toStartOf="@id/walk_result_dvide"
             app:layout_constraintTop_toBottomOf="@id/walk_result_time_text"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             />
+
+        <TextView
+            android:id="@+id/walk_result_time_end_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:layout_constraintStart_toStartOf="@id/walk_result_dvide"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/result_text"
+            android:text="산책종료"
+            android:textSize="14dp"
+            android:textColor="#767676"
+            />
+        <TextView
+            android:id="@+id/walk_result_time_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="23dp"
+            android:textStyle="bold"
+            android:text="00:23"
+            app:layout_constraintStart_toStartOf="@id/walk_result_dvide"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/walk_result_time_text"
+            android:layout_marginTop="4dp"
+            />
+
+
+
+        <TextView
+            android:id="@+id/walk_result_range_start_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/walk_result_dvide"
+            app:layout_constraintTop_toBottomOf="@id/walk_result_time"
+            android:text="산책거리"
+            android:textSize="14dp"
+            android:textColor="#767676"
+            />
+        <TextView
+            android:id="@+id/walk_result_range_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="23dp"
+            android:textStyle="bold"
+            android:text="340m"
+            app:layout_constraintEnd_toEndOf="@id/walk_result_dvide"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/walk_result_range_start_text"
+            android:layout_marginTop="4dp"
+            />
+
+
+
+
+        <TextView
+            android:id="@+id/walk_result_range_end_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            app:layout_constraintStart_toStartOf="@id/walk_result_dvide"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/walk_result_time"
+            android:text="산책시간"
+            android:textSize="14dp"
+            android:textColor="#767676"
+            />
+        <TextView
+            android:id="@+id/walk_result_range_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="23dp"
+            android:textStyle="bold"
+            android:text="00:01"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/walk_result_dvide"
+            app:layout_constraintTop_toBottomOf="@id/walk_result_range_start_text"
+            android:layout_marginTop="4dp"
+            />
+
 
 
 
@@ -92,13 +176,43 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#999999"
-            app:layout_constraintTop_toBottomOf="@id/camera_text"
+            app:layout_constraintTop_toBottomOf="@id/walk_result_range_end"
             app:layout_constraintStart_toStartOf="@+id/start1"
             app:layout_constraintEnd_toEndOf="@+id/end1"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="32dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             />
+
+        <TextView
+            android:id="@+id/result_walk_coco_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toTopOf="@id/walk_dvide_line"
+            android:text="오늘 코코의 산책사진"
+            android:textColor="#191919"
+            android:textSize="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/result_img" />
+
+
+        <ImageView
+            android:id="@+id/result_img"
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/walk_result_img"
+            android:src="@drawable/gray_back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/end1"
+            app:layout_constraintStart_toStartOf="@id/start1"
+            app:layout_constraintTop_toBottomOf="@id/result_walk_coco_text" />
+
         <View
             android:id="@+id/start1"
             android:layout_width="1dp"
