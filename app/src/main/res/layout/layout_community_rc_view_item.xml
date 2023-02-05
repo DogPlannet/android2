@@ -57,7 +57,7 @@
 
         <ImageView
             android:id="@+id/iv_heart"
-            android:layout_width="13dp"
+            android:layout_width="14dp"
             android:layout_height="11.73dp"
             android:layout_marginStart="200dp"
             android:layout_marginTop="12.62dp"

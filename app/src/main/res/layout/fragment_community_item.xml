@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CommunityItemFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout1"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:background="#FCCE65"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="29dp"
+                android:layout_marginTop="11dp"
+                android:text="제목제목제목제목제목"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="29dp"
+                android:layout_marginTop="3dp"
+                android:text="닉네임"
+                android:textColor="#767676"
+                android:textSize="13dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+            <TextView
+                android:id="@+id/tv_and"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="3dp"
+                android:text="/"
+                android:textColor="#767676"
+                android:textSize="14dp"
+                app:layout_constraintStart_toEndOf="@+id/tv_nickname"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+            <TextView
+                android:id="@+id/tv_dog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="3dp"
+                android:text="견종"
+                android:textColor="#767676"
+                android:textSize="13dp"
+                app:layout_constraintStart_toEndOf="@+id/tv_and"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2000.00.00."
+                android:textSize="11dp"
+                android:textColor="#767676"
+                app:layout_constraintBottom_toBottomOf="@id/tv_nickname"
+                app:layout_constraintEnd_toStartOf="@+id/tv_time" />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="29dp"
+                android:text="24:00"
+                android:textSize="11dp"
+                android:textColor="#767676"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/tv_nickname" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout2"
+            android:layout_width="match_parent"
+            android:layout_height="182dp"
+            app:layout_constraintTop_toBottomOf="@+id/layout1"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="29dp"
+                android:layout_marginTop="23dp"
+                android:text="내용내용내용내용내용내용\n내용내용내용내용내용내용"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_img"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="31dp"
+                android:layout_marginEnd="29dp"
+                android:src="@drawable/sample_dream"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_heart"
+                android:layout_width="14dp"
+                android:layout_height="11.73dp"
+                android:layout_marginStart="29dp"
+                android:layout_marginTop="53dp"
+                android:src="@drawable/icon_heart_green"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_content" />
+
+            <TextView
+                android:id="@+id/tv_cnt_heart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="49dp"
+                android:text="9"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                app:layout_constraintStart_toEndOf="@+id/iv_heart"
+                app:layout_constraintTop_toBottomOf="@+id/tv_content" />
+
+            <ImageView
+                android:id="@+id/iv_comment"
+                android:layout_width="14dp"
+                android:layout_height="11.73dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="53dp"
+                android:src="@drawable/icon_comment_green"
+                app:layout_constraintStart_toEndOf="@+id/tv_cnt_heart"
+                app:layout_constraintTop_toBottomOf="@+id/tv_content" />
+
+            <TextView
+                android:id="@+id/tv_cnt_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="49dp"
+                android:text="90"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                app:layout_constraintStart_toEndOf="@+id/iv_comment"
+                app:layout_constraintTop_toBottomOf="@+id/tv_content" />
+
+            <Button
+                android:id="@+id/btn_heart"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="71dp"
+                android:layout_height="21dp"
+                android:layout_gravity="center|bottom"
+                android:layout_marginStart="29dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/community_item_btn"
+                android:drawableStart="@drawable/heart_resize"
+
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="공감하기"
+                android:textColor="#D19200"
+                android:textSize="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_cnt_heart" />
+
+            <Button
+                android:id="@+id/btn_comment"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="71dp"
+                android:layout_height="21dp"
+                android:layout_gravity="center|bottom"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/community_item_btn"
+                android:drawableStart="@drawable/comment_resize"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="댓글달기"
+                android:textColor="#D19200"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_heart"
+                app:layout_constraintStart_toEndOf="@+id/btn_heart" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/btn_back"
+            app:layout_constraintTop_toBottomOf="@id/layout2"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
