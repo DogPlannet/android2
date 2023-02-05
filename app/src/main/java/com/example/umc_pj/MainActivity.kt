@@ -92,6 +92,12 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        btn_back.setOnClickListener {
+            val transaction = supportFragmentManager.popBackStack()
+            toolbar.visibility = View.VISIBLE
+            toolbar3.visibility = View.INVISIBLE
+        }
+
         main_bnv.setOnItemSelectedListener { item ->
             changeFragment(
                 when (item.itemId) {
