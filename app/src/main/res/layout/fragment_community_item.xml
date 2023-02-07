@@ -96,41 +96,48 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout2"
             android:layout_width="match_parent"
-            android:layout_height="182dp"
+            android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/layout1"
             tools:layout_editor_absoluteX="0dp">
 
-            <TextView
-                android:id="@+id/tv_content"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="29dp"
-                android:layout_marginTop="23dp"
-                android:text="내용내용내용내용내용내용\n내용내용내용내용내용내용"
-                android:textColor="@color/black"
-                android:textSize="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <ImageView
                 android:id="@+id/iv_img"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginTop="31dp"
-                android:layout_marginEnd="29dp"
-                android:src="@drawable/sample_dream"
+                android:layout_width="match_parent"
+                android:layout_height="420dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
                 android:scaleType="centerCrop"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:src="@drawable/sample_dream"
+                app:layout_constraintBottom_toTopOf="@+id/tv_content"
+                app:layout_constraintEnd_toEndOf="@id/layout2"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/layout2"
+                app:layout_constraintTop_toTopOf="@id/layout2" />
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="드림아 사랑한다... 우주가 널 위해 태동했고 지구는 널 위해 자전하고 천지는 널 위해 개벽했으며 한강은 너를 위해 흐른다... 삼국시대에 드림이가 있었다면 분명 널 가지고자 전쟁했을 것이며 원나라와 청나라가 우리나라에 쳐들어온 건 모두 널 탐내서였을 것이다... 드림이가 곧 인류이자 역사이다..."
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="@id/iv_img"
+                app:layout_constraintStart_toStartOf="@id/iv_img"
+                app:layout_constraintTop_toBottomOf="@id/iv_img" />
+
 
             <ImageView
                 android:id="@+id/iv_heart"
                 android:layout_width="14dp"
                 android:layout_height="11.73dp"
-                android:layout_marginStart="29dp"
                 android:layout_marginTop="53dp"
                 android:src="@drawable/icon_heart_green"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tv_content"
                 app:layout_constraintTop_toBottomOf="@+id/tv_content" />
 
             <TextView
@@ -173,17 +180,16 @@
                 android:layout_width="71dp"
                 android:layout_height="21dp"
                 android:layout_gravity="center|bottom"
-                android:layout_marginStart="29dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/community_item_btn"
-                android:drawableStart="@drawable/heart_resize"
 
+                android:drawableStart="@drawable/heart_resize"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:text="공감하기"
                 android:textColor="#D19200"
                 android:textSize="12dp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tv_content"
                 app:layout_constraintTop_toBottomOf="@+id/tv_cnt_heart" />
 
             <Button
@@ -209,8 +215,9 @@
             android:id="@+id/line"
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_marginTop="23dp"
             android:background="@color/btn_back"
-            app:layout_constraintTop_toBottomOf="@id/layout2"/>
+            app:layout_constraintTop_toBottomOf="@id/layout2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
