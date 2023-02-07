@@ -6,36 +6,48 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
+import com.example.umc_pj.databinding.EmaildialogBinding
 import com.example.umc_pj.databinding.LogoutcompletedialogBinding
 import com.example.umc_pj.databinding.LogoutdialogBinding
 
 
-class LogoutDialog(private val context : AppCompatActivity) {
+class EmailDialog(private val context : AppCompatActivity) {
     private lateinit var listener : MyDialogOKClickedListener
-    private lateinit var binding : LogoutdialogBinding
-    private var logoutDlg = Dialog(context)   //부모 액티비티의 context 가 들어감
+    private lateinit var binding : EmaildialogBinding
+    private var EmailDlg = Dialog(context)   //부모 액티비티의 context 가 들어감
 
     fun show(content : String) {
-        binding = LogoutdialogBinding.inflate(context.layoutInflater)
+        binding = EmaildialogBinding.inflate(context.layoutInflater)
 
         // 다이얼로그 테두리 둥글게 만들기
-        logoutDlg?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        logoutDlg?.window?.requestFeature(Window.FEATURE_NO_TITLE)
-        logoutDlg.requestWindowFeature(Window.FEATURE_NO_TITLE)   //타이틀바 제거
-        logoutDlg.setContentView(binding.root)     //다이얼로그에 사용할 xml 파일을 불러옴
-        logoutDlg.setCancelable(false)    //다이얼로그의 바깥 화면을 눌렀을 때 다이얼로그가 닫히지 않도록 함
+        EmailDlg?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        EmailDlg?.window?.requestFeature(Window.FEATURE_NO_TITLE)
+        EmailDlg.requestWindowFeature(Window.FEATURE_NO_TITLE)   //타이틀바 제거
+        EmailDlg.setContentView(binding.root)     //다이얼로그에 사용할 xml 파일을 불러옴
+        EmailDlg.setCancelable(true)    //다이얼로그의 바깥 화면을 눌렀을 때 다이얼로그가 닫히지 않도록 함
 
-        val params: WindowManager.LayoutParams = this.logoutDlg.window!!.attributes
+        val params: WindowManager.LayoutParams = this.EmailDlg.window!!.attributes
         params.y = 500
-        this.logoutDlg.window!!.attributes = params
+        this.EmailDlg.window!!.attributes = params
 
         //ok 버튼 동작
         binding.yesBtn.setOnClickListener {
-            logoutDlg.dismiss()
-            // 액티비티로 이동(첫화면)
-            val intent = Intent(context, SplashActivity::class.java)
+            EmailDlg.dismiss()
+
+            // 이메일 보내기
+            val intent = Intent(Intent.ACTION_SEND)
+            intent.type = "plain/text"
+            val address = arrayOf("dogPlannet@dogplannet.com")
+            intent.putExtra(Intent.EXTRA_EMAIL, address)
+            intent.putExtra(Intent.EXTRA_SUBJECT, "멍플래닛 문의")
+            intent.putExtra(Intent.EXTRA_TEXT, "")
             context.startActivity(intent)
-            (context as Activity).finish()
+
+            // 액티비티로 이동(첫화면)
+//            val intent = Intent(context, SendEmailActivity::class.java)
+//            context.startActivity(intent)
+//            (context as Activity).finish()
 
             // 어플 종료
 //            ActivityCompat.finishAffinity(context)
@@ -43,9 +55,9 @@ class LogoutDialog(private val context : AppCompatActivity) {
 
         //cancel 버튼 동작
         binding.noBtn.setOnClickListener {
-            logoutDlg.dismiss()
+            EmailDlg.dismiss()
         }
-        logoutDlg.show()
+        EmailDlg.show()
     }
 
     fun setOnOKClickedListener(listener: (String) -> Unit) {

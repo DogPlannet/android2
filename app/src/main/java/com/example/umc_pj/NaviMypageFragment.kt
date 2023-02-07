@@ -3,6 +3,7 @@ package com.example.umc_pj
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.provider.ContactsContract.CommonDataKinds.Email
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -55,7 +56,8 @@ class NaviMypageFragment : Fragment() {
 //                commit()
 //            }
             parentFragmentManager.beginTransaction().apply {
-                replace(R.id.main_frm, serviceFragment)
+                setCustomAnimations(R.anim.to_right, R.anim.to_right)
+                    .replace(R.id.main_frm, serviceFragment)
                     .addToBackStack(null)
                     .commit()
             }
@@ -102,8 +104,10 @@ class NaviMypageFragment : Fragment() {
             onClick(view)
         }
         binding.withdraw.setOnClickListener{
-            Log.d("dd","ddd")
             onClickWithdraw(view)
+        }
+        binding.email.setOnClickListener{
+            onClickEmail(view)
         }
     }
 
@@ -130,16 +134,15 @@ class NaviMypageFragment : Fragment() {
         deleteDlg.show("회원탈퇴")
     }
 
+    private fun onClickEmail(view: View?) {
+        val emailDlg = EmailDialog(mainActivity)
+        emailDlg.setOnOKClickedListener { content ->
+            binding.email.text = content
+        }
+        emailDlg.show("이메일")
+    }
+
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment NaviMypageFragment.
-         */
-        // TODO: Rename and change types and number of parameter
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             NaviMypageFragment().apply {
