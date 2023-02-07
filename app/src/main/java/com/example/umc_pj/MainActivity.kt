@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -96,15 +97,28 @@ class MainActivity : AppCompatActivity(), CustomDialog {
 
         }
 
-        binding.mainBnv.setOnItemSelectedListener { item ->
+        btn_back.setOnClickListener {
+            val transaction = supportFragmentManager.popBackStack()
+            toolbar.visibility = View.VISIBLE
+            toolbar3.visibility = View.INVISIBLE
+        }
+
+        btn_more.setOnClickListener {
+            Toast.makeText(this@MainActivity, "내가 쓴 글 수정", Toast.LENGTH_SHORT).show()
+        }
+
+
+        main_bnv.setOnItemSelectedListener { item ->
             changeFragment(
                 when (item.itemId) {
                     R.id.navigation_home -> {
                         main_bnv.itemIconTintList = null
+                        main_bnv.itemTextColor  = null
                         NaviHomeFragment()
                         // Respond to navigation item 1 click
                     }
                     R.id.navigation_community -> {
+
                         main_bnv.itemIconTintList = null
                         NaviCommunityFragment()
                         // Respond to navigation item 2 click
@@ -121,9 +135,11 @@ class MainActivity : AppCompatActivity(), CustomDialog {
             )
             true
         }
-        binding.mainBnv.selectedItemId = R.id.navigation_home
+        main_bnv.selectedItemId = R.id.navigation_home
+
 //        initNavigation()
     }
+
 
 
     private fun changeFragment(fragment: Fragment) {

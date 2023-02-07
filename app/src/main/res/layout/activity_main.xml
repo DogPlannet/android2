@@ -51,7 +51,6 @@
             android:text="멍플래닛"
             android:textColor="#FCCE65"
             android:fontFamily="@font/dungeon"
-            android:textStyle="bold"
             android:layout_marginStart="8dp"
             android:textAppearance="@style/some_id"
             android:textSize="24dp"
@@ -78,7 +77,7 @@
             android:layout_height="wrap_content"
             android:text="알림"
             android:textAppearance="@style/some_id"
-            android:textSize="20dp"
+            android:textSize="18dp"
             android:layout_gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -94,6 +93,48 @@
             />
 
     </androidx.appcompat.widget.Toolbar>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="14dp"
+            android:layout_height="17dp"
+            android:layout_marginStart="0dp"
+            android:src="@drawable/btn_back" />
+
+        <TextView
+            android:id="@+id/toolBarTitle3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="멍뮤니티"
+            android:layout_marginStart="25dp"
+            android:layout_marginBottom="17dp"
+            android:textAppearance="@style/some_id"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/btn_more"
+            android:layout_width="15dp"
+            android:layout_height="17dp"
+            android:layout_gravity="right"
+            android:layout_marginEnd="18dp"
+            android:src="@drawable/btn_more" />
+
+    </androidx.appcompat.widget.Toolbar>
+
 
     <View
         android:id="@+id/toolbarline"

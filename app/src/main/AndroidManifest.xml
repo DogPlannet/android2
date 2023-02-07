@@ -5,6 +5,10 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.CAMERA"/> <!-- 카메라 사용권한 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/> <!--저장소 읽기 권한-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/><!--저장소 쓰기 권한-->
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,13 +19,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Umc_pj"
         tools:targetApi="31" >
-        <activity
-            android:name=".SendEmailActivity"
-            android:exported="false" >
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
         <activity
             android:name=".FindPwFailActivity"
             android:exported="false" >
@@ -86,6 +83,9 @@
             android:exported="true" />
         <activity
             android:name=".SplashActivity"
+            android:exported="true" />
+        <activity
+            android:name=".PostingActivity"
             android:exported="true" />
     </application>
 

@@ -1,5 +1,6 @@
 package com.example.umc_pj
 
+import android.content.Intent
 import android.os.Bundle
 import android.provider.ContactsContract.CommonDataKinds.Nickname
 import androidx.fragment.app.Fragment
@@ -10,7 +11,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.umc_pj.databinding.FragmentNaviCommunityBinding
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.*
+import kotlinx.android.synthetic.main.fragment_navi_community.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -86,7 +89,14 @@ class NaviCommunityFragment : Fragment() {
         recyclerView.setHasFixedSize(true)
         adapter = NaviCommunityAdapter(newsArrayList)
         recyclerView.adapter = adapter
+
+        btn_create_post.setOnClickListener{
+            requireActivity().run{
+                startActivity(Intent(this, PostingActivity()::class.java))
+            }
+        }
     }
+
 
     private fun dataInitialize(){
         newsArrayList = arrayListOf<NaviCommunityModel>()
