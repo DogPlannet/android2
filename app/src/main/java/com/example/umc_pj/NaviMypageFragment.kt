@@ -1,12 +1,18 @@
 package com.example.umc_pj
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.provider.ContactsContract.CommonDataKinds.Email
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.example.umc_pj.databinding.FragmentNaviMypageBinding
+import com.example.umc_pj.homepackage.MyDialog
+import com.example.umc_pj.homepackage.CustomDialog as CustomDialog1
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -50,7 +56,8 @@ class NaviMypageFragment : Fragment() {
 //                commit()
 //            }
             parentFragmentManager.beginTransaction().apply {
-                replace(R.id.main_frm, serviceFragment)
+                setCustomAnimations(R.anim.to_right, R.anim.to_right)
+                    .replace(R.id.main_frm, serviceFragment)
                     .addToBackStack(null)
                     .commit()
             }
@@ -82,20 +89,26 @@ class NaviMypageFragment : Fragment() {
         return binding.root
     }
 
-//    lateinit var mainActivity: MainActivity
-//
-//    override fun onAttach(context: Context) {
-//        super.onAttach(context)
-//        mainActivity = context as MainActivity
-//    }
+    lateinit var mainActivity: MainActivity
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        // 2. Context를 액티비티로 형변환해서 할당
+        mainActivity = context as MainActivity
+
+    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-//
-//        service_detail_btn.setOnClickListener {
-//            (parentFragment as? NaviMypageFragment)?.service()
-//            Log.d("dd", "클릭됨")
-//        }
+        binding.logout.setOnClickListener{
+            onClick(view)
+        }
+        binding.withdraw.setOnClickListener{
+            onClickWithdraw(view)
+        }
+        binding.email.setOnClickListener{
+            onClickEmail(view)
+        }
     }
 
     // fragment 액션바 없애주기
@@ -104,30 +117,32 @@ class NaviMypageFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.hide()
     }
 
-//    private fun service() {
-//        childFragmentManager.beginTransaction()
-//            .replace(R.id.service_fragment, serviceFragment)
-//            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-//            .commit()
-//    }
+    private fun onClick(view: View?) {
+        val logoutDlg = LogoutDialog(mainActivity)
+        Log.d("gdsa","asdgdsg")
+        logoutDlg.setOnOKClickedListener{ content ->
+            binding.logout.text = content
+        }
+        logoutDlg.show("메인의 내용을 변경할까요?")
+    }
 
-//    fun serviceDetail1() {
-//        childFragmentManager.beginTransaction()
-//            .replace(R.id.service_fragment_detail1, serviceDetail1Fragment)
-//            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-//            .commit()
-//    }
+    private fun onClickWithdraw(view: View?) {
+        val deleteDlg = DeleteDialog(mainActivity)
+        deleteDlg.setOnOKClickedListener{ content ->
+            binding.withdraw.text = content
+        }
+        deleteDlg.show("회원탈퇴")
+    }
+
+    private fun onClickEmail(view: View?) {
+        val emailDlg = EmailDialog(mainActivity)
+        emailDlg.setOnOKClickedListener { content ->
+            binding.email.text = content
+        }
+        emailDlg.show("이메일")
+    }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment NaviMypageFragment.
-         */
-        // TODO: Rename and change types and number of parameter
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             NaviMypageFragment().apply {

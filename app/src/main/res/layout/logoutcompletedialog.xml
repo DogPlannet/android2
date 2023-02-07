@@ -32,7 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="로그아웃 하시겠습니까?"
+                android:text="로그아웃"
                 android:textColor="@color/black"
                 android:textSize="22sp"
                 android:paddingTop="22dp"
@@ -51,34 +51,6 @@
             android:gravity="center"
             android:orientation="horizontal"
             android:weightSum="2">
-
-            <TextView
-                android:id="@+id/yes_btn"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:text="네"
-                android:textColor="#C7DA91" />
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="wrap_content"
-                android:background="#999999" />
-
-            <TextView
-                android:id="@+id/no_btn"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:padding="8dp"
-                android:text="아니오"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="#FCCE65" />
         </LinearLayout>
     </LinearLayout>
 </FrameLayout>

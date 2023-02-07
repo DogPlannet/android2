@@ -9,12 +9,13 @@ import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.umc_pj.databinding.ActivityMainBinding
+import com.example.umc_pj.homepackage.CustomDialog
 import com.example.umc_pj.homepackage.NaviHomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), CustomDialog {
     lateinit var binding: ActivityMainBinding
 
     private val fl: FrameLayout by lazy {
@@ -64,6 +65,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         replaceFragment(NaviCommunityFragment())
 
@@ -123,6 +125,7 @@ class MainActivity : AppCompatActivity() {
 //        initNavigation()
     }
 
+
     private fun changeFragment(fragment: Fragment) {
         supportFragmentManager.popBackStackImmediate()
         supportFragmentManager
@@ -151,5 +154,15 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.replace(R.id.main_frm, naviMypageFragment)
         fragmentTransaction.commit()
 
+    }
+
+    override fun onLikedBtnClicked() {
+        val intent = Intent(this, SplashActivity::class.java)
+        startActivity(intent)
+    }
+
+    override fun onSubscribeBtnClicked() {
+        val intent = Intent(this, SplashActivity::class.java)
+        startActivity(intent)
     }
 }

@@ -32,7 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="로그아웃 하시겠습니까?"
+                android:text="이메일을 보내시겠습니까?"
                 android:textColor="@color/black"
                 android:textSize="22sp"
                 android:paddingTop="22dp"
