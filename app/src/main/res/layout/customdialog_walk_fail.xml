@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_weight="2"
     android:orientation="horizontal"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/dialog_box">
@@ -12,11 +11,23 @@
         android:layout_height="wrap_content"
         >
 
+
+        <ImageButton
+            android:id="@+id/walk_result_close"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:background="@drawable/cls_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
         <ImageView
             android:id="@+id/foot_image"
             android:layout_width="55dp"
             android:layout_height="35dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="32dp"
             android:background="@drawable/double_foot"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -29,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/walk"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="20dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             app:layout_constraintTop_toBottomOf="@id/foot_image"
@@ -39,57 +50,55 @@
 
             android:textColor="#000"
             />
+
+
+
         <View
-            android:id="@+id/dvide_line"
+            android:id="@+id/walk_dvide_line"
             android:layout_width="match_parent"
-            android:background="#c3c3c3"
             android:layout_height="1dp"
-            android:layout_marginTop="36dp"
+            android:background="#999999"
             app:layout_constraintTop_toBottomOf="@id/text"
+            app:layout_constraintStart_toStartOf="@+id/start1"
+            app:layout_constraintEnd_toEndOf="@+id/end1"
+            android:layout_marginTop="22dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             />
 
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/no"
-            android:layout_width="0dp"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="이따가할개!"
-            android:background="@drawable/dialog_btn_box_left"
-            android:textColor="#FCCE65"
-            android:textStyle="bold"
-            android:textSize="22dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dvide_line"
-           app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/dia_line"
-            />
-        <View
-            android:id="@+id/dia_line"
-            android:layout_width="0.5dp"
-            android:layout_height="0dp"
-            android:background="#C3C3C3"
-            app:layout_constraintTop_toTopOf="@id/no"
-            app:layout_constraintBottom_toBottomOf="@id/no"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/walk_dvide_line"
+            android:text="우리 같이 산책해요!\n 반려동물과 좋은 추억을 쌓아봐요!"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            />
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/yes"
-            android:layout_width="0dp"
-            android:padding="20dp"
-            android:layout_height="wrap_content"
-            android:text="좋다개!"
-            android:background="@drawable/dialog_btn_box_right"
-            android:textColor="#C7DA91"
             android:textAlignment="center"
-            android:textStyle="bold"
-            android:textSize="22dp"
-            app:layout_constraintStart_toEndOf="@id/dia_line"
+            android:layout_marginBottom="24dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dvide_line"
-            app:layout_constraintEnd_toEndOf="parent"
             />
+
+        <View
+            android:id="@+id/start1"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:background="#00000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+        <View
+            android:id="@+id/end1"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:background="#00000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            />
+
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

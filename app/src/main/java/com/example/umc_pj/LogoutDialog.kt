@@ -4,8 +4,11 @@ import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.os.Handler
+import android.os.Looper
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
+import com.example.umc_pj.databinding.CustomdialogWalkStartBinding
 import com.example.umc_pj.databinding.LogoutcompletedialogBinding
 import com.example.umc_pj.databinding.LogoutdialogBinding
 
@@ -13,6 +16,7 @@ import com.example.umc_pj.databinding.LogoutdialogBinding
 class LogoutDialog(private val context : AppCompatActivity) {
     private lateinit var listener : MyDialogOKClickedListener
     private lateinit var binding : LogoutdialogBinding
+    private lateinit var binding2 : LogoutcompletedialogBinding
     private var logoutDlg = Dialog(context)   //부모 액티비티의 context 가 들어감
 
     fun show(content : String) {
@@ -32,10 +36,11 @@ class LogoutDialog(private val context : AppCompatActivity) {
         //ok 버튼 동작
         binding.yesBtn.setOnClickListener {
             logoutDlg.dismiss()
+            logoutComplete()
             // 액티비티로 이동(첫화면)
-            val intent = Intent(context, SplashActivity::class.java)
-            context.startActivity(intent)
-            (context as Activity).finish()
+//            val intent = Intent(context, SplashActivity::class.java)
+//            context.startActivity(intent)
+//            (context as Activity).finish()
 
             // 어플 종료
 //            ActivityCompat.finishAffinity(context)
@@ -58,6 +63,27 @@ class LogoutDialog(private val context : AppCompatActivity) {
 
     interface MyDialogOKClickedListener {
         fun onOKClicked(content : String)
+    }
+
+    fun logoutComplete() {
+        binding2 = LogoutcompletedialogBinding.inflate(context.layoutInflater)
+
+        logoutDlg.setContentView(binding2.root)
+        logoutDlg.setCancelable(false)
+        logoutDlg.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        val params: WindowManager.LayoutParams = this.logoutDlg.window!!.attributes
+        params.y = 500
+        this.logoutDlg.window!!.attributes = params
+
+        logoutDlg.window!!.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT)
+        logoutDlg.show()
+//      액티비티로 이동(첫화면)
+        Handler(Looper.getMainLooper()).postDelayed({
+            val intent = Intent(context, SplashActivity::class.java)
+            context.startActivity(intent)
+            (context as Activity).finish()
+        }, 3000)
     }
 
 

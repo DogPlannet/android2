@@ -5,15 +5,20 @@ import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
+import com.example.umc_pj.databinding.DeletecompletedialogBinding
 import com.example.umc_pj.databinding.DeletedialogBinding
+import com.example.umc_pj.databinding.LogoutcompletedialogBinding
 
 
 class DeleteDialog(private val context : AppCompatActivity) {
     private lateinit var listener : MyDialogOKClickedListener
     private lateinit var binding : DeletedialogBinding
+    private lateinit var binding2 : DeletecompletedialogBinding
     private val deleteDlg = Dialog(context)   //부모 액티비티의 context 가 들어감
 
     fun show(content : String) {
@@ -32,22 +37,14 @@ class DeleteDialog(private val context : AppCompatActivity) {
 
         //ok 버튼 동작
         binding.yesBtn.setOnClickListener {
-            Log.d("dd","click ok")
             deleteDlg.dismiss()
-            // 액티비티로 이동(첫화면)
-            val intent = Intent(context, SplashActivity::class.java)
-            context.startActivity(intent)
-            (context as Activity).finish()
-
-            // 어플 종료
-//            ActivityCompat.finishAffinity(context)
+            deleteComplete()
         }
 
         //cancel 버튼 동작
         binding.noBtn.setOnClickListener {
             deleteDlg.dismiss()
         }
-
         deleteDlg.show()
     }
 
@@ -62,4 +59,26 @@ class DeleteDialog(private val context : AppCompatActivity) {
     interface MyDialogOKClickedListener {
         fun onOKClicked(content : String)
     }
+
+    fun deleteComplete() {
+        binding2 = DeletecompletedialogBinding.inflate(context.layoutInflater)
+
+        deleteDlg.setContentView(binding2.root)
+        deleteDlg.setCancelable(false)
+        deleteDlg.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        val params: WindowManager.LayoutParams = this.deleteDlg.window!!.attributes
+        params.y = 500
+        this.deleteDlg.window!!.attributes = params
+
+        deleteDlg.window!!.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT)
+        deleteDlg.show()
+//      액티비티로 이동(첫화면)
+        Handler(Looper.getMainLooper()).postDelayed({
+            val intent = Intent(context, SplashActivity::class.java)
+            context.startActivity(intent)
+            (context as Activity).finish()
+        }, 3000)
+    }
+
 }
