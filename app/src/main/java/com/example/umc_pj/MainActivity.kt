@@ -3,9 +3,11 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.service.controls.actions.FloatAction
+import android.view.Menu
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -98,6 +100,11 @@ class MainActivity : AppCompatActivity() {
             toolbar3.visibility = View.INVISIBLE
         }
 
+        btn_more.setOnClickListener {
+            Toast.makeText(this@MainActivity, "내가 쓴 글 수정", Toast.LENGTH_SHORT).show()
+        }
+
+
         main_bnv.setOnItemSelectedListener { item ->
             changeFragment(
                 when (item.itemId) {
@@ -129,6 +136,7 @@ class MainActivity : AppCompatActivity() {
 
 //        initNavigation()
     }
+
 
     private fun changeFragment(fragment: Fragment) {
         supportFragmentManager.popBackStackImmediate()
