@@ -111,11 +111,6 @@ class MainActivity : AppCompatActivity() {
             toolbar3.visibility = View.INVISIBLE
         }
 
-//        btn_more.setOnClickListener {
-//            Toast.makeText(this@MainActivity, "내가 쓴 글 수정", Toast.LENGTH_SHORT).show()
-//        }
-
-
         main_bnv.setOnItemSelectedListener { item ->
             changeFragment(
                 when (item.itemId) {
@@ -175,6 +170,21 @@ class MainActivity : AppCompatActivity() {
         }
 
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle item selection
+        return when (item.itemId) {
+            R.id.item1 -> {
+                Toast.makeText(this@MainActivity, "수정 클릭", Toast.LENGTH_SHORT).show()
+                true
+            }
+            R.id.item2 -> {
+                Toast.makeText(this@MainActivity, "삭제 클릭", Toast.LENGTH_SHORT).show()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
 }
