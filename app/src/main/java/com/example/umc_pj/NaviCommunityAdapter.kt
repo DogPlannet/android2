@@ -31,7 +31,6 @@ class NaviCommunityAdapter(private val itemList: ArrayList<NaviCommunityModel>):
                 holder.itemView.setOnClickListener(object : View.OnClickListener{
                         override fun onClick(p0: View?) {
                                 val activity=p0!!.context as AppCompatActivity
-                                val activity2 = p0!!.context as MainActivity
                                 val communityItemFragment = CommunityItemFragment()
                                 activity.supportFragmentManager.beginTransaction().replace(R.id.main_frm, communityItemFragment)
                                         .addToBackStack(null).commit()

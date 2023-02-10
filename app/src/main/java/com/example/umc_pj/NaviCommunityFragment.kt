@@ -3,15 +3,14 @@ package com.example.umc_pj
 import android.content.Intent
 import android.os.Bundle
 import android.provider.ContactsContract.CommonDataKinds.Nickname
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.umc_pj.databinding.FragmentNaviCommunityBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.*
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_navi_community.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -53,6 +52,7 @@ class NaviCommunityFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_navi_community, container, false)
     }
 
@@ -168,5 +168,15 @@ class NaviCommunityFragment : Fragment() {
         }
 
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.toolbar3_menu, menu)
+
+        if (toolbar3.visibility == View.VISIBLE){
+            menu.findItem(R.id.item1).setVisible(true)
+            menu.findItem(R.id.item2).setVisible(true)
+        }
     }
 }

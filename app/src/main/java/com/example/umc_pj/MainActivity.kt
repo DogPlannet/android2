@@ -1,15 +1,20 @@
 package com.example.umc_pj;
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.service.controls.actions.FloatAction
+import android.util.AttributeSet
 import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.umc_pj.databinding.ActivityMainBinding
 import com.example.umc_pj.homepackage.NaviHomeFragment
@@ -19,6 +24,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
+
+    public var toolbar3_menu: Menu? = null
 
     private val fl: FrameLayout by lazy {
         findViewById(R.id.main_frm)
@@ -63,6 +70,7 @@ class MainActivity : AppCompatActivity() {
 //    }
 
     @SuppressLint("MissingInflatedId")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -70,18 +78,19 @@ class MainActivity : AppCompatActivity() {
         replaceFragment(NaviCommunityFragment())
 
         val main_bnv = findViewById<BottomNavigationView>(R.id.main_bnv)
-        setSupportActionBar(toolbar) // 커스텀한 toolbar를 액션바로 사용
+        setSupportActionBar(toolbar3) // 커스텀한 toolbar를 액션바로 사용
         supportActionBar?.setDisplayShowTitleEnabled(false) // 액션바에 표시되는 제목의 표시유무를 설정합니다. false로 해야 custom한 툴바의 이름이 화면에 보이게 됩니다.
 
         var noticeitem = findViewById<ImageView>(R.id.noticeitem)
         var toolbar = findViewById<Toolbar>(R.id.toolbar)
         var toolbar2 = findViewById<Toolbar>(R.id.toolbar2)
+        var toolbar3 = findViewById<Toolbar>(R.id.toolbar3)
 
         close_notice.setOnClickListener {
             val transaction = supportFragmentManager.popBackStack()
             toolbar.visibility = View.VISIBLE
             toolbar2.visibility = View.INVISIBLE
-
+            toolbar3.visibility = View.INVISIBLE
         }
 
         noticeitem.setOnClickListener{
@@ -91,18 +100,20 @@ class MainActivity : AppCompatActivity() {
             transaction.commit()
             toolbar.visibility = View.INVISIBLE
             toolbar2.visibility = View.VISIBLE
+            toolbar3.visibility = View.INVISIBLE
 
         }
 
         btn_back.setOnClickListener {
             val transaction = supportFragmentManager.popBackStack()
             toolbar.visibility = View.VISIBLE
+            toolbar2.visibility = View.INVISIBLE
             toolbar3.visibility = View.INVISIBLE
         }
 
-        btn_more.setOnClickListener {
-            Toast.makeText(this@MainActivity, "내가 쓴 글 수정", Toast.LENGTH_SHORT).show()
-        }
+//        btn_more.setOnClickListener {
+//            Toast.makeText(this@MainActivity, "내가 쓴 글 수정", Toast.LENGTH_SHORT).show()
+//        }
 
 
         main_bnv.setOnItemSelectedListener { item ->
@@ -152,6 +163,18 @@ class MainActivity : AppCompatActivity() {
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.main_frm, naviCommunityFragment)
         fragmentTransaction.commit()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.toolbar3_menu, menu)
+        toolbar3_menu = menu
+
+        if (toolbar3.visibility == View.VISIBLE){
+            toolbar3_menu!!.findItem(R.id.item1).setVisible(true)
+            toolbar3_menu!!.findItem(R.id.item2).setVisible(true)
+        }
+
+        return true
     }
 
 }
