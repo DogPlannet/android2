@@ -186,10 +186,10 @@ class NaviHomeFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(view: View?) {
                 val dlg = MyDialog(mainActivity)
-                Log.d("gdsa","asdgdsg")
+
                 dlg.setOnOKClickedListener{ content ->
                     binding.recordbtn.text = content
                 }
-                dlg.show("메인의 내용을 변경할까요?")
+                dlg.show()
     }
 }

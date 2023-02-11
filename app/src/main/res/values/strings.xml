@@ -27,6 +27,9 @@
         <item>12월</item>
     </string-array>
 
+    <string name="walk">지금 바로 <b>산책</b>을 시작할까요?</string>
+
+
     <string name="head_1">"아니 여기 좀 보세요 1"</string>
     <string name="head_2">"아니 여기 좀 보세요 2"</string>
     <string name="head_3">"아니 여기 좀 보세요 3"</string>
@@ -59,5 +62,6 @@
     <string name="notice_date_4">"2023.01.01."</string>
 
     <string name="notice_time">"12.34"</string>
+
 
 </resources>
