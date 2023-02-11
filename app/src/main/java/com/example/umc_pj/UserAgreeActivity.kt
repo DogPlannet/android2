@@ -78,6 +78,11 @@ class UserAgreeActivity : AppCompatActivity() {
                 overridePendingTransition(R.anim.slide_right_enter, R.anim.slide_right_exit)
             }
         }
+
+        binding.backButton.setOnClickListener {
+            val intent = Intent(this, InfoActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private inner class SlidingPageAnimationListener : Animation.AnimationListener {

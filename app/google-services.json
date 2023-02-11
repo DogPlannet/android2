@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "888278062835",
+    "project_id": "dogplannet-7bb7b",
+    "storage_bucket": "dogplannet-7bb7b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:888278062835:android:30a3424c5dc6657ce4c986",
+        "android_client_info": {
+          "package_name": "com.example.umc_pj"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "888278062835-bu1s265qhp20bm3ru2mp9egvs0illsn6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.umc_pj",
+            "certificate_hash": "c050cbc7f06141bd7b7f9fa12840e86b90cae768"
+          }
+        },
+        {
+          "client_id": "888278062835-akq8edkjo9cv7jt0j4s1o7c6segifvkc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOZfoWjkwExizYj4Jr1foRtnBjx_Nk7Vw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "888278062835-akq8edkjo9cv7jt0j4s1o7c6segifvkc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
