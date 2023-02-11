@@ -11,6 +11,7 @@ import android.util.TypedValue
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
 import com.example.umc_pj.MainActivity
 import com.example.umc_pj.R
@@ -67,13 +68,18 @@ class NaviHomeFragment : Fragment(), View.OnClickListener {
         }
     }
 
+    // fragment 액션바 보여주기(선언안해주면 다른 프레그먼트에서 선언한 .hide() 때문인지 모든 프레그먼트에서 액션바 안보임
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).supportActionBar?.show()
+    }
+
     lateinit var mainActivity: MainActivity
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         // 2. Context를 액티비티로 형변환해서 할당
         mainActivity = context as MainActivity
-
 
     }
 
@@ -180,10 +186,10 @@ class NaviHomeFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(view: View?) {
                 val dlg = MyDialog(mainActivity)
-                Log.d("gdsa","asdgdsg")
+
                 dlg.setOnOKClickedListener{ content ->
                     binding.recordbtn.text = content
                 }
-                dlg.show("메인의 내용을 변경할까요?")
+                dlg.show()
     }
 }

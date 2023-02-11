@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/my_page_fr"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -18,84 +20,89 @@
     <!--        android:layout_marginTop="50dp"-->
     <!--        android:background="#574444" />-->
 
-    <LinearLayout
-        android:id="@+id/view1"
-        android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:orientation="horizontal"
-        android:background="#F8F4EA"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+     <androidx.constraintlayout.widget.ConstraintLayout
+         android:id="@+id/topView"
+         android:layout_width="match_parent"
+         android:layout_height="100dp"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+         android:background="#F8F4EA">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+         <ImageView
+             android:id="@+id/logo"
+             android:layout_width="46dp"
+             android:layout_height="34dp"
+             android:background="@drawable/logo1"
+             app:layout_constraintStart_toStartOf="@id/topView"
+             app:layout_constraintTop_toTopOf="@+id/topView"
+             app:layout_constraintBottom_toBottomOf="@id/topView"
+             android:layout_marginStart="32dp"
+              />
 
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="46dp"
-                android:layout_height="34dp"
-                android:background="@drawable/logo1"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="50dp" />
+         <TextView
+             android:id="@+id/receive_dog_name"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="꾸미"
+             android:textSize="20dp"
+             android:textColor="@color/black"
+             android:textStyle="bold"
+             android:layout_marginStart="10dp"
+             app:layout_constraintTop_toTopOf="@+id/logo"
+             app:layout_constraintBottom_toBottomOf="@+id/logo"
+             app:layout_constraintStart_toEndOf="@+id/logo"/>
 
-            <TextView
-                android:id="@+id/receive_dog_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="x"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_toEndOf="@+id/logo"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="52dp"/>
+         <TextView
+             android:id="@+id/text1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="/"
+             android:textSize="20dp"
+             android:textColor="@color/black"
+             android:textStyle="bold"
+             app:layout_constraintTop_toTopOf="@+id/logo"
+             app:layout_constraintBottom_toBottomOf="@+id/logo"
+             app:layout_constraintStart_toEndOf="@+id/receive_dog_name"
+             />
 
-            <TextView
-                android:id="@+id/text1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="/"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_toEndOf="@+id/receive_dog_name"
-                android:layout_marginTop="52dp"/>
+         <TextView
+             android:id="@+id/receive_breed"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="푸들"
+             android:textSize="20dp"
+             android:textColor="@color/black"
+             android:textStyle="bold"
+             app:layout_constraintTop_toTopOf="@+id/logo"
+             app:layout_constraintBottom_toBottomOf="@+id/logo"
+             app:layout_constraintStart_toEndOf="@+id/text1"/>
 
-            <TextView
-                android:id="@+id/receive_breed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="y"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_toEndOf="@+id/text1"
-                android:layout_marginTop="52dp"/>
+         <TextView
+             android:id="@+id/text2"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="/"
+             android:textSize="20dp"
+             android:textColor="@color/black"
+             android:textStyle="bold"
+             app:layout_constraintTop_toTopOf="@+id/logo"
+             app:layout_constraintBottom_toBottomOf="@+id/logo"
+             app:layout_constraintStart_toEndOf="@+id/receive_breed"/>
+         <TextView
+             android:id="@+id/receive_gender"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="남아"
+             android:textSize="20dp"
+             android:textColor="@color/black"
+             android:textStyle="bold"
+             app:layout_constraintTop_toTopOf="@+id/logo"
+             app:layout_constraintBottom_toBottomOf="@+id/logo"
+             app:layout_constraintStart_toEndOf="@+id/text2"/>
+     </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/text2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="/"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_toEndOf="@+id/receive_breed"
-                android:layout_marginTop="52dp"/>
-            <TextView
-                android:id="@+id/receive_gender"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="z"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_toEndOf="@+id/text2"
-                android:layout_marginTop="52dp"/>
-        </RelativeLayout>
-    </LinearLayout>
+
 
     <View
         android:id="@+id/line"
@@ -103,7 +110,7 @@
         android:layout_height="2dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view1"
+        app:layout_constraintTop_toBottomOf="@+id/topView"
         android:background="#DADADA" />
 
     <TextView
@@ -113,12 +120,12 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="20dp"
         android:text="내가 작성한 글"
-        android:textSize="18dp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/line" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn1"
+        android:id="@+id/write_detail_btn"
         android:layout_width="7dp"
         android:layout_height="13dp"
         app:layout_constraintTop_toTopOf="@+id/my_write"
@@ -134,12 +141,12 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="25dp"
         android:text="비밀번호 변경"
-        android:textSize="18dp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/my_write" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn2"
+        android:id="@+id/change_pw_btn"
         android:layout_width="7dp"
         android:layout_height="13dp"
         app:layout_constraintTop_toTopOf="@+id/change_pw"
@@ -155,12 +162,12 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="25dp"
         android:text="서비스 약관"
-        android:textSize="18dp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/change_pw" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn3"
+        android:id="@+id/service_detail_btn"
         android:layout_width="7dp"
         android:layout_height="13dp"
         app:layout_constraintTop_toTopOf="@+id/service"
@@ -176,12 +183,12 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="25dp"
         android:text="자주 묻는 질문"
-        android:textSize="18dp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/service" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn4"
+        android:id="@+id/question_btn"
         android:layout_width="7dp"
         android:layout_height="13dp"
         app:layout_constraintTop_toTopOf="@+id/question"
@@ -197,7 +204,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="25dp"
         android:text="이메일 문의"
-        android:textSize="18dp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/question" />
 
@@ -208,7 +215,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="25dp"
         android:text="버전"
-        android:textSize="18dp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
@@ -271,7 +278,7 @@
         android:textSize="12dp"
         app:layout_constraintBottom_toTopOf="@+id/call"
         app:layout_constraintStart_toStartOf="@+id/call"
-        android:layout_marginBottom="2dp" />
+        android:layout_marginBottom="4dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -279,10 +286,9 @@
         android:text="팀 멍플래닛"
         android:textSize="14dp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/location"
         app:layout_constraintStart_toStartOf="@+id/call"
-        android:layout_marginBottom="3dp" />
-
-
+        android:layout_marginBottom="6dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

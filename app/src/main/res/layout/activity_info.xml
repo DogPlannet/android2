@@ -94,6 +94,7 @@
 
             <EditText
                 android:id="@+id/et_name"
+                style="@style/LoginColor"
                 android:layout_width="340dp"
                 android:layout_height="43dp"
                 android:layout_gravity="center"
@@ -123,6 +124,7 @@
 
             <EditText
                 android:id="@+id/editTextTextEmailAddress"
+                style="@style/LoginColor"
                 android:layout_width="340dp"
                 android:layout_height="43dp"
                 android:layout_gravity="center"
@@ -151,13 +153,12 @@
                 <TextView
                     android:id="@+id/warning_email"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="20dp"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="4dp"
                     android:text="정확한 이메일을 입력해주세요."
                     android:textColor="#C64A4A"
-                    android:textSize="12dp">
-                </TextView>
+                    android:textSize="12dp"></TextView>
 
             </LinearLayout>
 
@@ -176,6 +177,7 @@
 
             <EditText
                 android:id="@+id/editTextTextPassword1"
+                style="@style/LoginColor"
                 android:layout_width="340dp"
                 android:layout_height="43dp"
                 android:layout_gravity="center"
@@ -230,6 +232,7 @@
 
             <EditText
                 android:id="@+id/editTextTextPassword2"
+                style="@style/LoginColor"
                 android:layout_width="340dp"
                 android:layout_height="43dp"
                 android:layout_gravity="center"

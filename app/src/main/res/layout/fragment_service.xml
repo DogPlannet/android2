@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/background"
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#F8F4EA"
-    android:layout_height="match_parent">
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F4EA">
 
     <View
         android:id="@+id/layout"
@@ -126,4 +130,4 @@
         android:layout_marginRight="32dp"
         android:background="@drawable/confirm_btn" />
 </androidx.constraintlayout.widget.ConstraintLayout>
-
+</FrameLayout>

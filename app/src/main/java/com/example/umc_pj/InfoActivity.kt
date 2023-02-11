@@ -27,6 +27,7 @@ class InfoActivity: AppCompatActivity() {
 
     private lateinit var binding: ActivityInfoBinding
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityInfoBinding.inflate(layoutInflater)
@@ -123,6 +124,11 @@ class InfoActivity: AppCompatActivity() {
                 }
             }
         })
+
+            binding.backButton.setOnClickListener {
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+            }
 
 
 
