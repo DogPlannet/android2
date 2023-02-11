@@ -170,13 +170,4 @@ class NaviCommunityFragment : Fragment() {
 
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.toolbar3_menu, menu)
-
-        if (toolbar3.visibility == View.VISIBLE){
-            menu.findItem(R.id.item1).setVisible(true)
-            menu.findItem(R.id.item2).setVisible(true)
-        }
-    }
 }
