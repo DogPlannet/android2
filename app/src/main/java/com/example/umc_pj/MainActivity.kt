@@ -15,6 +15,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.umc_pj.databinding.ActivityMainBinding
@@ -195,8 +196,6 @@ class MainActivity : AppCompatActivity(), CustomDialog {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
-}
     private fun deleteToolbar(naviMypageFragment: Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
@@ -214,4 +213,5 @@ class MainActivity : AppCompatActivity(), CustomDialog {
         val intent = Intent(this, SplashActivity::class.java)
         startActivity(intent)
     }
+
 }

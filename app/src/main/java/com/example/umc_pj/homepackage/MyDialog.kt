@@ -41,7 +41,7 @@ class MyDialog(private val context : AppCompatActivity) {
         //cancel 버튼 동작
         binding.no.setOnClickListener {
             dlg.dismiss()
-            walkresult()
+
 
         }
 
@@ -69,6 +69,9 @@ class MyDialog(private val context : AppCompatActivity) {
         this.dlg.window!!.attributes = params
         dlg.window!!.setLayout(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT)
         dlg.show()
+        binding2.walkStopImage.setOnClickListener {
+            walkresult()
+        }
     }
 
     fun walkfail(){
