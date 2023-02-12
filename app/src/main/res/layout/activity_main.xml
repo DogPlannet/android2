@@ -125,13 +125,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/btn_more"
-            android:layout_width="15dp"
-            android:layout_height="17dp"
-            android:layout_gravity="right"
-            android:layout_marginEnd="18dp"
-            android:src="@drawable/btn_more" />
+<!--        <ImageView-->
+<!--            android:id="@+id/btn_more"-->
+<!--            android:layout_width="15dp"-->
+<!--            android:layout_height="17dp"-->
+<!--            android:layout_gravity="right"-->
+<!--            android:layout_marginEnd="18dp"-->
+<!--            android:src="@drawable/btn_more" />-->
 
     </androidx.appcompat.widget.Toolbar>
 

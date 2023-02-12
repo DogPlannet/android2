@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="수정" android:id="@+id/item1"/>
-    <item android:title="삭제" android:id="@+id/item2"/>
+    <item android:title="수정" android:id="@+id/item1" android:visible="false"/>
+    <item android:title="삭제" android:id="@+id/item2" android:visible="false"/>
 </menu>
