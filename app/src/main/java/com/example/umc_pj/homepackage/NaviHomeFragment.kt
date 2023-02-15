@@ -2,21 +2,20 @@ package com.example.umc_pj.homepackage
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import android.util.TypedValue
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.example.umc_pj.MainActivity
 import com.example.umc_pj.R
 import com.example.umc_pj.databinding.FragmentNaviHomeBinding
-import kotlinx.android.synthetic.main.activity_dog_register.*
+import kotlinx.android.synthetic.main.fragment_navi_home.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -72,6 +71,8 @@ class NaviHomeFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.show()
+        setupData()
+        setupStatusHandler()
     }
 
     lateinit var mainActivity: MainActivity
@@ -129,10 +130,12 @@ class NaviHomeFragment : Fragment(), View.OnClickListener {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
 
                 val v = super.getView(position, convertView, parent)
+                var tv = v as TextView
+                tv.setTextSize(/* size = */ 16F)
                 if (position == count) {
 
                     (v.findViewById<View>(R.id.tvGenderSpinner) as TextView).text = ""
-                    (v.findViewById<View>(R.id.tvGenderSpinner) as TextView).hint = "정보없멍"
+                    (v.findViewById<View>(R.id.tvGenderSpinner) as TextView).hint = "선택"
 
                 }
                 return v
@@ -144,13 +147,15 @@ class NaviHomeFragment : Fragment(), View.OnClickListener {
 
         }
 
+        statusAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
         statusAdapter.addAll(statusData.toMutableList())
-        statusAdapter.add("정보없멍")
+        statusAdapter.add("선택")
 
         _binding!!.dogDdongSpinner.adapter = statusAdapter
 
-        dog_gender_spinner.setSelection(statusAdapter.count)
-        dog_gender_spinner.dropDownVerticalOffset = dipToPixels(50f).toInt()
+        dog_ddong_spinner.setSelection(statusAdapter.count)
+        dog_ddong_spinner.dropDownVerticalOffset = dipToPixels(15f).toInt()
     }
 
 

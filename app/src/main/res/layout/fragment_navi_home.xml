@@ -235,12 +235,17 @@
                 android:id="@+id/dog_ddong_spinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:dropDownWidth="340dp"
+                android:dropDownWidth="70dp"
                 android:spinnerMode="dropdown"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:textAlignment="center"
+                android:gravity="center_horizontal"
+                android:overlapAnchor="false"
+                android:popupBackground="@drawable/spinner_frame"
+                android:layout_marginTop="3dp"
+                app:layout_constraintBottom_toBottomOf="@id/ddong_line"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/ddong_line"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@id/ddong_line" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
